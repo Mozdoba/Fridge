@@ -15,8 +15,7 @@
   </head>
 <body>
      <nav id="login">
-           <button type="button" class="btn btn-default">Login</button>
-            <button type="button" class="btn btn-primary">Sign Up</button>     
+           <button type="button" class="btn btn-default"><a href="login.html">Login / Sign Up </a></button>   
      </nav>
     <div id="heading">
     <h1 id="title"></h1>
@@ -41,7 +40,7 @@
       <img src="../images/geometry.png" alt="fact">
       <div class="carousel-caption">
         <h3>The Problem</h3>
-        <p>Forgetting what's in your fridge is a big contributor to household foodwaste</p>
+        <p>Forgetting what's in your fridge is a big contributor to household foodwaste.</p>
       </div>
     </div>
 
@@ -49,7 +48,7 @@
       <img src="../images/geometry.png" alt="fact">
       <div class="carousel-caption">
         <h3>The App</h3>
-        <p>Fridge easily helps you track what's in your fridge at any given moment</p>
+        <p>Fridge easily helps you track what's in your fridge at any given moment.</p>
       </div>
     </div>
 
@@ -84,13 +83,14 @@
     myHeading.style.fontSize = "500%";
     myHeading.style.fontFamily = "Yeseva One";
     myHeading.style.fontWeight = "bold";
+    myHeading.style.textShadow = "-2px 0 white, 0 2px white, 2px 0 white, 0 -2px white";
   
   myHeading.onmouseover = function() {mouseOver()};
   
   myHeading.onmouseout = function() {mouseOut()};
   
   function mouseOver() {
-    myHeading.style.color = "white"; 
+    myHeading.style.color = "black";
     /**myHeading.style.color = "#008B8B"; **/
     myHeading.style.fontSize = "500%";
     myHeading.style.fontFamily = "Yeseva One";
