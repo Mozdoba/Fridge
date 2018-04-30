@@ -70,3 +70,40 @@ span a {
     text-decoration: none;
     color: #000;
 }
+
+
+/******************************************************************
+MEDIA QUERIES
+******************************************************************/
+
+/* for 425px or less */
+@media screen and (max-width: 425px) {
+
+.container {
+    width: 75%;
+
+}
+
+.signup,
+.login {
+    width: 75%;
+    background: rgba(255, 255, 255, 0.767);
+    height: 60px;
+    float: left;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.signup-form,
+.login-form {
+    width: 75%;
+    height: 80%;
+    background: rgba(255, 255, 255, 0.767);
+    box-sizing: border-box;
+    /*padding: 45px 15px; */
+    clear: both;
+}
+
+}
