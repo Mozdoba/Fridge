@@ -15,8 +15,7 @@
   </head>
 <body>
      <nav id="login">
-           <button type="button" class="btn btn-default">Login</button>
-            <button type="button" class="btn btn-primary">Sign Up</button>     
+           <button type="button" class="btn btn-default">Login / Sign Up </button>   
      </nav>
     <div id="heading">
     <h1 id="title"></h1>
@@ -84,13 +83,14 @@
     myHeading.style.fontSize = "500%";
     myHeading.style.fontFamily = "Yeseva One";
     myHeading.style.fontWeight = "bold";
+    myHeading.style.textShadow = "-2px 0 white, 0 2px white, 2px 0 white, 0 -2px white";
   
   myHeading.onmouseover = function() {mouseOver()};
   
   myHeading.onmouseout = function() {mouseOut()};
   
   function mouseOver() {
-    myHeading.style.color = "white"; 
+    myHeading.style.color = "black";
     /**myHeading.style.color = "#008B8B"; **/
     myHeading.style.fontSize = "500%";
     myHeading.style.fontFamily = "Yeseva One";
