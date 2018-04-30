@@ -1,0 +1,96 @@
+#fridge_container {
+    width: 980px;
+    height: 1729px;
+    position: relative;
+
+    /*1st level: 85px
+      2nd level: 520px
+      3rd level: 1000px
+      4th level: 1415px*/
+}
+#toast {
+    position: absolute;
+    top: 525px;
+    left: 350px;
+}
+#steak {
+    position: absolute;
+    top: 1000px;
+    left: 150px;
+}
+#milk {
+    position: absolute;
+    top: 1000px;
+    left: 520px;
+}
+
+#apple {
+    position: absolute;
+    top: 1415px;
+    left: 150px;
+}
+#cabbage {
+    position: absolute;
+    top: 1420px;
+    left: 520px;
+}
+.modal-header-meats {
+    color:#fff;
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #da4d2a;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+}
+.modal-header-fruits {
+	color:#fff;
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #4ef064;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+}
+.modal-header-vegetables {
+	color:#fff;
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #1d7a14;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+}
+.modal-header-dairy {
+    color:rgb(7, 7, 7);
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #f0f8ff;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+}
+.modal-header-wheat-and-grain {
+	color:rgb(255, 255, 255);
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #616036;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+}
