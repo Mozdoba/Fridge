@@ -1,0 +1,76 @@
+
+h1 {
+    text-align: center;
+    font-size: 70px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+#heading2 {
+    background-color: aliceblue;
+    opacity: 0.8; 
+}
+
+#heading2 h2 {
+    text-align: center;  
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 150%;
+}
+body {
+  background-color: #ffffff;
+  color: white;
+  align-items: center;
+  font-family: monospace;
+  margin: 0;
+  padding: 0;
+  background-image: url(../images/naranjas.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat:repeat; 
+  height: 100%;
+}
+
+#login {
+    float: right;
+    margin-right: 5px;
+}
+#title {
+    padding-top: 50px;
+    color: azure;
+}
+
+.carousel-inner .item {
+    height: 125px; 
+    border-radius: 25px;
+    background-position: center center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    width: 100%;
+}
+
+.item img {
+    opacity: 0.9;
+    border-radius: 25px;
+    width: 100%;
+} 
+
+.item p {
+    color: #143612;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 90%;
+}
+.item h3 {
+    color: #FF7F50;
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+.left.carousel-control {
+    border-radius: 25px;
+    opacity: 0.1;
+}
+.right.carousel-control {
+    border-radius: 25px;
+    opacity: 0.1;
+}
+
+
