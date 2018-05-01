@@ -8,6 +8,11 @@
       3rd level: 1000px
       4th level: 1415px*/
 }
+#logout {
+    position: absolute;
+    top: 3px;
+    left: 825px;
+}
 #toast {
     position: absolute;
     top: 525px;

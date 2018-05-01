@@ -14,9 +14,13 @@ h1 {
 #heading2 {
     text-align: center;  
     font-family: 'Merriweather Sans', sans-serif;
+<<<<<<< HEAD
     font-size: 1em;;
     background-color: aliceblue;
     opacity: 0.8;
+=======
+    font-size: 180%;
+>>>>>>> d6061499efaa5feaa642241ff194d18f229159af
 }
 
 body {
@@ -74,7 +78,7 @@ body {
 .right.carousel-control {
     border-radius: 25%;
     opacity: 0.1;
-}
+
 
 a {
   text-decoration: none !important;
