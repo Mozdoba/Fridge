@@ -7,10 +7,22 @@ body {
     font-family: sans-serif;
 }
 
+h1 {
+    text-align: center;
+    font-size: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+#title {
+    padding-top: 50px;
+    color: azure;
+}
+
 .container {
     width: 320px;
     margin: auto;
-    padding: 70px;
+    padding: 10px;
 }
 
 .signup,
@@ -33,7 +45,7 @@ body {
     padding: 45px 15px;
     clear: both;
     width: 320px;
-    height: 500px;
+    height: 600px;
 }
 
 .input {
@@ -69,4 +81,40 @@ body {
 span a {
     text-decoration: none;
     color: #000;
+}
+
+/******************************************************************
+MEDIA QUERIES
+******************************************************************/
+
+/* for 425px or less */
+@media screen and (max-width: 425px) {
+
+.container {
+    width: 75%;
+}
+
+.signup, .login {
+    width: 50%;
+    margin: none;
+    background: rgba(255, 255, 255, 0.767);
+    height: 60px;
+    float: left;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.signup-form, .login-form {
+    width: 75%;
+    height: 80%;
+    margin: none;
+    border: none;
+    background: rgba(255, 255, 255, 0.767);
+    box-sizing: border-box;
+    /*padding: 45px 15px; */
+    clear: both;
+}
+
 }
