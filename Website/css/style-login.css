@@ -7,10 +7,22 @@ body {
     font-family: sans-serif;
 }
 
+h1 {
+    text-align: center;
+    font-size: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+#title {
+    padding-top: 50px;
+    color: azure;
+}
+
 .container {
     width: 320px;
     margin: auto;
-    padding: 70px;
+    padding: 10px;
 }
 
 .signup,
@@ -33,7 +45,7 @@ body {
     padding: 45px 15px;
     clear: both;
     width: 320px;
-    height: 500px;
+    height: 600px;
 }
 
 .input {
@@ -71,7 +83,6 @@ span a {
     color: #000;
 }
 
-
 /******************************************************************
 MEDIA QUERIES
 ******************************************************************/
@@ -81,12 +92,11 @@ MEDIA QUERIES
 
 .container {
     width: 75%;
-
 }
 
-.signup,
-.login {
-    width: 75%;
+.signup, .login {
+    width: 50%;
+    margin: none;
     background: rgba(255, 255, 255, 0.767);
     height: 60px;
     float: left;
@@ -96,10 +106,11 @@ MEDIA QUERIES
     text-transform: uppercase;
 }
 
-.signup-form,
-.login-form {
+.signup-form, .login-form {
     width: 75%;
     height: 80%;
+    margin: none;
+    border: none;
     background: rgba(255, 255, 255, 0.767);
     box-sizing: border-box;
     /*padding: 45px 15px; */
