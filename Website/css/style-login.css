@@ -57,7 +57,7 @@ h1 {
     color: #3e3e40;
     font-size: 14px;
     outline: none;
-    transition: all 0.5s ease;   
+    transition: all 0.5s ease;
 }
 
 .input:focus {
@@ -117,4 +117,19 @@ MEDIA QUERIES
     clear: both;
 }
 
+}
+#heading2 {
+    text-align: center;
+    font-family: 'Merriweather Sans', sans-serif;
+<<<<<<< HEAD
+    font-size: 1em;;
+    background-color: aliceblue;
+    opacity: 0.8;
+=======
+    font-size: 180%;
+>>>>>>> d6061499efaa5feaa642241ff194d18f229159af
+}
+
+a {
+  text-decoration: none !important;
 }

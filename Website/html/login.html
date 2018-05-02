@@ -36,45 +36,46 @@
     </script>
   </head>
   <body>
-     <div id="heading"><h1 id="heading"></h1></div> 
+    <span id="heading2">See what's in your fridge. Anywhere, anytime.</span>
+     <div id="heading"><h1 id="heading"></h1></div>
      <div class="container">
          <div class="signup">Sign Up</div>
          <div class="login">Login</div>
      </div>
-    
+
      <div class="signup-form">
          <input type="text" placeholder="First Name" class="input" required="required"><br>
          <input type="text" placeholder="Last Name" class="input" required="required"><br>
          <input type="email" placeholder="Email Address" class="input" required="required"><br>
          <input type="password" placeholder="Create a Password" class="input" required="required"><br>
          <input type="password" placeholder="Confirm Password" class="input" required="required"><br>
-         <div class="btn">Create Account</div>
+         <div class="btn"><a href="fridgepg3.html">Create Account</a></div>
      </div>
 
      <div class="login-form">
          <input type="email" placeholder="Email Address" class="input" required="required"><br>
          <input type="password" placeholder="Password" class="input" required="required"><br>
-         <div class="btn">Log In</div>
+         <div class="btn"><a href="fridgepg3.html">Log In</a></div>
          <span><a href="#">Forgot Password</a></span>
      </div>
-    
-    
-    
+
+
+
     </body>
 
-    <script>    
+    <script>
         var myHeading = document.querySelector('h1');
         myHeading.textContent = 'Fridge.';
-            
+
           myHeading.style.fontSize = "500%";
           myHeading.style.fontFamily = "Yeseva One";
           myHeading.style.fontWeight = "bold";
           myHeading.style.textShadow = "-2px 0 white, 0 2px white, 2px 0 white, 0 -2px white";
-        
+
         myHeading.onmouseover = function() {mouseOver()};
-        
+
         myHeading.onmouseout = function() {mouseOut()};
-        
+
         function mouseOver() {
           myHeading.style.color = "black";
           /**myHeading.style.color = "#008B8B"; **/
@@ -82,13 +83,13 @@
           myHeading.style.fontFamily = "Yeseva One";
           myHeading.style.fontWeight = "bold";
         }
-        
+
         function mouseOut() {
           /**the subtle patternmyHeading.style.color = "#FFD700";**/
           myHeading.style.color = "black";
           myHeading.style.fontSize = "500%";
           myHeading.style.fontWeight = "bold";
-            
+
         }
     </script>
 </html>
