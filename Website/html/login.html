@@ -4,11 +4,10 @@
     <title></title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fridge</title>
+    <title>Fridge.</title>
     <link rel="stylesheet" href="../css/style-login.css">
     <link href="https://fonts.googleapis.com/css?family=Yeseva+One" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
             $(".login-form").hide();
@@ -33,9 +32,30 @@
             });
 
         });
+
     </script>
   </head>
   <body>
+    <!--    
+    <h2 id="bigOne"></h2>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCEnMpLTEJm4pYdFfnKbk4EtNbH5kUyUaY",
+            authDomain: "fridge-442c0.firebaseapp.com",
+            databaseURL: "https://fridge-442c0.firebaseio.com",
+            projectId: "fridge-442c0",
+            storageBucket: "",
+            messagingSenderId: "230945302656"
+        };
+        firebase.initializeApp(config);
+
+        var bigOne = document.getElementById('bigOne');
+        var dbRef = firebase.database().ref().child('text');
+        dbRef.on('value', snap => bigOne.innerText = snap.value());
+    </script>
+    -->
      <div id="heading"><h1 id="heading"></h1></div> 
      <div class="container">
          <div class="signup">Sign Up</div>
@@ -43,28 +63,29 @@
      </div>
     
      <div class="signup-form">
-         <input type="text" placeholder="First Name" class="input" required="required"><br>
-         <input type="text" placeholder="Last Name" class="input" required="required"><br>
-         <input type="email" placeholder="Email Address" class="input" required="required"><br>
-         <input type="password" placeholder="Create a Password" class="input" required="required"><br>
-         <input type="password" placeholder="Confirm Password" class="input" required="required"><br>
-         <div class="btn">Create Account</div>
+        <form id="registration">
+            <img class="img" src="../images/man.png" alt="Person"><span>&emsp;</span><input type="text" name="first_name" id="first" placeholder="First Name" class="input"><br>
+            <img class="img" src="../images/man.png" alt="Person"><span>&emsp;</span><input type="text" name="last_name" placeholder="Last Name" class="input" required="required"><br>
+            <img class="img" src="../images/email.png" alt="Email"><span>&emsp;</span><input type="email" name="email" placeholder="Email Address" class="input" required="required"><br>
+            <img class="img" src="../images/unlock.png" alt="Unlock"><span>&emsp;</span><input type="password" name="password" id="password" placeholder="Create a Password" class="input" required="required"><br>
+            <img class="img" src="../images/unlock.png" alt="Unlock"><span>&emsp;</span><input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" class="input" required="required"><br>
+            <p id="message"></p>
+            <input type="submit" value="Create Account" id="btn">
+        </form>
      </div>
 
      <div class="login-form">
-         <input type="email" placeholder="Email Address" class="input" required="required"><br>
-         <input type="password" placeholder="Password" class="input" required="required"><br>
-         <div class="btn">Log In</div>
-         <span><a href="#">Forgot Password</a></span>
+        <form id="registration">
+            <img class="img" src="../images/email.png" alt="Email"><span>&emsp;</span><input type="email" placeholder="Email Address" class="input" required="required"><br>
+            <img class="img" src="../images/key.png" alt="Key"><span>&emsp;</span><input type="password" placeholder="Password" class="input" required="required"><br>
+            <input type="submit" value="Login" id="btn">
+            <span><a href="#">Forgot Password</a></span>
+        </form>
      </div>
-    
-    
-    
-    </body>
 
-    <script>    
+    <script>  
         var myHeading = document.querySelector('h1');
-        myHeading.textContent = 'Fridge.';
+        myHeading.textContent = 'fridged-it';
             
           myHeading.style.fontSize = "500%";
           myHeading.style.fontFamily = "Yeseva One";
@@ -88,7 +109,9 @@
           myHeading.style.color = "black";
           myHeading.style.fontSize = "500%";
           myHeading.style.fontWeight = "bold";
-            
+   
         }
     </script>
+
+</body>
 </html>

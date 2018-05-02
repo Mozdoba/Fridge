@@ -2,7 +2,6 @@ body {
     margin: 0;
     padding: 0;
     background: url(../images/pattern.png);
-
     background-position: center;
     font-family: sans-serif;
 }
@@ -19,6 +18,11 @@ h1 {
     color: azure;
 }
 
+.img {
+    position: relative;
+    top: 12px;
+}
+
 .container {
     width: 320px;
     margin: auto;
@@ -27,7 +31,7 @@ h1 {
 
 .signup,
 .login {
-    width: 50%;
+    width: 160px;
     background: rgba(255, 255, 255, 0.767);
     height: 60px;
     float: left;
@@ -49,7 +53,7 @@ h1 {
 }
 
 .input {
-    width: 100%;
+    width: 80%;
     box-sizing: border-box;
     padding: 20px;
     margin-bottom: 25px;
@@ -64,7 +68,8 @@ h1 {
     border: 2px solid #34b4a0;
 }
 
-.btn {
+
+#btn {
     width: 100%;
     background: #34b4a0;
     height: 60px;
