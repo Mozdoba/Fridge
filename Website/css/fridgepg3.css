@@ -4,8 +4,8 @@ MEDIA QUERIES
 /* for 414px or less */
 @media screen and (max-width: 415px) {
   html {
-    background: url("../images/fridge_mobile.png") no-repeat;/*no-repeat center center fixed;*/
-    background-size: cover;
+    background: url("../images/fridge_mobile.png") no-repeat center center fixed;
+    /*background-size: cover;*/
   }
   img {
     transform: scale(0.5);
