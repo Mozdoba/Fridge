@@ -7,34 +7,44 @@
     <link rel="stylesheet" href="../css/fridge-scanner.css">
   </head>
   <body>
-    <h1 class="header">Add items using your receipt</h1>
-    
-    <hr>
-    
-    <div class="steps">
-      
-      <h3>How to add items using your receipt:</h3>
-      <span class="spanSteps">
-      <ol>
-        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-        <li>Donec dignissim odio erat. Quisque at consectetur lorem. </li>
-        <!-- Add photo of a clearly photographed receipt -->
-        <li>Donec a interdum lorem, eu porta massa. Mauris ac scelerisque risus. </li>
-        <li>Aliquam molestie ultricies eros, sed ultrices mauris venenatis eget. Nunc dignissim mattis mi. </li>
-        <li>Donec tincidunt ex at tellus dignissim vehicula.</li>
-      </ol>
-      </span>
+    <!-- HOVERABLE SIDE NAV -->
+    <div id="mySidenav" class="sidenav">
+      <a href="#" id="yourFridge">Your Fridge</a>
+      <a href="#" id="blog">Blog</a>
     </div>
+    <!-- HOVERABLE SIDE NAV -->
     
-    <hr>
+    <div class="mainContent">
+      <h1 class="header"><span>Add items using your receipts</span></h1>
+      
+      <br>
+      <hr>
     
-    <label for=fileInput>Choose your receipt:</label>
-    <br>
-    <br>
-    <input type="file" id="fileInput" name="fileInput"/>
+      <div class="steps">
+      
+        <h3>How to add items using your receipt:</h3>
+        <span class="spanSteps">
+        <ol>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+          <li>Donec dignissim odio erat. Quisque at consectetur lorem. </li>
+          <!-- Add photo of a clearly photographed receipt -->
+          <li>Donec a interdum lorem, eu porta massa. Mauris ac scelerisque risus. </li>
+          <li>Aliquam molestie ultricies eros, sed ultrices mauris venenatis eget. Nunc dignissim mattis mi. </li>
+          <li>Donec tincidunt ex at tellus dignissim vehicula.</li>
+        </ol>
+        </span>
+      </div>
+    
+      <hr>
+    
+      <label for=fileInput>Choose your receipt:</label>
+      <br>
+      <br>
+      <input type="file" id="fileInput" name="fileInput"/>
 
-    <div id="document-content"></div>
-    <div id="ocr_status"></div>
+      <div id="document-content"></div>
+      <div id="ocr_status"></div>
+    </div>
       
 <!-- ALAN'S ORIGINAL CODE
         <label for="fileInput">Choose Receipt to scan:</label>
@@ -64,8 +74,6 @@
                             .innerText = message["status"] + " (" +
                                 (message["progress"] * 100) + "%)";
                 })
-          
-          <br>
                 .then(function(result){
                     var contentArea = document.getElementById('document-content')
                     .innerText = result.text;

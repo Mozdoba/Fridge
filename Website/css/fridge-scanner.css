@@ -30,13 +30,26 @@ input[type="file"]::-ms-browse {
 
 body {
   margin: 2em;
-  background-image: url("https://images.pexels.com/photos/616839/pexels-photo-616839.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
-  background-repeat: no-repeat;
+  background-image: url("../images/bg-banana.jpeg");
+  background-repeat: ;
   background-size: cover;
   font-family: 'Arimo', sans-serif;
   color: #fff;
 }
 
+.header span {
+  border-style: solid;
+  border-color: white;
+  padding: 15px;
+  border-width: 8px;
+}
+
+.header {
+  text-align: center;
+}
+.mainContent {
+  margin-left: 80px;
+}
 hr {
   opacity: .3;
   margin: 2em 0;
@@ -46,3 +59,42 @@ hr {
   color: white;
   background-color: rgb(255, 255, 255, 0.3)
 }
+
+/************** SIDE NAV CSS **************/
+#mySidenav a {
+  position: absolute;
+  left: -90px;
+  transition: 0.3s;
+  padding: 10px;
+  width: 120px;
+  text-decoration: none;    
+  font-size: 2em;
+  color: white;
+  border-radius: 0 5px 5px 0;
+}
+
+#mySidenav a:hover {
+    left: 0;
+}
+
+#yourFridge {
+    top: 20px;
+    background-color: #E62163;
+}
+
+#blog {
+    top: 120px;
+    background-color: #E62163;
+}
+
+#projects {
+    top: 140px;
+    background-color: #E62163;
+}
+
+#contact {
+    top: 200px;
+    background-color: #E62163;
+}
+
+/************** SIDE NAV CSS **************/
