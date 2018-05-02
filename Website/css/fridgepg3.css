@@ -7,16 +7,12 @@ MEDIA QUERIES
     background: url("../images/fridge_mobile.png") no-repeat;/*no-repeat center center fixed;*/
     background-size: cover;
   }
-
-  .img-resize {
-    max-width: 40%;
+  img {
+    transform: scale(0.5);
     height: auto;
   }
   #fridge_container {
-    width: 400px;
-    height: 711px;
     position: relative;
-
     /*1st level: 85px
       2nd level: 520px
       3rd level: 1000px
@@ -24,35 +20,33 @@ MEDIA QUERIES
   }
   #logout {
       position: absolute;
-      top: 3px;
-      left: 320px;
-      max-width: 15%;
+      top: -30px;
+      left: 300px;
   }
   #toast {
       position: absolute;
-      top: 210px;
-      left: 130px;
+      top: 135px;
+      left: 80px;
   }
   #steak {
       position: absolute;
-      top: 410px;
-      left: 50px;
+      top: 335px;
+      left: 10px;
   }
   #milk {
       position: absolute;
-      top: 380px;
-      left: 250px;
+      top: 335px;
+      left: 150px;
   }
-
   #apple {
       position: absolute;
-      top: 590px;
-      left: 50px;
+      top: 510px;
+      left: 10px;
   }
   #cabbage {
       position: absolute;
-      top: 560px;
-      left: 250px;
+      top: 510px;
+      left: 150px;
   }
   .modal-header-meats {
       color:#fff;
