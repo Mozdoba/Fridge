@@ -151,3 +151,10 @@
      border-top-left-radius: 5px;
      border-top-right-radius: 5px;
 }
+
+/*
+body {
+  background-image: url("../images/empty_fridge_editted.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}*/
