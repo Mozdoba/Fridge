@@ -15,16 +15,16 @@
   </head>
 <body>
      <nav id="login">
-           <button type="button" class="btn btn-default"><a href="login.html">Login / Sign Up </a></button>   
+           <button type="button" class="btn btn-default"><a href="login.html">Login / Sign Up </a></button>
      </nav>
     <div id="heading">
     <h1 id="title"></h1>
     </div>
-    <div id = "heading2">
-            <h2> See what's in your fridge. Anywhere, anytime.</h2>
+
+    <div class="centerHeader">
+      <span id="heading2">See what's in your fridge. Anywhere, anytime.</span>
+      <h2> test test test </h2>
     </div>
-
-
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
@@ -74,22 +74,23 @@
 </div>
 
 
- 
 
 
-  <script>    
+
+  <script>
   var myHeading = document.querySelector('h1');
   myHeading.textContent = 'Fridge.';
-      
+
     myHeading.style.fontSize = "500%";
     myHeading.style.fontFamily = "Yeseva One";
     myHeading.style.fontWeight = "bold";
+    myHeading.style.color = "black";
     myHeading.style.textShadow = "-2px 0 white, 0 2px white, 2px 0 white, 0 -2px white";
-  
+
   myHeading.onmouseover = function() {mouseOver()};
-  
+
   myHeading.onmouseout = function() {mouseOut()};
-  
+
   function mouseOver() {
     myHeading.style.color = "black";
     /**myHeading.style.color = "#008B8B"; **/
@@ -97,13 +98,13 @@
     myHeading.style.fontFamily = "Yeseva One";
     myHeading.style.fontWeight = "bold";
   }
-  
+
   function mouseOut() {
     /**the subtle patternmyHeading.style.color = "#FFD700";**/
     myHeading.style.color = "black";
     myHeading.style.fontSize = "500%";
     myHeading.style.fontWeight = "bold";
-      
+
   }
 </script>
 </body>

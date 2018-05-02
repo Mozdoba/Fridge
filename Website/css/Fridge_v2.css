@@ -6,16 +6,21 @@ h1 {
     font-weight: bold;
 }
 
-
-#heading2 {
-    background-color: aliceblue;
-    opacity: 0.8; 
+.centerHeader {
+  text-align: center;
+  margin-bottom: 25px;
 }
 
-#heading2 h2 {
+#heading2 {
     text-align: center;  
     font-family: 'Merriweather Sans', sans-serif;
+<<<<<<< HEAD
+    font-size: 1em;;
+    background-color: aliceblue;
+    opacity: 0.8;
+=======
     font-size: 180%;
+>>>>>>> d6061499efaa5feaa642241ff194d18f229159af
 }
 
 body {
