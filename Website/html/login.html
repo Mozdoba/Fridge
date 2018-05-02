@@ -4,11 +4,10 @@
     <title></title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fridge</title>
+    <title>Fridge.</title>
     <link rel="stylesheet" href="../css/style-login.css">
     <link href="https://fonts.googleapis.com/css?family=Yeseva+One" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
             $(".login-form").hide();
@@ -33,6 +32,7 @@
             });
 
         });
+
     </script>
   </head>
   <body>
@@ -44,28 +44,29 @@
      </div>
 
      <div class="signup-form">
-         <input type="text" placeholder="First Name" class="input" required="required"><br>
-         <input type="text" placeholder="Last Name" class="input" required="required"><br>
-         <input type="email" placeholder="Email Address" class="input" required="required"><br>
-         <input type="password" placeholder="Create a Password" class="input" required="required"><br>
-         <input type="password" placeholder="Confirm Password" class="input" required="required"><br>
-         <div class="btn"><a href="fridgepg3.html">Create Account</a></div>
+        <form id="registration">
+            <img class="img" src="../images/man.png" alt="Person"><span>&emsp;</span><input type="text" name="first_name" id="first" placeholder="First Name" class="input"><br>
+            <img class="img" src="../images/man.png" alt="Person"><span>&emsp;</span><input type="text" name="last_name" placeholder="Last Name" class="input" required="required"><br>
+            <img class="img" src="../images/email.png" alt="Email"><span>&emsp;</span><input type="email" name="email" placeholder="Email Address" class="input" required="required"><br>
+            <img class="img" src="../images/unlock.png" alt="Unlock"><span>&emsp;</span><input type="password" name="password" id="password" placeholder="Create a Password" class="input" required="required"><br>
+            <img class="img" src="../images/unlock.png" alt="Unlock"><span>&emsp;</span><input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" class="input" required="required"><br>
+            <p id="message"></p>
+            <input type="submit" value="Create Account" id="btn">
+        </form>
      </div>
 
      <div class="login-form">
-         <input type="email" placeholder="Email Address" class="input" required="required"><br>
-         <input type="password" placeholder="Password" class="input" required="required"><br>
-         <div class="btn"><a href="fridgepg3.html">Log In</a></div>
-         <span><a href="#">Forgot Password</a></span>
+        <form id="registration">
+            <img class="img" src="../images/email.png" alt="Email"><span>&emsp;</span><input type="email" placeholder="Email Address" class="input" required="required"><br>
+            <img class="img" src="../images/key.png" alt="Key"><span>&emsp;</span><input type="password" placeholder="Password" class="input" required="required"><br>
+            <input type="submit" value="Login" id="btn">
+            <span><a href="#">Forgot Password</a></span>
+        </form>
      </div>
-
-
-
-    </body>
 
     <script>
         var myHeading = document.querySelector('h1');
-        myHeading.textContent = 'Fridge.';
+        myHeading.textContent = 'fridged-it';
 
           myHeading.style.fontSize = "500%";
           myHeading.style.fontFamily = "Yeseva One";
@@ -92,4 +93,6 @@
 
         }
     </script>
+
+</body>
 </html>

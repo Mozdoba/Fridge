@@ -1,0 +1,48 @@
+@import url(https://fonts.googleapis.com/css?family=Arimo);
+label[for="file-input"] {
+  display: block;
+  margin-bottom: 1em;
+  font-size: 1em;
+  color: #fff;
+  opacity: .9;
+  font-weight: bold;
+}
+
+input[type="file"] {
+  cursor: pointer !Important;
+}
+input[type="file"]::-webkit-file-upload-button {
+  background: #E62163;
+  border: 0;
+  padding: 1em 2em;
+  cursor: pointer;
+  color: #fff;
+  border-radius: .2em;
+}
+input[type="file"]::-ms-browse {
+  background: #E62163;
+  border: 0;
+  padding: 1em 2em;
+  cursor: pointer;
+  color: #fff;
+  border-radius: .2em;
+}
+
+body {
+  margin: 2em;
+  background-image: url("https://images.pexels.com/photos/616839/pexels-photo-616839.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Arimo', sans-serif;
+  color: #fff;
+}
+
+hr {
+  opacity: .3;
+  margin: 2em 0;
+}
+
+.spanSteps {
+  color: white;
+  background-color: rgb(255, 255, 255, 0.3)
+}
