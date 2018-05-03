@@ -36,32 +36,13 @@
     </script>
   </head>
   <body>
-    <!--    
-    <h2 id="bigOne"></h2>
-    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyCEnMpLTEJm4pYdFfnKbk4EtNbH5kUyUaY",
-            authDomain: "fridge-442c0.firebaseapp.com",
-            databaseURL: "https://fridge-442c0.firebaseio.com",
-            projectId: "fridge-442c0",
-            storageBucket: "",
-            messagingSenderId: "230945302656"
-        };
-        firebase.initializeApp(config);
-
-        var bigOne = document.getElementById('bigOne');
-        var dbRef = firebase.database().ref().child('text');
-        dbRef.on('value', snap => bigOne.innerText = snap.value());
-    </script>
-    -->
-     <div id="heading"><h1 id="heading"></h1></div> 
+    <span id="heading2">See what's in your fridge. Anywhere, anytime.</span>
+     <div id="heading"><h1 id="heading"></h1></div>
      <div class="container">
          <div class="signup">Sign Up</div>
          <div class="login">Login</div>
      </div>
-    
+
      <div class="signup-form">
         <form id="registration">
             <img class="img" src="../images/man.png" alt="Person"><span>&emsp;</span><input type="text" name="first_name" id="first" placeholder="First Name" class="input"><br>
@@ -83,19 +64,19 @@
         </form>
      </div>
 
-    <script>  
+    <script>
         var myHeading = document.querySelector('h1');
         myHeading.textContent = 'fridged-it';
-            
+
           myHeading.style.fontSize = "500%";
           myHeading.style.fontFamily = "Yeseva One";
           myHeading.style.fontWeight = "bold";
           myHeading.style.textShadow = "-2px 0 white, 0 2px white, 2px 0 white, 0 -2px white";
-        
+
         myHeading.onmouseover = function() {mouseOver()};
-        
+
         myHeading.onmouseout = function() {mouseOut()};
-        
+
         function mouseOver() {
           myHeading.style.color = "black";
           /**myHeading.style.color = "#008B8B"; **/
@@ -103,13 +84,13 @@
           myHeading.style.fontFamily = "Yeseva One";
           myHeading.style.fontWeight = "bold";
         }
-        
+
         function mouseOut() {
           /**the subtle patternmyHeading.style.color = "#FFD700";**/
           myHeading.style.color = "black";
           myHeading.style.fontSize = "500%";
           myHeading.style.fontWeight = "bold";
-   
+
         }
     </script>
 
