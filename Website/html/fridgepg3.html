@@ -8,13 +8,14 @@
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   </head>
   
   <body>
 
     <div class="fridge_container">
-        <a href="./login.html"><img id="logout" src="../images/exit.png" alt="logout"></a>
-            <img id="steak" class="btn btn-meats resize" href="#success" data-toggle="modal" src="../images/steak.png" alt="meat"/>
+        <a href="./login.html"><img id="logout" src="../images/exit_swing.png" alt="logout"></a>
+            <img id="steak" class="btn btn-meats resize hover" href="#success" data-toggle="modal" src="../images/steak.png" alt="meat"/>
             <!-- Modal -->
             <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -32,7 +33,7 @@
                 </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
             <!-- Modal -->
-            <img id="toast" class="btn btn-wheat resize" href="#primary" data-toggle="modal" src="../images/toast.png" alt="grain"/>
+            <img id="toast" class="btn btn-wheat resize hover" href="#primary" data-toggle="modal" src="../images/toast.png" alt="grain"/>
             <!-- Modal -->
             <div class="modal fade" id="primary" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -50,7 +51,7 @@
                 </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
             <!-- Modal -->
-            <img id="milk" class="btn btn-dairy resize" href="#info" data-toggle="modal" src="../images/milk.png" alt="dairy"/>
+            <img id="milk" class="btn btn-dairy resize hover" href="#info" data-toggle="modal" src="../images/milk.png" alt="dairy"/>
             <!-- Modal -->
             <div class="modal fade" id="info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -68,7 +69,7 @@
                 </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
             <!-- Modal -->
-            <img id="apple" class="btn btn-fruits resize" href="#warning" data-toggle="modal" src="../images/apple.png" alt="fruit"/>
+            <img id="apple" class="btn btn-fruits resize hover" href="#warning" data-toggle="modal" src="../images/apple.png" alt="fruit"/>
             <!-- Modal -->
             <div class="modal fade" id="warning" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -86,7 +87,7 @@
                 </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
             <!-- Modal -->
-            <img id="cabbage" class="btn btn-vegetables resize" href="#danger" data-toggle="modal" src="../images/cabbage.png" alt="veggies"/>
+            <img id="cabbage" class="btn btn-vegetables resize hover" href="#danger" data-toggle="modal" src="../images/cabbage.png" alt="veggies"/>
             <!-- Modal -->
             <div class="modal fade" id="danger" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -106,9 +107,13 @@
             <!-- Modal -->
         </div>
 <script>
-        $("#btn").click(function() {
-            $('.shake').toggleClass('shake-active');
-          });
+    $('btn').click(function(){
+        var $ele = $(this);
+        $ele.addClass("btn--click");
+        setTimeout(function(){
+            $ele.removeClass("btn--click");
+        }, 400);
+});
 </script>
 </body>
 </html>
