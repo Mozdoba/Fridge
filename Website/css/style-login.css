@@ -45,7 +45,7 @@ h1 {
 .login-form {
     margin: auto;
     background: rgba(255, 255, 255, 0.767);
-    box-sizing: border-box;
+
     padding: 45px 15px;
     clear: both;
     width: 320px;

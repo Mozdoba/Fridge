@@ -1,156 +1,173 @@
-@-webkit-keyframes shake {
-    from,
-    to {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-    }
-  
-    10%,
-    30%,
-    50%,
-    70%,
-    90% {
-      -webkit-transform: translate3d(-10px, 0, 0);
-      transform: translate3d(-10px, 0, 0);
-    }
-  
-    20%,
-    40%,
-    60%,
-    80% {
-      -webkit-transform: translate3d(10px, 0, 0);
-      transform: translate3d(10px, 0, 0);
-    }
+/******************************************************************
+MEDIA QUERIES
+******************************************************************/
+/* for 414px or less */
+@media screen and (max-width: 414px) {
+  html {
+    background: url("../images/fridge_mobile.png") no-repeat center center fixed;
+    /*background-size: cover;*/
   }
-  @keyframes shake {
-    from,
-    to {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-    }
-  
-    10%,
-    30%,
-    50%,
-    70%,
-    90% {
-      -webkit-transform: translate3d(-10px, 0, 0);
-      transform: translate3d(-10px, 0, 0);
-    }
-  
-    20%,
-    40%,
-    60%,
-    80% {
-      -webkit-transform: translate3d(10px, 0, 0);
-      transform: translate3d(10px, 0, 0);
-    }
+  img {
+    transform: scale(0.5);
+    height: auto;
   }
-.shake {
-    -webkit-animation-name: shake;
-    animation-name: shake;
-  }
-#fridge_container {
-    width: 980px;
-    height: 1729px;
+  .fridge_container {
     position: relative;
-
     /*1st level: 85px
       2nd level: 520px
       3rd level: 1000px
       4th level: 1415px*/
+  }
+  #logout {
+      position: absolute;
+      top: -30px;
+      left: 300px;
+  }
+  #toast {
+      position: absolute;
+      top: 135px;
+      left: 80px;
+  }
+  #steak {
+      position: absolute;
+      top: 335px;
+      left: 10px;
+  }
+  #milk {
+      position: absolute;
+      top: 335px;
+      left: 150px;
+  }
+  #apple {
+      position: absolute;
+      top: 510px;
+      left: 10px;
+  }
+  #cabbage {
+      position: absolute;
+      top: 510px;
+      left: 150px;
+  }
+  .modal-header-meats {
+      color:#fff;
+      padding:9px 15px;
+      border-bottom:1px solid #eee;
+      background-color: #da4d2a;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+       border-top-left-radius: 5px;
+       border-top-right-radius: 5px;
+  }
+  .modal-header-fruits {
+  	color:#fff;
+      padding:9px 15px;
+      border-bottom:1px solid #eee;
+      background-color: #4ef064;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+       border-top-left-radius: 5px;
+       border-top-right-radius: 5px;
+  }
+  .modal-header-vegetables {
+  	color:#fff;
+      padding:9px 15px;
+      border-bottom:1px solid #eee;
+      background-color: #1d7a14;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+       border-top-left-radius: 5px;
+       border-top-right-radius: 5px;
+  }
+  .modal-header-dairy {
+      color:rgb(7, 7, 7);
+      padding:9px 15px;
+      border-bottom:1px solid #eee;
+      background-color: #f0f8ff;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+       border-top-left-radius: 5px;
+       border-top-right-radius: 5px;
+  }
+  .modal-header-wheat-and-grain {
+  	color:rgb(255, 255, 255);
+      padding:9px 15px;
+      border-bottom:1px solid #eee;
+      background-color: #616036;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+       border-top-left-radius: 5px;
+       border-top-right-radius: 5px;
+  }
 }
-#logout {
+/******************************************************************
+MEDIA QUERIES
+******************************************************************/
+/* for 414px or less */
+@media screen and (min-width: 415px) {
+  html {
+    background: url("../images/redroom.jpg") no-repeat center center fixed;
+    background-size: cover;
+  }
+  
+  img {
+    transform: scale(0.6);
+    height: auto;
+  }
+  .fridge_container { /*percentage of screen and then image will cover 100% of height */
+    background-image:url("../images/fridge_ipad.png");
     position: absolute;
-    top: 3px;
-    left: 825px;
-}
-#toast {
-    position: absolute;
-    top: 525px;
-    left: 350px;
-}
-#steak {
-    position: absolute;
-    top: 1000px;
-    left: 150px;
-}
-#milk {
-    position: absolute;
-    top: 1000px;
-    left: 520px;
+    margin: 0 auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 0 0 0;
+    width: 600px;
+    height: 790px;
+    border: 5px solid rgb(190, 183, 183);
+  }
+  #logout {
+      position: absolute;
+      top: -25px;
+      left: 480px;
+  }
+  #toast {
+      position: absolute;
+      top: 150px;
+      left: 160px;
+  }
+  #steak {
+      position: absolute;
+      top: 360px;
+      left: 50px;
+  }
+  #milk {
+      position: absolute;
+      top: 360px;
+      left: 270px;
+  }
+  #apple {
+      position: absolute;
+      top: 560px;
+      left: 50px;
+  }
+  #cabbage {
+      position: absolute;
+      top: 560px;
+      left: 270px;
+  }
 }
 
-#apple {
-    position: absolute;
-    top: 1415px;
-    left: 150px;
-}
-#cabbage {
-    position: absolute;
-    top: 1420px;
-    left: 520px;
-}
-.modal-header-meats {
-    color:#fff;
-    padding:9px 15px;
-    border-bottom:1px solid #eee;
-    background-color: #da4d2a;
-    -webkit-border-top-left-radius: 5px;
-    -webkit-border-top-right-radius: 5px;
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-topright: 5px;
-     border-top-left-radius: 5px;
-     border-top-right-radius: 5px;
-}
-.modal-header-fruits {
-	color:#fff;
-    padding:9px 15px;
-    border-bottom:1px solid #eee;
-    background-color: #4ef064;
-    -webkit-border-top-left-radius: 5px;
-    -webkit-border-top-right-radius: 5px;
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-topright: 5px;
-     border-top-left-radius: 5px;
-     border-top-right-radius: 5px;
-}
-.modal-header-vegetables {
-	color:#fff;
-    padding:9px 15px;
-    border-bottom:1px solid #eee;
-    background-color: #1d7a14;
-    -webkit-border-top-left-radius: 5px;
-    -webkit-border-top-right-radius: 5px;
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-topright: 5px;
-     border-top-left-radius: 5px;
-     border-top-right-radius: 5px;
-}
-.modal-header-dairy {
-    color:rgb(7, 7, 7);
-    padding:9px 15px;
-    border-bottom:1px solid #eee;
-    background-color: #f0f8ff;
-    -webkit-border-top-left-radius: 5px;
-    -webkit-border-top-right-radius: 5px;
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-topright: 5px;
-     border-top-left-radius: 5px;
-     border-top-right-radius: 5px;
-}
-.modal-header-wheat-and-grain {
-	color:rgb(255, 255, 255);
-    padding:9px 15px;
-    border-bottom:1px solid #eee;
-    background-color: #616036;
-    -webkit-border-top-left-radius: 5px;
-    -webkit-border-top-right-radius: 5px;
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-topright: 5px;
-     border-top-left-radius: 5px;
-     border-top-right-radius: 5px;
-}
 
 /*
 body {
