@@ -188,11 +188,6 @@ MEDIA QUERIES
       left: 270px;
   }
 }
-
-
-/*
-body {
-  background-image: url("../images/empty_fridge_editted.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-}*/
+.references {
+    display: none;
+}
