@@ -1,51 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <title>Tesseract Test</title>
-    <meta charset="utf-8">
+    <title>Upload Your Receipt</title>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    
     <script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
+    
+    <!-- Edit once moved to Git repo -->
     <link rel="stylesheet" href="../css/fridge-scanner.css">
   </head>
+  
   <body>
-    <h1 class="header">Add items using your receipt</h1>
-    
-    <hr>
-    
-    <div class="steps">
-      
-      <h3>How to add items using your receipt:</h3>
-      <span class="spanSteps">
-      <ol>
-        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-        <li>Donec dignissim odio erat. Quisque at consectetur lorem. </li>
-        <!-- Add photo of a clearly photographed receipt -->
-        <li>Donec a interdum lorem, eu porta massa. Mauris ac scelerisque risus. </li>
-        <li>Aliquam molestie ultricies eros, sed ultrices mauris venenatis eget. Nunc dignissim mattis mi. </li>
-        <li>Donec tincidunt ex at tellus dignissim vehicula.</li>
-      </ol>
-      </span>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="#">Home</a>
+      <a href="f">Your Fridge</a> <!-- LINK PAGES -->
+      <a href="#">Facts</a>
+      <a href="#">About Us</a>
     </div>
     
-    <hr>
-    
-    <label for=fileInput>Choose your receipt:</label>
-    <br>
-    <br>
-    <input type="file" id="fileInput" name="fileInput"/>
-
-    <div id="document-content"></div>
-    <div id="ocr_status"></div>
+    <div id="main">
+      <span onclick="openNav()">&#9776; Menu</span>
       
-<!-- ALAN'S ORIGINAL CODE
-        <label for="fileInput">Choose Receipt to scan:</label>
+      <h1>fridged-it</h1>
+      
+      <hr>
+      
+      <h2>Upload Your Receipt</h2>
+      
+      <div>
+          <p>Do you have a lot items to store into your virtual fridge?</p>
+          <p>Why not scan in your receipt instead?</p>
+      </div>
+      
+      <button class="collapsible">Upload Receipt</button><div class="content">
+        
+        <p>Be sure take a photo of your receipt clearly.</p> 
+        
+        <p>Here's an example: </p><!-- Include example of receipt -->
+        
+        <p>We recommend using apps like [blank] to help with this.</p>
+      
+        <label for=fileInput>Upload your file here: </label>
+        <br>
+        <br>
         <input type="file" id="fileInput" name="fileInput"/>
-        <br />
-        <br />
-        <div id="document-content">
-        </div>
-        <div id = "ocr_status"></div>
--->
-    </body>
+
+        <div id="document-content"></div>        
+        <div id="ocr_status"></div>
+      </div>
+      
+      <img src="../images/scan-receipt.gif" class="gif">
+    </div>
   
     <!-- TESSERACT SCRIPT TO PARSE RECEIPT --> 
     <script>
@@ -64,8 +70,6 @@
                             .innerText = message["status"] + " (" +
                                 (message["progress"] * 100) + "%)";
                 })
-          
-          <br>
                 .then(function(result){
                     var contentArea = document.getElementById('document-content')
                     .innerText = result.text;
@@ -75,4 +79,41 @@
                 });
         }
     </script>
+    <!-- TESSERACT SCRIPT TO PARSE RECEIPT --> 
+
+    
+    <!-- JAVASCRIPT FOR SIDE NAV --> 
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+      }
+    </script>
+    <!-- JAVASCRIPT FOR SIDE NAV --> 
+    
+    <!-- JAVASCRIPT FOR COLLAPSIBLE --> 
+    <script>
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
+      
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+          } 
+        });
+      }
+    </script>
+    <!-- JAVASCRIPT FOR COLLAPSIBLE --> 
+  </body>
 </html>
+
