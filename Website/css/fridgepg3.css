@@ -2,7 +2,7 @@
 MEDIA QUERIES
 ******************************************************************/
 /* for 414px or less */
-@media screen and (max-width: 415px) {
+@media screen and (max-width: 414px) {
   html {
     background: url("../images/fridge_mobile.png") no-repeat center center fixed;
     /*background-size: cover;*/
@@ -11,7 +11,7 @@ MEDIA QUERIES
     transform: scale(0.5);
     height: auto;
   }
-  #fridge_container {
+  .fridge_container {
     position: relative;
     /*1st level: 85px
       2nd level: 520px
@@ -108,42 +108,61 @@ MEDIA QUERIES
        border-top-left-radius: 5px;
        border-top-right-radius: 5px;
   }
-
 }
 /******************************************************************
 MEDIA QUERIES
 ******************************************************************/
 /* for 414px or less */
-@media screen and (min-width: 416px) {
+@media screen and (min-width: 415px) {
+  html {
+    background: url("../images/fridge_ipad.png") no-repeat center center fixed;
+  }
+  
+  img {
+    transform: scale(0.6);
+    height: auto;
+  }
+  .fridge_container { /*percentage of screen and then image will cover 100% of height */
+    background-image:url("../images/fridge_ipad.png");
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 0 0 0;
+    width: 600px;
+    height: 790px;
+  }
   #logout {
       position: absolute;
-      top: 3px;
-      left: 825px;
+      top: -25px;
+      left: 480px;
   }
   #toast {
       position: absolute;
-      top: 525px;
-      left: 350px;
+      top: 150px;
+      left: 160px;
   }
   #steak {
       position: absolute;
-      top: 1000px;
-      left: 150px;
+      top: 360px;
+      left: 50px;
   }
   #milk {
       position: absolute;
-      top: 1000px;
-      left: 520px;
+      top: 360px;
+      left: 270px;
   }
   #apple {
       position: absolute;
-      top: 1415px;
-      left: 150px;
+      top: 560px;
+      left: 50px;
   }
   #cabbage {
       position: absolute;
-      top: 1420px;
-      left: 520px;
+      top: 560px;
+      left: 270px;
   }
 }
 
