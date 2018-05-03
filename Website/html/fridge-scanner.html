@@ -22,8 +22,12 @@
     <div id="main">
       <span onclick="openNav()">&#9776; Menu</span>
       
-      <p id="hidden">Hidden</p>
-      <img src="../images/logo1-edit.png" class="logo">
+      <h1>fridged-it</h1>
+      
+      <hr>
+      
+      <h2>Upload Your Receipt</h2>
+      
       <div>
           <p>Do you have a lot items to store into your virtual fridge?</p>
           <p>Why not scan in your receipt instead?</p>
@@ -45,21 +49,10 @@
         <div id="document-content"></div>        
         <div id="ocr_status"></div>
       </div>
-    </div>
       
       <img src="../images/scan-receipt.gif" class="gif">
-      
-<!--
-      <label for=fileInput>To get started, upload your photo below: </label>
-      <br>
-      <br>
-      <input type="file" id="fileInput" name="fileInput"/>
-
-      <div id="document-content"></div>        
-      <div id="ocr_status"></div>
-      </div>
--->
-    
+    </div>
+  
     <!-- TESSERACT SCRIPT TO PARSE RECEIPT --> 
     <script>
       document.addEventListener('DOMContentLoaded', function(){
