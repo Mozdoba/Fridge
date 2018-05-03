@@ -115,7 +115,8 @@ MEDIA QUERIES
 /* for 414px or less */
 @media screen and (min-width: 415px) {
   html {
-    background: url("../images/fridge_ipad.png") no-repeat center center fixed;
+    background: url("../images/redroom.jpg") no-repeat center center fixed;
+    background-size: cover;
   }
   
   img {
@@ -133,6 +134,7 @@ MEDIA QUERIES
     padding: 0 0 0 0;
     width: 600px;
     height: 790px;
+    border: 5px solid rgb(190, 183, 183);
   }
   #logout {
       position: absolute;
