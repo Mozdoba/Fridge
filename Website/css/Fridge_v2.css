@@ -6,22 +6,8 @@ h1 {
     font-weight: bold;
 }
 
-.centerHeader {
-  text-align: center;
-  margin-bottom: 25px;
-}
 
-#heading2 {
-    text-align: center;
-    font-family: 'Merriweather Sans', sans-serif;
-<<<<<<< HEAD
-    font-size: 1em;;
-    background-color: aliceblue;
-    opacity: 0.8;
-=======
-    font-size: 180%;
->>>>>>> d6061499efaa5feaa642241ff194d18f229159af
-}
+
 
 body {
   background-color: #ffffff;
@@ -36,13 +22,36 @@ body {
   height: 100%;
 }
 
+
+#heading h1 {
+      font-family: 'Fredoka One', cursive;
+      color: #b3b3b3;
+      text-align: center;
+      font-size: 6em ;
+      -webkit-text-stroke-width: 1.5px;
+      -webkit-text-stroke-color: black;
+  }
+
+.centerHeader {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+#heading2 {
+    text-align: center;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 3em;
+    background-color: aliceblue;
+    opacity: 0.8;
+}
+
 #login {
     float: right;
     margin-left: 100px;
     width: 100%;
 }
 #title {
-    padding-top: 50px;
+
     color: azure;
 }
 
@@ -78,6 +87,9 @@ body {
 .right.carousel-control {
     border-radius: 25%;
     opacity: 0.1;
+
+  }
+
 
 
 a {
