@@ -9,6 +9,12 @@ db.settings(settings);
 //DISPLAY DATA FROM FIRESTORE
 //----------------------------------------------------------------------------------------------------------
 
+/**
+ * @TO-DO:
+ * create render function
+ * 
+ */
+
 // Captures user email and password on login
 
 // Shortcuts to DOM Elements.
@@ -19,7 +25,7 @@ const wheat_content = document.querySelector('#modal-content-wheat');
 const meats_content = document.querySelector('#modal-content-meats');
 const dairy_content = document.querySelector('#modal-content-dairy');
 const fruits_content = document.querySelector('#modal-content-fruits');
-const vegetables_content = document.querySelector('#modal-content-dairy');
+const vegelists_content = document.querySelector('#modal-content-dairy');
 
 // Events for generating modal content
 updateListButton.forEach((el) => {
@@ -46,6 +52,8 @@ function getAllUsersWithEmail(userEmail) {
         querySnapshot.forEach(function(doc) {
             // doc.data() is never undefined for query doc snapshots
             console.log(doc.id, " => ", doc.data());
+
+
         });
     });
 }
@@ -68,11 +76,22 @@ function getSubCollection(getId) {
     console.log("Attempting to retreive SubCollections");
     var query = db.collection("Users").doc('LGMsHkEvgKWoxrNqO01y').collection("Food Item");
     query.get().then(function(querySnapshot) {
+        var list = '<ul class="food-list">';
         querySnapshot.forEach(function(doc) {
             // doc.data() is never undefined for query doc snapshots
             console.log(doc.id, " => ", doc.data());
+            // generate content in modal
+            list += "<li>" + doc.id + "</li>";
         });
+        list += '</ul>';
+        $(".modal-content").append(list);
     });
+}
+
+// Renders data on HTML page
+function render(data) {
+// @TO-DO: make a list and append it to ".modal-content" 
+
 }
 
 // Returns mock data from firestore
@@ -91,10 +110,10 @@ function retrieveData() {
     });
 }
 
-
-function getAllUsers(email) {
+var firstname = "Lewis";
+function getAllUsers(firstname) {
     console.log("Attempting to retreive Document Data");
-    let query = db.collection("Users").where("firstName", "==", "Lewis");
+    let query = db.collection("Users").where("firstName", "==", firstname);
     query.get().then(function(doc) {
         if (doc.exists) {
             console.log("Document data:", doc.data());
@@ -235,7 +254,7 @@ function getDocumentsInQuery(query) {
       'Meats',
       'Wheat',
       'Fruits',
-      'Vegetables',
+      'Vegelists',
     ],
     price: [
       {
