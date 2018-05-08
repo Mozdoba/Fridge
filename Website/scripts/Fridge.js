@@ -9,10 +9,11 @@ db.settings(settings);
 //DISPLAY DATA FROM FIRESTORE
 //----------------------------------------------------------------------------------------------------------
 // Captures user email and password on login
+var userID = 'LGMsHkEvgKWoxrNqO01y';
 var userEmail = "test@test.com";
 var userPass;
-var userID = getUserId(userEmail);
-console.log(userID);
+//var userID = getUserId(userEmail);
+//console.log(userID);
 /**
  * @TO-DO:
  * create render function to add lists to modals in fridgepg3.html - 1 hr
@@ -109,26 +110,6 @@ getUserIdButton.forEach((el) => {
     });
 });
 
-// Returns all Documents in specefied query
-function getDocumentsInQuery(query) {
-    query.onSnapshot(function(snapshot) {
-        console.log(snapshot.size);
-        if (!snapshot.size) {
-            console.log("No changes to documents in query!");
-            return;
-        }
-        console.log("Returned changed documents in query");
-        return;
-        /*
-        snapshot.docChanges.forEach(function(change) {
-            if (change.type === 'added') {
-              render(change.doc);
-            }
-          });
-        */
-    });
-}
-
 // Displays delete-button if at least 1 checkbox is checked
 function showDeleteButton() {
     var checkBoxes = document.querySelectorAll(".selectable");
@@ -148,6 +129,18 @@ function showDeleteButton() {
         });
     }
 }
+// Displays selectable checkboxes
+function editButtonFunction() {
+    var checkBoxes = document.querySelectorAll(".selectable");
+    checkBoxes.forEach((el) => {
+        if (el.style.display == "none") {
+            el.style.display = "inline-block";
+        } else {
+            el.style.display = "none";
+        }
+    });
+}
+
 // Renders data on HTML pages
 function renderFoodItem(foodDoc, category) {
     // @TO-DO: make a list and append it to ".modal-content" 
@@ -165,6 +158,7 @@ function deleteCheckedBoxes(modal) {
     for(var i = 0; i < checkBoxes.length; i++) {
         var checkBox = checkBoxes[i];
         if (checkBox.checked) {
+            //deleteDocument(userID, checkBox.nextElementSibling.innerHTML.replace(/\&nbsp;/g, ''));
             checkBox.parentNode.removeChild(checkBox.nextSibling);
             checkBox.parentNode.removeChild(checkBox);
         }
@@ -189,23 +183,6 @@ function getUserId(userEmail) {
     });
 }
 
-
-// Returns mock data from firestore
-function retrieveData(userEmail) {
-    console.log("Attempting to retreive Document Data");
-    let docRef = db.collection("Users").doc(userID);
-    docRef.get().then(function(doc) {
-        if (doc.exists) {
-            console.log("Document data:", doc.data());
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-        }
-    }).catch(function(error) {
-        console.log("Error getting document:", error);
-    });
-}
-
 // Gets User data specified by email
 function getAllUsersWithEmail(userEmail) {
     console.log("Attempting to retreive User Document");
@@ -214,8 +191,6 @@ function getAllUsersWithEmail(userEmail) {
         querySnapshot.forEach(function(doc) {
             // doc.data() is never undefined for query doc snapshots
             console.log(doc.id, " => ", doc.data());
-
-
         });
     });
 }
@@ -244,19 +219,14 @@ function getSubCollection(userID, category) {
     });
 }
 
-
-function editButtonFunction() {
-    var checkBoxes = document.querySelectorAll(".selectable");
-    checkBoxes.forEach((el) => {
-        if (el.style.display == "none") {
-            el.style.display = "inline-block";
-        } else {
-            el.style.display = "none";
-        }
+// Deletes specified document from Firebase
+function deleteDocument(userID, documentID) {
+    db.collection("Users").doc(userID).collection("Food Item").doc(documentID).delete().then(function() {
+        console.log("Document '" + documentID + "' successfully deleted!");
+    }).catch(function(error) {
+        console.error("Error removing '" + documentID + "' document: ", error);
     });
 }
-
-
 
 var firstname = "Lewis";
 function getAllUsers(firstname) {
@@ -273,6 +243,46 @@ function getAllUsers(firstname) {
         console.log("Error getting document:", error);
     });
 }
+
+// Returns mock data from firestore
+function retrieveData(userEmail) {
+    console.log("Attempting to retreive Document Data");
+    let docRef = db.collection("Users").doc(userID);
+    docRef.get().then(function(doc) {
+        if (doc.exists) {
+            console.log("Document data:", doc.data());
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+    }).catch(function(error) {
+        console.log("Error getting document:", error);
+    });
+}
+
+// Returns all Documents in specefied query
+function getDocumentsInQuery(query) {
+    query.onSnapshot(function(snapshot) {
+        console.log(snapshot.size);
+        if (!snapshot.size) {
+            console.log("No changes to documents in query!");
+            return;
+        }
+        console.log("Returned changed documents in query");
+        return;
+        /*
+        snapshot.docChanges.forEach(function(change) {
+            if (change.type === 'added') {
+              render(change.doc);
+            }
+          });
+        */
+    });
+}
+
+
+
+
 });
 
 
