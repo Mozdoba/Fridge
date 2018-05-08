@@ -6,28 +6,42 @@
 .food-list {
     overflow-y: scroll;
 }
+
 .selectable {
-    display: inline-block;
+    display: none;
     position: absolute;
     left: 4px;
 }
+
 .selectable:checked + label {
     background-color: rgb(255, 180, 180);
     clear: left;
 }
+
 .food-item {
-    display:block;
+    display: block;
     width: 100%;
     font-size: 13pt;
     margin: 0 0 0 0;
-
 }
+
 .edit-button {
-    float: right;
+    left: right;
     color: rgb(96, 96, 194);
     font-size: 13pt;
-    line-height: 0
+    line-height: 0;
 }
+
+.delete-button {
+    float: right;
+    color: rgb(255, 0, 0);
+    font-size: 13pt;
+    line-height: 0;
+    display: none;
+}
+
+
+
 
 /******************************************************************
 MEDIA QUERIES
@@ -145,7 +159,6 @@ MEDIA QUERIES
        border-top-right-radius: 5px;
   }
 
-
 }
 
 /******************************************************************
@@ -170,7 +183,7 @@ MEDIA QUERIES
     transform: scale(0.65);
     filter: drop-shadow(16px 16px 16px #ffffff);
 }
-  .fridge_container { /*percentage of screen and then image will cover 100% of height */
+  .fridge_container { 
     background-image:url("../images/fridge_ipad.png");
     position: absolute;
     margin: 0 auto;

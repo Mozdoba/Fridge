@@ -11,6 +11,8 @@ db.settings(settings);
 // Captures user email and password on login
 var userEmail = "test@test.com";
 var userPass;
+var userID = getUserId(userEmail);
+console.log(userID);
 /**
  * @TO-DO:
  * create render function to add lists to modals in fridgepg3.html - 1 hr
@@ -45,10 +47,11 @@ const renderMeatsButton = document.querySelector("#render-meats");
 const renderDairyButton = document.querySelector("#render-dairy");
 const renderFruitsButton = document.querySelector("#render-fruits");
 const renderVegetablesButton = document.querySelector("#render-vegetables");
+const editButton = document.querySelectorAll(".edit-button");
+const deleteButton = document.querySelectorAll(".delete-button");
 const getUsersButton = document.querySelectorAll(".display-users");
 const getFoodButton = document.querySelectorAll(".display-foods");
 const getUserIdButton = document.querySelectorAll(".display-userID");
-const editButton = document.querySelectorAll(".edit-button");
 const wheat_content = document.querySelector('#modal-content-wheat');
 const meats_content = document.querySelector('#modal-content-meats');
 const dairy_content = document.querySelector('#modal-content-dairy');
@@ -81,6 +84,14 @@ renderVegetablesButton.addEventListener("click", function() {
     getSubCollection(userID, 'vegetables');
 });
 
+editButton.forEach((el) => {
+    el.addEventListener("click", editButtonFunction);
+});
+
+deleteButton.forEach((el) => {
+    el.addEventListener("click", deleteCheckedBoxes);
+});
+
 var userEmail = "test@test.com";
 getUsersButton.forEach((el) => {
     el.addEventListener("click", function() {
@@ -97,11 +108,6 @@ getUserIdButton.forEach((el) => {
         getUserId(userEmail);
     });
 });
-
-editButton.forEach((el) => {
-    el.addEventListener("click", deleteCheckedBoxes);
-});
-
 
 // Returns all Documents in specefied query
 function getDocumentsInQuery(query) {
@@ -123,22 +129,48 @@ function getDocumentsInQuery(query) {
     });
 }
 
-// Renders data on HTML page
+// Displays delete-button if at least 1 checkbox is checked
+function showDeleteButton() {
+    var checkBoxes = document.querySelectorAll(".selectable");
+    var checkedCount = 0;
+    checkBoxes.forEach((el) => {
+        if (el.checked) {
+            checkedCount++;
+        }
+    });
+    if (checkedCount >= 1) {
+        deleteButton.forEach((el) => {
+            el.style.display = "block";
+        });
+    } else {
+        deleteButton.forEach((el) => {
+            el.style.display = "none";
+        });
+    }
+}
+// Renders data on HTML pages
 function renderFoodItem(foodDoc, category) {
     // @TO-DO: make a list and append it to ".modal-content" 
     renderedDoc = "<input type='checkbox' class='selectable'/><label class='food-item'>&nbsp&nbsp&nbsp&nbsp" + foodDoc.id + "</label>";
     $(".modal-body-" + category).append(renderedDoc);
-    return renderedDoc; //returns Div
+    return renderedDoc; //returns input
 }
 
 // Deletes Checked checkboxes and all children from DOM
 function deleteCheckedBoxes(modal) {
     var checkBoxes = document.querySelectorAll(".selectable");
+    var checkedCount = 0;
     for(var i = 0; i < checkBoxes.length; i++) {
         var checkBox = checkBoxes[i];
         if (checkBox.checked) {
             checkBox.parentNode.removeChild(checkBox.nextSibling);
             checkBox.parentNode.removeChild(checkBox);
+        }
+        // hide delete button on last iteration if there are no more checkboxes
+        if (i == checkBoxes.length - 1) {
+            deleteButton.forEach((el) => {
+                el.style.display = "none";
+            });
         }
     }
 }
@@ -154,8 +186,7 @@ function getUserId(userEmail) {
         });
     });
 }
-var userID = getUserId(userEmail);
-console.log(userID);
+
 
 // Returns mock data from firestore
 function retrieveData(userEmail) {
@@ -201,11 +232,27 @@ function getSubCollection(userID, category) {
                 // generate content in modal
                 renderFoodItem(doc, category);
             });
+            // addEventListeners to all the food-item inputs that were just rendered
+            let selectableCheckBox = document.querySelectorAll(".selectable");
+            selectableCheckBox.forEach((el) => {
+                el.addEventListener("click", showDeleteButton);
+            });
             console.log("Returned document(s) in '" + category + "' query");
         }
     });
 }
 
+
+function editButtonFunction() {
+    var checkBoxes = document.querySelectorAll(".selectable");
+    checkBoxes.forEach((el) => {
+        if (el.style.display == "none") {
+            el.style.display = "inline-block";
+        } else {
+            el.style.display = "none";
+        }
+    });
+}
 
 
 
