@@ -21,13 +21,15 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header modal-header-meats">
-                            <button type="button" class="display-data">Get Data</button>
-                            <button type="button" class="display-users">Get Users</button>
-                            <button type="button" class="display-foods">Get Food Items</button>
+                            <button type="button" class="display-users">User Docs</button>
+                            <button type="button" class="display-foods">Food Items SubCollection</button>
+                            <button type="button" id="render-meats">Render Meats</button>
+                            <button type="button" class="display-userID">getUserId()</button>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                             <h1><i class="glyphicon glyphicon-pushpin"></i> Meats</h1>
+                            <span class="edit-button">Edit</span>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body-meats">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
@@ -36,16 +38,18 @@
                 </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
             <!-- Modal -->
-            <img id="toast" class="btn btn-wheat resize hover" href="#primary" data-toggle="modal" src="../images/toast.png" alt="grain"/>
+            <img id="toast" class="btn btn-grains resize hover" href="#primary" data-toggle="modal" src="../images/toast.png" alt="grain"/>
             <!-- Modal -->
             <div class="modal fade" id="primary" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <div class="modal-header modal-header-wheat-and-grain">
+                        <div class="modal-header modal-header-grains">
+                            <button type="button" id="render-grains">Render Grains</button>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h1><i class="glyphicon glyphicon-pushpin"></i> Wheat &amp; Grain</h1>
+                            <h1><i class="glyphicon glyphicon-pushpin"></i>Grains</h1>
+                            <span class="edit-button">Edit</span>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body-grains">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
@@ -60,10 +64,12 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header modal-header-dairy">
+                            <button type="button" id="render-dairy">Render Dairy</button>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                             <h1><i class="glyphicon glyphicon-pushpin"></i> Dairy</h1>
+                            <span class="edit-button">Edit</span>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body-dairy">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
@@ -78,10 +84,12 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header modal-header-fruits">
+                            <button type="button" id="render-fruits">Render Fruits</button>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                             <h1><i class="glyphicon glyphicon-pushpin"></i> Fruits</h1>
+                            <span class="edit-button">Edit</span>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body-fruits">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
@@ -96,10 +104,12 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header modal-header-vegetables">
+                            <button type="button" id="render-vegetables">Render Vegetables</button>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                             <h1><i class="glyphicon glyphicon-pushpin"></i> Vegetables</h1>
+                            <span class="edit-button">Edit</span>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body-vegetables">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>

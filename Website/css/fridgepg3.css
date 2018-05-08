@@ -4,7 +4,29 @@
 }
 
 .food-list {
-    overflow: scroll;
+    overflow-y: scroll;
+}
+.selectable {
+    display: inline-block;
+    position: absolute;
+    left: 4px;
+}
+.selectable:checked + label {
+    background-color: rgb(255, 180, 180);
+    clear: left;
+}
+.food-item {
+    display:block;
+    width: 100%;
+    font-size: 13pt;
+    margin: 0 0 0 0;
+
+}
+.edit-button {
+    float: right;
+    color: rgb(96, 96, 194);
+    font-size: 13pt;
+    line-height: 0
 }
 
 /******************************************************************
@@ -110,7 +132,7 @@ MEDIA QUERIES
        border-top-left-radius: 5px;
        border-top-right-radius: 5px;
   }
-  .modal-header-wheat-and-grain {
+  .modal-header-grains {
   	color:rgb(255, 255, 255);
       padding:9px 15px;
       border-bottom:1px solid #eee;
