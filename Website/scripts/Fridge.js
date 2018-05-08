@@ -125,7 +125,7 @@ function getDocumentsInQuery(query) {
               render(change.doc);
             }
           });
-          */
+        */
     });
 }
 
@@ -153,6 +153,8 @@ function renderFoodItem(foodDoc, category) {
     // @TO-DO: make a list and append it to ".modal-content" 
     renderedDoc = "<input type='checkbox' class='selectable'/><label class='food-item'>&nbsp&nbsp&nbsp&nbsp" + foodDoc.id + "</label>";
     $(".modal-body-" + category).append(renderedDoc);
+    // Hide all checkboxes
+    $(".selectable").css("display", "none");
     return renderedDoc; //returns input
 }
 
