@@ -56,14 +56,29 @@ const fruits_content = document.querySelector('#modal-content-fruits');
 const vegelists_content = document.querySelector('#modal-content-dairy');
 
 // Events for generating modal content
-renderDairyButton.addEventListener("click", function() {
+renderGrainsButton.addEventListener("click", function() {
     var userID = 'LGMsHkEvgKWoxrNqO01y';
-    getSubCollectionDairy(userID);
+    getSubCollection(userID, 'grains');
 });
 
 renderMeatsButton.addEventListener("click", function() {
     var userID = 'LGMsHkEvgKWoxrNqO01y';
-    getSubCollectionMeats(userID);
+    getSubCollection(userID, 'meats');
+});
+
+renderDairyButton.addEventListener("click", function() {
+    var userID = 'LGMsHkEvgKWoxrNqO01y';
+    getSubCollection(userID, 'dairy');
+});
+
+renderFruitsButton.addEventListener("click", function() {
+    var userID = 'LGMsHkEvgKWoxrNqO01y';
+    getSubCollection(userID, 'fruits');
+});
+
+renderVegetablesButton.addEventListener("click", function() {
+    var userID = 'LGMsHkEvgKWoxrNqO01y';
+    getSubCollection(userID, 'vegetables');
 });
 
 var userEmail = "test@test.com";
@@ -109,10 +124,10 @@ function getDocumentsInQuery(query) {
 }
 
 // Renders data on HTML page
-function renderFoodItem(foodDoc, modalBodySelector) {
+function renderFoodItem(foodDoc, category) {
     // @TO-DO: make a list and append it to ".modal-content" 
     renderedDoc = "<input type='checkbox' class='selectable'/><label class='food-item'>&nbsp&nbsp&nbsp&nbsp" + foodDoc.id + "</label>";
-    $(".modal-body-dairy").append(renderedDoc);
+    $(".modal-body-" + category).append(renderedDoc);
     return renderedDoc; //returns Div
 }
 
@@ -172,32 +187,22 @@ function getAllUsersWithEmail(userEmail) {
     });
 }
 
-
-function getSubCollectionDairy(userID) {
-    console.log("Attempting to retreive 'category: dairy' documents from Food Item subcollection");
+function getSubCollection(userID, category) {
+    console.log("Attempting to retreive 'category: " + category + "' documents from Food Item subcollection");
     var query = db.collection("Users").doc(userID)
-    .collection("Food Item").where("category", "==", "dairy");
+    .collection("Food Item").where("category", "==", category);
     query.get().then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-            // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
-            // generate content in modal
-            renderFoodItem(doc);
-        });
-    });
-}
-
-function getSubCollectionMeats(userID) {
-    console.log("Attempting to retreive 'category: meats' documents from Food Item subcollection");
-    var query = db.collection("Users").doc(userID)
-    .collection("Food Item").where("category", "==", "meats");
-    query.get().then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-            // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
-            // generate content in modal
-            renderFoodItem(doc);
-        });
+        if (querySnapshot.size == 0) {
+            console.log("No documents in '" + category + "' query");
+        } else {
+            querySnapshot.forEach(function(doc) {
+                // doc.data() is never undefined for query doc snapshots
+                console.log(doc.id, " => ", doc.data());
+                // generate content in modal
+                renderFoodItem(doc, category);
+            });
+            console.log("Returned document(s) in '" + category + "' query");
+        }
     });
 }
 
@@ -217,23 +222,6 @@ function getAllUsers(firstname) {
         }
     }).catch(function(error) {
         console.log("Error getting document:", error);
-    });
-}
-
-// Gets User subcollection Food Item data specified by email
-function getSubCollection(getUserId) {
-    console.log("Attempting to retreive SubCollections");
-    var query = db.collection("Users").doc(userID).collection("Food Item");
-    query.get().then(function(querySnapshot) {
-        var list = '<ul class="food-list">';
-        querySnapshot.forEach(function(doc) {
-            // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
-            // generate content in modal
-            list += "<li>" + doc.id + "</li>";
-        });
-        list += '</ul>';
-        $(".modal-body").append(list);
     });
 }
 });
