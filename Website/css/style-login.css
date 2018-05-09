@@ -6,9 +6,25 @@ body {
     font-family: sans-serif;
 }
 
+#login {
+  background: #34b4a0;
+}
+
 #confirmPassword{
   display: none;
   visibility: hidden;
+}
+
+#zeButton {
+  background-color: transparent;
+  border-color: transparent;
+  font-family: 'Fredoka One', cursive;
+  color: white;
+  font-size: 3.5em ;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: black;
+  text-shadow: 3px 3px black;
+
 }
 
 #lock{
@@ -17,21 +33,29 @@ body {
 }
 
 
-h1 {
-    text-align: center;
-    font-size: 100%;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
+.title {
+  font-family: 'Fredoka One', cursive;
+  color: white;
+  font-size: 3.5em ;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: black;
+  text-shadow: 3px 3px black;
+
+
+  }
+
+
+#heading {
+  text-align: center;
+  /* border: 2px solid white; */
+  width: 50%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+
 }
 
-#heading h1 {
-    font-family: 'Fredoka One', cursive;
-    color: #b3b3b3;
-    text-align: center;
-    font-size: 11vw;
-    -webkit-text-stroke-width: 1.5px;
-    -webkit-text-stroke-color: black;
-}
+
 
 #title {
     padding-top: 50px;
@@ -68,7 +92,7 @@ h1 {
     padding: 45px 15px;
     clear: both;
     width: 320px;
-    height: 600px;
+    height: 30%;
 }
 
 .input {
@@ -107,6 +131,15 @@ span a {
     color: #000;
 }
 
+.alert {
+  text-align: center;
+  padding: 10px;
+  background: #79c879;
+  color: #fff;
+  margin-bottom: 10px;
+  display: none;
+}
+
 /******************************************************************
 MEDIA QUERIES
 ******************************************************************/
@@ -132,7 +165,7 @@ MEDIA QUERIES
 
 .signup-form, .login-form {
     width: 75%;
-    height: 80%;
+    height: 40%;
     margin: none;
     border: none;
     background: rgba(255, 255, 255, 0.767);

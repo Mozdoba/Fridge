@@ -1,11 +1,25 @@
 
-h1 {
-    text-align: center;
-    font-size: 100%;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
+h1 span {
+  border: 2px solid white;
+  padding: 20px;
+  text-shadow: 6px 6px black;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.5em;
+  -webkit-text-stroke-width: 5px;
+  -webkit-text-stroke-color: black;
+
 }
 
+#heading h1 {
+      font-family: 'Fredoka One', cursive;
+      color: white;
+      text-align: center;
+      font-size: 3em ;
+      -webkit-text-stroke-width: 1.5px;
+      -webkit-text-stroke-color: black;
+      padding-top: 70px;
+
+  }
 
 
 
@@ -23,24 +37,18 @@ body {
 }
 
 
-#heading h1 {
-      font-family: 'Fredoka One', cursive;
-      color: #b3b3b3;
-      text-align: center;
-      font-size: 6em ;
-      -webkit-text-stroke-width: 1.5px;
-      -webkit-text-stroke-color: black;
-  }
+
 
 .centerHeader {
   text-align: center;
   margin-bottom: 25px;
 }
 
+
 #heading2 {
     text-align: center;
-    font-family: 'Merriweather Sans', sans-serif;
-    font-size: 3em;
+    font-family: 'Fredoka One', sans-serif;
+    font-size: 2em;
     background-color: aliceblue;
     opacity: 0.8;
 }

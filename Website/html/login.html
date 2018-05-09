@@ -4,15 +4,15 @@
     <title></title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fridge.</title>
+    <title>fridged-it</title>
     <link rel="stylesheet" href="../css/style-login.css">
     <link href="https://fonts.googleapis.com/css?family=Yeseva+One" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script>
         $(document).ready(function() {
-            $(".login-form").hide();
-            $(".login").css("background", "rgba(255, 255, 255, 0.767)");
+            $(".signup-form").hide();
+            $(".signup").css("background", "rgba(255, 255, 255, 0.767)");
 
             $(".login").click(function(){
                 $(".signup-form").hide();
@@ -32,21 +32,43 @@
                 $(".input").val("");
             });
 
+            var count = 0;
+            $("#zeButton").click(function() {
+              count+=1;
+              console.log(count);
+              if (count ==  7) {
+                window.open('https://www.nhl.com', '_blank'
+              );
+              }
+            });
+
         });
 
     </script>
   </head>
   <body>
 
-     <div id="heading"><h1>fridged-it</h1></div>
+     <div id="heading">
+       <div class = "title">f</div>
+       <div class = "title">r</div>
+       <div class = "title">i</div>
+       <div id="theD"><button id="zeButton">d</button></div>
+       <div class = "title">g</div>
+       <div class = "title">e</div>
+       <div class = "title">d</div>
+       <div class = "title">-</div>
+       <div class = "title">i</div>
+       <div class = "title">t</div>
+   </div>
      <div class="container">
-         <div class="signup">Sign Up</div>
-         <div class="login">Login</div>
+         <div class="login" id="login">Login</div>
+         <div class="signup" id="signUp">Sign Up</div>
+
      </div>
 
      <div class="signup-form">
         <div id="registration">
-
+            <div class="alert"> Thank you for registering! </div>
             <img class="img" src="../images/email.png" alt="Email"><span>&emsp;</span><input type="email" name="email" id = "email" placeholder="Email Address" class="input" required="required"><br>
             <img class="img" src="../images/unlock.png" alt="Unlock"><span>&emsp;</span><input type="password" name="password" id="password" placeholder="Create a Password" class="input" required="required"><br>
 
@@ -55,7 +77,7 @@
 
 
 
-            <input type="submit" value="Create Account" id="btn" class = "aButton" onclick ="createAcc()">
+            <button type="submit" id="button-signUp" class ="aButton">Create Account</button>
         </div>
      </div>
 
@@ -65,16 +87,11 @@
         <div id="registration1">
             <img class="img" src="../images/email.png" alt="Email"><span>&emsp;</span><input type="email" placeholder="Email Address" class="input" id ="email_field" required="required"><br>
             <img class="img" src="../images/key.png" alt="Key"><span>&emsp;</span><input type="password" placeholder="Password" class="input" id = "password_field" required="required"><br>
-            <input type="submit" value="Login" id="btnLogin" class = "aButton" onclick = "login()">
+            <button type="submit" id="btnLogin" class = "aButton">Login</button>
             <span><a href="#">Forgot Password</a></span>
         </div>
      </div>
 
-     <div id="user_div">
-       <h3> Welcome User </h3>
-       <p> Welcome to Firebase Login. You are currently logged in </p>
-       <button> Logout </button>
-    </div>
 
     <script>
 
@@ -157,18 +174,7 @@
     <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-firestore.js"></script>
-    <script>
-  // Initialize Firebase
-    var config = {
-    apiKey: "AIzaSyDATxhUzfa7mcLVwM02Cfrdi6ErXtRHDIg",
-    authDomain: "fridgedit-f8177.firebaseapp.com",
-    databaseURL: "https://fridgedit-f8177.firebaseio.com",
-    projectId: "fridgedit-f8177",
-    storageBucket: "fridgedit-f8177.appspot.com",
-    messagingSenderId: "252806401867"
-  };
-  firebase.initializeApp(config);
-    </script>
+
     <script src = "index1.js"></script>
 </body>
 </html>
