@@ -16,28 +16,27 @@ var userPass;
 //console.log(userID);
 /**
  * @TO-DO:
- * create render function to add lists to modals in fridgepg3.html - 1 hr
- * function to grab food items in dairy category - 1 hr
- * function to grab food items in grains category - 1 hr
- * function to grab food items in fruits category - 1 hr
- * function to grab food items in meats category - 1 hr
- * function to grab food items in vegetables category - 1 hr
- * render content in dairy modal using Divs - 1 hr
- * render content in grains modal using Divs - 1 hr
- * render content in fruits modal using Divs- 1 hr
- * render content in meats modal using Divs - 1 hr
- * render content in vegetables modal - 1 hr
+
  * connect login page to fridgepg3.html (form attribute action?)
- * agree on database schema / structure - 30 mins
  * style unordered list - alphabetically vs timestamp
- * function to remove food items in dairy category - 1 hr
- * function to remove food items in grains category - 1 hr
- * function to remove food items in fruits category - 1 hr
- * function to remove food items in meats category - 1 hr
- * function to remove food items in vegetables category - 1 hr
  * update modal content upon page refresh - 30 min
- * select button to highlight food items - 1 hr
+ * ADD CIRCLE button to add new item manually
+ * window where user can choose to upload image or add manually or modify existing?
+ * Form to fill out when adding new items manually
+ * ADD Shopping List functionality?
  * 
+ * test function to add food item to DOM
+ * take photo of syrra
+ * create form to fill out when adding new food items to the fridge
+ * create function to grab input fields
+ * create function to use input fields to generate new document
+ * create function to modify existing fields of a food item
+ * design UI to add new food item manually (edit-btn activates?)
+ * design UI to modify existing food item (edit-btn activates?)
+ * design UI on Fridge page to link to upload receipt screen (edit-btn activates?)
+ * Empty Category message if no food items exist in category
+ * style existing edit-button :hover :active
+ * style existing delete-button :hover :active
  */
 
 
@@ -226,6 +225,16 @@ function deleteDocument(userID, documentID) {
     }).catch(function(error) {
         console.error("Error removing '" + documentID + "' document: ", error);
     });
+}
+
+function addNewDocument(userID, foodItem, category, market, perishable, price, date) {
+    db.collection("Users").doc(userID).collection("Food Item").doc(foodItem).set({
+        category: category,
+        market: market,
+        perishable: perishable,
+        price: price,
+        timestamp: date
+    })
 }
 
 var firstname = "Lewis";
