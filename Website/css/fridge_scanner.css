@@ -4,6 +4,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Kite+One');
 
+<<<<<<< HEAD
 
 .hero-image {
     background-image: url("../images/pattern.png") !important;
@@ -21,6 +22,8 @@
 }
 
 
+=======
+>>>>>>> 59b77c012850ad7f02fda6bfafc9cae1eadde0ed
 body {
   background-color: #ebebe0;
   font-family: 'Kite One', sans-serif;

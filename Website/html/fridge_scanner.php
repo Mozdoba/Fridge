@@ -16,11 +16,7 @@
         <a href="#">About Us</a>
       </div>
 
-<<<<<<< HEAD
-      <div id="main">
-=======
       <!-- <div id="main"> -->
->>>>>>> 59b77c012850ad7f02fda6bfafc9cae1eadde0ed
         <span onclick="openNav()">&#9776; Menu</span>
       <!-- MENU BUTTON FOR SIDE NAV -->
 
@@ -48,12 +44,8 @@
 
       <br />
 
-<<<<<<< HEAD
-      <!-- <label for="fileInput">Choose Receipt to scan:</label>
-=======
       <!-- CODE IN THIS FILE
       <label for="fileInput">Choose Receipt to scan:</label>
->>>>>>> 59b77c012850ad7f02fda6bfafc9cae1eadde0ed
       <input type="file" id="fileInput" name="fileInput"/>
       <br />
       <br />
@@ -61,11 +53,7 @@
       </div>
       <div id = "ocr_status"></div> -->
 
-<<<<<<< HEAD
-
-=======
       <!-- ALAN'S ORIGINAL CODE
->>>>>>> 59b77c012850ad7f02fda6bfafc9cae1eadde0ed
       <label for=fileInput>Choose your receipt:</label>
       <br>
       <br>
@@ -73,17 +61,10 @@
 
       <div id="document-content"></div>
       <div id="ocr_status"></div>
-<<<<<<< HEAD
-    </div>
-
-    <!-- TESSERACT SCRIPT TO PARSE RECEIPT -->
-    <script>
-=======
-    <!-- </div> -->
+      </div> -->
 
     <!-- TESSERACT SCRIPT TO PARSE RECEIPT -->
     <!-- <script>
->>>>>>> 59b77c012850ad7f02fda6bfafc9cae1eadde0ed
     document.addEventListener('DOMContentLoaded', function(){
           var fileInput = document.getElementById('fileInput');
           fileInput.addEventListener('change', handleInputChange);
@@ -111,13 +92,8 @@
       }
     </script>
 
-<<<<<<< HEAD
-    <!-- JAVASCRIPT FOR SIDE NAV -->
-    <script>
-=======
     JAVASCRIPT FOR SIDE NAV -->
     <!-- <script>
->>>>>>> 59b77c012850ad7f02fda6bfafc9cae1eadde0ed
       function openNav() {
         document.getElementById("mySidenav").style.width = "250px";
         document.getElementById("main").style.marginLeft = "250px";
@@ -127,10 +103,8 @@
         document.getElementById("mySidenav").style.width = "0";
         document.getElementById("main").style.marginLeft= "0";
       }
-<<<<<<< HEAD
-    </script>
-=======
     </script>  -->
+
     <!-- CREDIT: http://www.leanx.eu/tutorials/use-google-cloud-vision-api-to-process-invoices-and-receipts -->
     <form enctype="multipart/form-data" action="" method="POST">
     Choose file to upload: <input name="uploaddocument" type="file" /><br />
@@ -192,9 +166,10 @@
                die("Something when wrong. Status code: $status" );
             }
 
-          //echo '<pre>';
-          //print_r($json_response);
-          //echo '</pre>';
+          // prints out JSON raw data
+          // echo '<pre>';
+          // print_r($json_response);
+          // echo '</pre>';
 
           // create an image identifier for the uploaded file
           switch($_FILES['uploaddocument']['type']){
@@ -212,7 +187,14 @@
           $red = imagecolorallocate($im, 255, 0, 42);
 
           // transform the json response to an associative array
+          // decodes JSON string into PHP variable, returns an object
           $response = json_decode($json_response, true);
+
+          // loop through PHP array, outputs each word from image
+          $someArray = $response['responses'][0]['textAnnotations'];
+          foreach($someArray as $key => $value) {
+            echo $value['description'] . "<br />";
+          }
 
           // for each of the detected text fragments we'll draw a box
           // the cloud API returns veticis for each fragment
@@ -228,10 +210,10 @@
 
             }
 
-          // give our image a name and store it
-          $image_name = time().'.jpg';
-          imagejpeg($im, $image_name);
-          imagedestroy($im);
+          // Give our image a name and store it (saves a .jpeg file in your comp with rectangles)
+          // $image_name = time().'.jpg';
+          // imagejpeg($im, $image_name);
+          // imagedestroy($im);
 
           // output the results
           echo'<div style="width:20%; float:left;"><img src="'.$image_name.'" style="width:100%;"/></div>';
@@ -249,8 +231,8 @@
             }
 
       }
+
     ?>
->>>>>>> 59b77c012850ad7f02fda6bfafc9cae1eadde0ed
 
   </body>
 </html>
