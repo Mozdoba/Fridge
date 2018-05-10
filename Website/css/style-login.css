@@ -18,12 +18,13 @@ body {
 #zeButton {
   background-color: transparent;
   border-color: transparent;
-  font-family: 'Fredoka One', cursive;
+  font-family: 'Fredoka One';
   color: white;
   font-size: 3.5em ;
-  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: black;
   text-shadow: 3px 3px black;
+
 
 }
 
@@ -34,13 +35,12 @@ body {
 
 
 .title {
-  font-family: 'Fredoka One', cursive;
+  font-family: 'Fredoka One';
   color: white;
   font-size: 3.5em ;
-  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: black;
   text-shadow: 3px 3px black;
-
 
   }
 
@@ -55,7 +55,9 @@ body {
 
 }
 
-
+#egg {
+  display: none;
+}
 
 #title {
     padding-top: 50px;
@@ -139,6 +141,17 @@ span a {
   margin-bottom: 10px;
   display: none;
 }
+
+.alert1 {
+  text-align: center;
+  padding: 10px;
+  background: #91303C;
+  color: #fff;
+  margin-bottom: 10px;
+  display: none;
+}
+
+
 
 /******************************************************************
 MEDIA QUERIES

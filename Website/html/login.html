@@ -7,7 +7,10 @@
     <title>fridged-it</title>
     <link rel="stylesheet" href="../css/style-login.css">
     <link href="https://fonts.googleapis.com/css?family=Yeseva+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <script>
         $(document).ready(function() {
@@ -36,9 +39,9 @@
             $("#zeButton").click(function() {
               count+=1;
               console.log(count);
-              if (count ==  7) {
-                window.open('https://www.nhl.com', '_blank'
-              );
+              if ((count %  7) == 0) {
+                $('#egg').dialog();
+
               }
             });
 
@@ -76,8 +79,9 @@
             <p id="message"></p> -->
 
 
-
+            <div class="alert1"> Passwords must be minimum 8 character and have atleast one upper case, one lower case, and one number! </div>
             <button type="submit" id="button-signUp" class ="aButton">Create Account</button>
+
         </div>
      </div>
 
@@ -88,8 +92,11 @@
             <img class="img" src="../images/email.png" alt="Email"><span>&emsp;</span><input type="email" placeholder="Email Address" class="input" id ="email_field" required="required"><br>
             <img class="img" src="../images/key.png" alt="Key"><span>&emsp;</span><input type="password" placeholder="Password" class="input" id = "password_field" required="required"><br>
             <button type="submit" id="btnLogin" class = "aButton">Login</button>
-            <span><a href="#">Forgot Password</a></span>
+            <span><a href="https://media.giphy.com/media/FgjKGypLCAety/giphy.gif">Forgot Password</a></span>
         </div>
+     </div>
+     <div id="egg">
+       <img src="../images/egg.jpg" height="400" width="400">
      </div>
 
 

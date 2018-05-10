@@ -65,6 +65,41 @@ function saveUser(email, password) {
 });
 }
 
+
+// Checks for lowerCase letter
+function hasLowerCase(str) {
+  return (/[a-z]/.test(str));
+}
+
+// Checks for UpperCase letter
+function hasUpperCase(str) {
+  return (/[A-Z]/.test(str));
+}
+
+// Checks for Number
+function hasNumber(myString) {
+  return (/\d/.test(myString));
+}
+
+// Checks if the password has a lowerCase letter, upperCase letter, and a number.
+function patternCheck(){
+
+  var userPassword = getInputValue('password');
+
+  console.log("IM WORKING")
+
+  if (hasLowerCase(userPassword) &&
+      hasUpperCase(userPassword) &&
+      hasNumber(userPassword) &&
+      userPassword.length > 8) {
+        return true;
+  } else {
+        return false;
+  }
+}
+
+
+
 //Old createAcc function
 // TODO remove this funciton
 function createAcc(email, password) {
@@ -94,8 +129,6 @@ function createAcc(email, password) {
 
       // ...
         });
-
-
 }
 
 function login(){
@@ -117,7 +150,6 @@ function login(){
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
-    console.log("This is what happens");
     window.location.href = "http://fridgedit.com/fridgepg3.html";
     console.log(user);
     //User is signed in.
@@ -138,36 +170,54 @@ firebase.auth().onAuthStateChanged(function(user) {
 //     });
 // }
 
+
+
+
+
+
 document.getElementById('button-signUp').addEventListener('click', createUser);
 
 //Submit form
 function createUser(e){
   e.preventDefault();
   console.log("working");
+  console.log(patternCheck());
 
+  // Checks the password before
+  if (patternCheck()) {
 
-  //get values
-  var email = getInputValue('email');
-  var password = getInputValue('password');
+      //get values
+      var email = getInputValue('email');
+      var password = getInputValue('password');
 
-  //save user to database
-  saveUser(email, password);
+      //save user to database
+      saveUser(email, password);
 
-  //save user to user auth table
-  createAcc(email, password);
+      //save user to user auth table
+      createAcc(email, password);
 
-  // Show alert
-  document.querySelector('.alert').style.display = 'block';
+      // Show alert
+      document.querySelector('.alert').style.display = 'block';
+      document.querySelector('.alert1').style.display = 'none';
 
-  // Hide alert after 3 seconds
-  setTimeout(function(){
-    document.querySelector('.alert').style.display = 'none';
-  },3000);
+      // Hide alert after 3 seconds
+      setTimeout(function(){
+        document.querySelector('.alert').style.display = 'none';
+      },3000);
 
+  } else {
+    document.querySelector('.alert1').style.display = 'block';
+
+    document.getElementById('password').value = "";
+    // var password = getInputValue('password');
+    // password = "";
+
+  }
 }
 
 document.getElementById('btnLogin').addEventListener('click', loginUser);
 
+// Log user into their account
 function loginUser(e){
   e.preventDefault();
   console.log("this works too");
@@ -178,9 +228,6 @@ function loginUser(e){
   console.log(userEmail);
   console.log(userPass);
 
-
-
-
       firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
@@ -189,6 +236,4 @@ function loginUser(e){
         window.alert("Error :" +  error.message);
       // ...
     });
-
-
 }
