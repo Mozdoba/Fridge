@@ -40,7 +40,7 @@
     cursor: pointer;
     user-select: none;
     opacity: 1;
-    -webkit-transition: opacity 0.8s ease-in-out;
+    -webkit-transition: opacity 0.8s ease-in-out; /*@TO-DO: transition between edit and cancel still not working*/
     -moz-transition: opacity 0.8s ease-in-out;
     -ms-transition: opacity 0.8s ease-in-out;
     -o-transition: opacity 0.8s ease-in-out;
