@@ -58,6 +58,15 @@ const dairy_content = document.querySelector('#modal-content-dairy');
 const fruits_content = document.querySelector('#modal-content-fruits');
 const vegelists_content = document.querySelector('#modal-content-dairy');
 
+$('.add').click(function() {
+    if ($('.add-slider').hasClass("opened")) {
+        $(".add-slider").removeClass("opened");
+    } else {
+        $(".add-slider").addClass("opened");
+    }
+});
+
+
 // Events for generating modal content
 renderGrainsButton.addEventListener("click", function() {
     var userID = 'LGMsHkEvgKWoxrNqO01y';

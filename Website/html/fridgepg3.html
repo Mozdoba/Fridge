@@ -16,23 +16,32 @@
     <div class="fridge_container">
         <a href="./login.html"><img id="logout" src="../images/exit_swing.png" alt="logout"></a>
         <img id="camera" class="btn resize hover" data-toggle="modal" src="../images/photo-camera.png" alt="scan"/>
-        <img id="plus" class="btn resize hover" data-toggle="modal" src="../images/plus.png" alt="manually add foods"/>
             <img id="steak" class="btn btn-meats resize hover" href="#success" data-toggle="modal" src="../images/steak.png" alt="meat"/>
             <!-- Modal -->
             <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header modal-header-meats">
-                            <button type="button" class="display-users">User Docs</button>
+                            <!--<button type="button" class="display-users">User Docs</button>
                             <button type="button" class="display-foods">Food Items SubCollection</button>
                             <button type="button" id="render-meats">Render Meats</button>
-                            <button type="button" class="display-userID">getUserId()</button>
+                            <button type="button" class="display-userID">getUserId()</button>-->
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h1><i class="glyphicon glyphicon-pushpin"></i> Meats</h1>
+                            <h1><i>Meats</i></h1>
                             <span class="edit-button">Edit</span>
                             <span class="delete-button">Delete</span>
+                            <img id="plus-meats" class="btn add" data-toggle="modal" src="../images/plus-grey.png" alt="manually add foods"/>
                         </div>
                         <div class="modal-body-meats">
+                            <div class="add-slider">
+                                <form>
+                                    <input type="text" name="category" value="Category"></br>
+                                    <input type="date" name="date" value="Date"></br>
+                                    <input type="text" name="market" value="Market"></br>
+                                    <input type="checkbox" name="perishable"><label for="perishable">Perishable?</label></br>
+                                    <input type="submit" value="Done">
+                                </form>
+                            </div>
                         </div>
                         <div class="modal-footer-meats">
                             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
@@ -47,12 +56,23 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header modal-header-grains">
-                            <button type="button" id="render-grains">Render Grains</button>
+                            <!--<button type="button" id="render-grains">Render Grains</button>-->
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h1><i class="glyphicon glyphicon-pushpin"></i>Grains</h1>
+                            <h1><i>Grains</i></h1>
                             <span class="edit-button">Edit</span>
+                            <span class="delete-button">Delete</span>
+                            <img id="plus-grains" class="btn add" data-toggle="modal" src="../images/plus-grey.png" alt="manually add foods"/>
                         </div>
                         <div class="modal-body-grains">
+                            <div class="add-slider">
+                                <form>
+                                    <input type="text" name="category" value="Category"></br>
+                                    <input type="date" name="date" value="Date"></br>
+                                    <input type="text" name="market" value="Market"></br>
+                                    <input type="checkbox" name="perishable"><label for="perishable">Perishable?</label></br>
+                                    <input type="submit" value="Done">
+                                </form>
+                            </div>
                         </div>
                         <div class="modal-footer-grains">
                             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
@@ -67,13 +87,23 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header modal-header-dairy">
-                            <button type="button" id="render-dairy">Render Dairy</button>
+                            <!--<button type="button" id="render-dairy">Render Dairy</button>-->
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h1><i class="glyphicon glyphicon-pushpin"></i> Dairy</h1>
+                            <h1><i>Dairy</i></h1>
                             <span class="edit-button">Edit</span>
                             <span class="delete-button">Delete</span>
+                            <img id="plus-dairy" class="btn add" data-toggle="modal" src="../images/plus-grey.png" alt="manually add foods"/>
                         </div>
                         <div class="modal-body-dairy">
+                            <div class="add-slider">
+                                <form>
+                                    <input type="text" name="category" value="Category"></br>
+                                    <input type="date" name="date" value="Date"></br>
+                                    <input type="text" name="market" value="Market"></br>
+                                    <input type="checkbox" name="perishable"><label for="perishable">Perishable?</label></br>
+                                    <input type="submit" value="Done">
+                                </form>
+                            </div>
                         </div>
                         <div class="modal-footer-dairy">
                             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
@@ -88,12 +118,23 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header modal-header-fruits">
-                            <button type="button" id="render-fruits">Render Fruits</button>
+                            <!--<button type="button" id="render-fruits">Render Fruits</button>-->
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h1><i class="glyphicon glyphicon-pushpin"></i> Fruits</h1>
+                            <h1><i>Fruits</i></h1>
                             <span class="edit-button">Edit</span>
+                            <span class="delete-button">Delete</span>
+                            <img id="plus-fruits" class="btn add" data-toggle="modal" src="../images/plus-grey.png" alt="manually add foods"/>
                         </div>
                         <div class="modal-body-fruits">
+                            <div class="add-slider">
+                                <form>
+                                    <input type="text" name="category" value="Category"></br>
+                                    <input type="date" name="date" value="Date"></br>
+                                    <input type="text" name="market" value="Market"></br>
+                                    <input type="checkbox" name="perishable"><label for="perishable">Perishable?</label></br>
+                                    <input type="submit" value="Done">
+                                </form>
+                            </div>
                         </div>
                         <div class="modal-footer-fruits">
                             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
@@ -108,12 +149,23 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header modal-header-vegetables">
-                            <button type="button" id="render-vegetables">Render Vegetables</button>
+                            <!--<button type="button" id="render-vegetables">Render Vegetables</button>-->
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h1><i class="glyphicon glyphicon-pushpin"></i> Vegetables</h1>
+                            <h1><i>Vegetables</i></h1>
                             <span class="edit-button">Edit</span>
+                            <span class="delete-button">Delete</span>
+                            <img id="plus-vegetables" class="btn add" data-toggle="modal" src="../images/plus-grey.png" alt="manually add foods"/>
                         </div>
                         <div class="modal-body-vegetables">
+                            <div class="add-slider">
+                                <form>
+                                    <input type="text" name="category" value="Category"></br>
+                                    <input type="date" name="date" value="Date"></br>
+                                    <input type="text" name="market" value="Market"></br>
+                                    <input type="checkbox" name="perishable"><label for="perishable">Perishable?</label></br>
+                                    <input type="submit" value="Done">
+                                </form>
+                             </div>
                         </div>
                         <div class="modal-footer-vegetables">
                             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>

@@ -43,9 +43,20 @@
     line-height: 0;
     display: none;
 }
-
-
-
+.add-slider {
+    max-height: 0px;
+    overflow-y: hidden;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  }
+  .add-slider.opened {
+    max-height: 200px;
+    overflow: hidden;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  }
 
 /******************************************************************
 MEDIA QUERIES
@@ -222,7 +233,11 @@ MEDIA QUERIES
      border-bottom-left-radius: 5px;
      border-bottom-right-radius: 5px;
   }
-
+  .add {
+    position: absolute;
+    left: 308px;
+    top: 50px;
+  }
 }
 
 /******************************************************************
@@ -414,5 +429,11 @@ MEDIA QUERIES
      border-bottom-left-radius: 5px;
      border-bottom-right-radius: 5px;
   }
+  .add {
+    position: absolute;
+    left: 510px;
+    top: 45px;
+  }
+
 }
 
