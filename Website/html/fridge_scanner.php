@@ -166,7 +166,7 @@
                die("Something when wrong. Status code: $status" );
             }
 
-          // prints out JSON raw data
+          // prints out JSON raw data array
           // echo '<pre>';
           // print_r($json_response);
           // echo '</pre>';
