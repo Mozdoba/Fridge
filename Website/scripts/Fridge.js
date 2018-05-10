@@ -5,13 +5,20 @@ var db = firebase.firestore();
 const settings = {timestampsInSnapshots: true};
 db.settings(settings);
     
-//----------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //DISPLAY DATA FROM FIRESTORE
-//----------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Captures user email and password on login
 var userID = 'LGMsHkEvgKWoxrNqO01y';
 var userEmail = "test@test.com";
 var userPass;
+
+getSubCollection(userID, "grains");
+getSubCollection(userID, "meats");
+getSubCollection(userID, "dairy");
+getSubCollection(userID, "fruits");
+getSubCollection(userID, "vegetables");
+
 //var userID = getUserId(userEmail);
 //console.log(userID);
 /**
@@ -39,8 +46,6 @@ var userPass;
  * style existing delete-button :hover :active
  */
 
-
-
 // Shortcuts to DOM Elements.
 const renderGrainsButton = document.querySelector("#render-grains");
 const renderMeatsButton = document.querySelector("#render-meats");
@@ -48,7 +53,9 @@ const renderDairyButton = document.querySelector("#render-dairy");
 const renderFruitsButton = document.querySelector("#render-fruits");
 const renderVegetablesButton = document.querySelector("#render-vegetables");
 const editButton = document.querySelectorAll(".edit-button");
+const cancelButton = document.querySelectorAll(".cancel-button");
 const deleteButton = document.querySelectorAll(".delete-button");
+
 const getUsersButton = document.querySelectorAll(".display-users");
 const getFoodButton = document.querySelectorAll(".display-foods");
 const getUserIdButton = document.querySelectorAll(".display-userID");
@@ -58,6 +65,11 @@ const dairy_content = document.querySelector('#modal-content-dairy');
 const fruits_content = document.querySelector('#modal-content-fruits');
 const vegelists_content = document.querySelector('#modal-content-dairy');
 
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//ADD EVENT LISTENERS TO BUTTONS
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 $('.add').click(function() {
     if ($('.add-slider').hasClass("opened")) {
         $(".add-slider").removeClass("opened");
@@ -66,8 +78,49 @@ $('.add').click(function() {
     }
 });
 
+editButton.forEach((el) => {
+    el.addEventListener("click", function() {
+        //Displays the cancel button and hides edit button
+        $(".cancel-button").removeClass("hidden");
+        setTimeout(function() {
+            $(".cancel-button").removeClass("disabled");
+        }, 10);
+        $(this).addClass("disabled");
+        $(this).addClass("hidden");
+
+        // Displays selectable checkboxes
+        var checkBoxes = document.querySelectorAll(".selectable");
+        checkBoxes.forEach((el) => {
+                el.style.display = "inline-block";
+        });
+    });
+});
+
+cancelButton.forEach((el) => {
+    el.addEventListener("click", function() {
+        //Displays the cancel button and hides edit button
+        $(".edit-button").removeClass("hidden");
+        setTimeout(function() {
+            $(".edit-button").removeClass("disabled");
+        }, 10);
+        $(this).addClass("disabled");
+        $(this).addClass("hidden");
+
+        // Displays selectable checkboxes
+        var checkBoxes = document.querySelectorAll(".selectable");
+        checkBoxes.forEach((el) => {
+                el.style.display = "none";
+        });
+    });
+});
+
+deleteButton.forEach((el) => {
+    el.addEventListener("click", deleteCheckedBoxes);
+});
+
 
 // Events for generating modal content
+/*
 renderGrainsButton.addEventListener("click", function() {
     var userID = 'LGMsHkEvgKWoxrNqO01y';
     getSubCollection(userID, 'grains');
@@ -93,14 +146,6 @@ renderVegetablesButton.addEventListener("click", function() {
     getSubCollection(userID, 'vegetables');
 });
 
-editButton.forEach((el) => {
-    el.addEventListener("click", editButtonFunction);
-});
-
-deleteButton.forEach((el) => {
-    el.addEventListener("click", deleteCheckedBoxes);
-});
-
 var userEmail = "test@test.com";
 getUsersButton.forEach((el) => {
     el.addEventListener("click", function() {
@@ -117,6 +162,11 @@ getUserIdButton.forEach((el) => {
         getUserId(userEmail);
     });
 });
+*/
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//BUTTON FUNCTIONS
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // Displays delete-button if at least 1 checkbox is checked
 function showDeleteButton() {
@@ -136,17 +186,6 @@ function showDeleteButton() {
             el.style.display = "none";
         });
     }
-}
-// Displays selectable checkboxes
-function editButtonFunction() {
-    var checkBoxes = document.querySelectorAll(".selectable");
-    checkBoxes.forEach((el) => {
-        if (el.style.display == "none") {
-            el.style.display = "inline-block";
-        } else {
-            el.style.display = "none";
-        }
-    });
 }
 
 // Renders data on HTML pages
@@ -178,6 +217,10 @@ function deleteCheckedBoxes(modal) {
         }
     }
 }
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//FIRESTORE DATABASE FUNCTIONS
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 function getUserId(userEmail) {
     console.log("Attempting to retreive Document ID");
@@ -217,11 +260,14 @@ function getSubCollection(userID, category) {
                 // generate content in modal
                 renderFoodItem(doc, category);
             });
+            
             // addEventListeners to all the food-item inputs that were just rendered
             let selectableCheckBox = document.querySelectorAll(".selectable");
             selectableCheckBox.forEach((el) => {
                 el.addEventListener("click", showDeleteButton);
             });
+            
+            
             console.log("Returned document(s) in '" + category + "' query");
         }
     });
@@ -297,9 +343,6 @@ function getDocumentsInQuery(query) {
         */
     });
 }
-
-
-
 
 });
 
