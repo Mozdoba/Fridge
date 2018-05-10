@@ -6,6 +6,9 @@
 .hidden {
     display: none;
 }
+.disabled {
+    opacity: 0;
+}
 
 .food-list {
     overflow-y: scroll;
@@ -29,38 +32,33 @@
     margin: 0 0 0 0;
 }
 
-.edit-button {
+#edit-button-grains, #edit-button-meats, #edit-button-dairy, #edit-button-fruits, #edit-button-vegetables {
     left: right;
     color: rgb(96, 96, 194);
     font-size: 13pt;
     line-height: 0;
     cursor: pointer;
+    user-select: none;
     opacity: 1;
-    -webkit-transition: opacity 0.15s ease-in-out;
-    -moz-transition: opacity 0.15s ease-in-out;
-    -ms-transition: opacity 0.15s ease-in-out;
-    -o-transition: opacity 0.15s ease-in-out;
+    -webkit-transition: opacity 0.8s ease-in-out;
+    -moz-transition: opacity 0.8s ease-in-out;
+    -ms-transition: opacity 0.8s ease-in-out;
+    -o-transition: opacity 0.8s ease-in-out;
 }
 
-.edit-button.disabled {
-    opacity: 0;
-}
-
-.cancel-button.disabled {
-    opacity: 0;
-}
-
-.cancel-button {
+#cancel-button-grains, #cancel-button-meats, #cancel-button-dairy, #cancel-button-fruits, #cancel-button-vegetables {
     left: right;
     color: rgb(96, 96, 194);
     font-size: 13pt;
+    font-weight: bold;
     line-height: 0;
     cursor: pointer;
+    user-select: none;
     opacity: 1;
-    -webkit-transition: opacity 0.15s ease-in-out;
-    -moz-transition: opacity 0.15s ease-in-out;
-    -ms-transition: opacity 0.15s ease-in-out;
-    -o-transition: opacity 0.15s ease-in-out;
+    -webkit-transition: opacity 0.8s ease-in-out;
+    -moz-transition: opacity 0.8s ease-in-out;
+    -ms-transition: opacity 0.8s ease-in-out;
+    -o-transition: opacity 0.8s ease-in-out;
 }
 
 .delete-button {
@@ -70,6 +68,7 @@
     line-height: 0;
     display: none;
     cursor:pointer;
+    user-select: none;
 }
 .add-slider {
     max-height: 0px;

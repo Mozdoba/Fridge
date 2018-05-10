@@ -52,9 +52,24 @@ const renderMeatsButton = document.querySelector("#render-meats");
 const renderDairyButton = document.querySelector("#render-dairy");
 const renderFruitsButton = document.querySelector("#render-fruits");
 const renderVegetablesButton = document.querySelector("#render-vegetables");
-const editButton = document.querySelectorAll(".edit-button");
-const cancelButton = document.querySelectorAll(".cancel-button");
-const deleteButton = document.querySelectorAll(".delete-button");
+
+const editButtonMeats = document.querySelector("#edit-button-meats");
+const editButtonGrains = document.querySelector("#edit-button-grains");
+const editButtonDairy = document.querySelector("#edit-button-dairy");
+const editButtonFruits = document.querySelector("#edit-button-fruits");
+const editButtonVegetables = document.querySelector("#edit-button-vegetables");
+
+const cancelButtonMeats = document.querySelector("#cancel-button-meats");
+const cancelButtonGrains = document.querySelector("#cancel-button-grains");
+const cancelButtonDairy = document.querySelector("#cancel-button-dairy");
+const cancelButtonFruits = document.querySelector("#cancel-button-fruits");
+const cancelButtonVegetables = document.querySelector("#cancel-button-vegetables");
+
+const deleteButtonMeats = document.querySelector("#delete-button-meats");
+const deleteButtonGrains = document.querySelector("#delete-button-grains");
+const deleteButtonDairy = document.querySelector("#delete-button-dairy");
+const deleteButtonFruits = document.querySelector("#delete-button-fruits");
+const deleteButtonVegetables = document.querySelector("#delete-button-vegetables");
 
 const getUsersButton = document.querySelectorAll(".display-users");
 const getFoodButton = document.querySelectorAll(".display-foods");
@@ -78,41 +93,111 @@ $('.add').click(function() {
     }
 });
 
-editButton.forEach((el) => {
-    el.addEventListener("click", function() {
-        //Displays the cancel button and hides edit button
-        $(".cancel-button").removeClass("hidden");
-        setTimeout(function() {
-            $(".cancel-button").removeClass("disabled");
-        }, 10);
-        $(this).addClass("disabled");
-        $(this).addClass("hidden");
-
-        // Displays selectable checkboxes
-        var checkBoxes = document.querySelectorAll(".selectable");
-        checkBoxes.forEach((el) => {
-                el.style.display = "inline-block";
-        });
+editButtonGrains.addEventListener("click", function() {
+    //Displays the cancel button and hides edit button
+    toggleCancelEdit(cancelButtonGrains, this);
+    // Displays selectable checkboxes
+    var checkBoxes = document.querySelectorAll(".selectable");
+    checkBoxes.forEach((el) => {
+            el.style.display = "inline-block";
     });
 });
 
-cancelButton.forEach((el) => {
-    el.addEventListener("click", function() {
-        //Displays the cancel button and hides edit button
-        $(".edit-button").removeClass("hidden");
-        setTimeout(function() {
-            $(".edit-button").removeClass("disabled");
-        }, 10);
-        $(this).addClass("disabled");
-        $(this).addClass("hidden");
+cancelButtonGrains.addEventListener("click", function() {
+    //Displays the cancel button and hides edit button
+    toggleEditCancel(editButtonGrains, this);
 
-        // Displays selectable checkboxes
-        var checkBoxes = document.querySelectorAll(".selectable");
-        checkBoxes.forEach((el) => {
-                el.style.display = "none";
-        });
+    // Displays selectable checkboxes
+    var checkBoxes = document.querySelectorAll(".selectable");
+    checkBoxes.forEach((el) => {
+            el.style.display = "none";
     });
 });
+
+editButtonMeats.addEventListener("click", function() {
+    //Displays the cancel button and hides edit button
+    toggleCancelEdit(cancelButtonMeats, this);
+    // Displays selectable checkboxes
+    var checkBoxes = document.querySelectorAll(".selectable");
+    checkBoxes.forEach((el) => {
+            el.style.display = "inline-block";
+    });
+});
+
+cancelButtonMeats.addEventListener("click", function() {
+    //Displays the cancel button and hides edit button
+    toggleEditCancel(editButtonMeats, this);
+
+    // Displays selectable checkboxes
+    var checkBoxes = document.querySelectorAll(".selectable");
+    checkBoxes.forEach((el) => {
+            el.style.display = "none";
+    });
+});
+
+editButtonDairy.addEventListener("click", function() {
+    //Displays the cancel button and hides edit button
+    toggleCancelEdit(cancelButtonDairy, this);
+    // Displays selectable checkboxes
+    var checkBoxes = document.querySelectorAll(".selectable");
+    checkBoxes.forEach((el) => {
+            el.style.display = "inline-block";
+    });
+});
+
+cancelButtonDairy.addEventListener("click", function() {
+    //Displays the cancel button and hides edit button
+    toggleEditCancel(editButtonDairy, this);
+
+    // Displays selectable checkboxes
+    var checkBoxes = document.querySelectorAll(".selectable");
+    checkBoxes.forEach((el) => {
+            el.style.display = "none";
+    });
+});
+
+editButtonFruits.addEventListener("click", function() {
+    //Displays the cancel button and hides edit button
+    toggleCancelEdit(cancelButtonFruits, this);
+    // Displays selectable checkboxes
+    var checkBoxes = document.querySelectorAll(".selectable");
+    checkBoxes.forEach((el) => {
+            el.style.display = "inline-block";
+    });
+});
+
+cancelButtonFruits.addEventListener("click", function() {
+    //Displays the cancel button and hides edit button
+    toggleEditCancel(editButtonFruits, this);
+
+    // Displays selectable checkboxes
+    var checkBoxes = document.querySelectorAll(".selectable");
+    checkBoxes.forEach((el) => {
+            el.style.display = "none";
+    });
+});
+
+editButtonVegetables.addEventListener("click", function() {
+    //Displays the cancel button and hides edit button
+    toggleCancelEdit(cancelButtonVegetables, this);
+    // Displays selectable checkboxes
+    var checkBoxes = document.querySelectorAll(".selectable");
+    checkBoxes.forEach((el) => {
+            el.style.display = "inline-block";
+    });
+});
+
+cancelButtonVegetables.addEventListener("click", function() {
+    //Displays the cancel button and hides edit button
+    toggleEditCancel(editButtonVegetables, this);
+
+    // Displays selectable checkboxes
+    var checkBoxes = document.querySelectorAll(".selectable");
+    checkBoxes.forEach((el) => {
+            el.style.display = "none";
+    });
+});
+
 
 deleteButton.forEach((el) => {
     el.addEventListener("click", deleteCheckedBoxes);
@@ -167,6 +252,24 @@ getUserIdButton.forEach((el) => {
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //BUTTON FUNCTIONS
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+function toggleCancelEdit(cancelButton, editButton) {
+    $(cancelButton).removeClass("hidden");
+    setTimeout(function() {
+        $(cancelButton).removeClass("disabled");
+    }, 20);
+    $(editButton).addClass("disabled");
+    $(editButton).addClass("hidden");
+}
+
+function toggleEditCancel(editButton, cancelButton) {
+    $(editButton).removeClass("hidden");
+    setTimeout(function() {
+        $(editButton).removeClass("disabled");
+    }, 20);
+    $(cancelButton).addClass("disabled");
+    $(cancelButton).addClass("hidden");
+}
 
 // Displays delete-button if at least 1 checkbox is checked
 function showDeleteButton() {
