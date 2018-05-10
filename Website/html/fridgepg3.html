@@ -15,39 +15,68 @@
 
     <div class="fridge_container">
         <a href="./login.html"><img id="logout" src="../images/exit_swing.png" alt="logout"></a>
+        <img id="camera" class="btn resize hover" data-toggle="modal" src="../images/photo-camera.png" alt="scan"/>
             <img id="steak" class="btn btn-meats resize hover" href="#success" data-toggle="modal" src="../images/steak.png" alt="meat"/>
             <!-- Modal -->
             <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header modal-header-meats">
-                            <button type="button" class="display-data">Get Data</button>
-                            <button type="button" class="display-users">Get Users</button>
-                            <button type="button" class="display-foods">Get Food Items</button>
+                            <!--<button type="button" class="display-users">User Docs</button>
+                            <button type="button" class="display-foods">Food Items SubCollection</button>
+                            <button type="button" id="render-meats">Render Meats</button>
+                            <button type="button" class="display-userID">getUserId()</button>-->
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h1><i class="glyphicon glyphicon-pushpin"></i> Meats</h1>
+                            <h1><i>Meats</i></h1>
+                            <span id="edit-button-meats">Edit</span>
+                            <span id="cancel-button-meats" class="disabled hidden">Cancel</span>
+                            <span id="delete-button-meats">Delete</span>
+                            <img id="plus-meats" class="btn add" data-toggle="modal" src="../images/plus-grey.png" alt="manually add foods"/>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body-meats">
+                            <div class="add-slider">
+                                <form>
+                                    <input type="text" name="category" value="Category"></br>
+                                    <input type="date" name="date" value="Date"></br>
+                                    <input type="text" name="market" value="Market"></br>
+                                    <input type="checkbox" name="perishable"><label for="perishable">Perishable?</label></br>
+                                    <input type="submit" value="Done">
+                                </form>
+                            </div>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer-meats">
                             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
                         </div>
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
             <!-- Modal -->
-            <img id="toast" class="btn btn-wheat resize hover" href="#primary" data-toggle="modal" src="../images/toast.png" alt="grain"/>
+            <img id="toast" class="btn btn-grains resize hover" href="#primary" data-toggle="modal" src="../images/toast.png" alt="grain"/>
             <!-- Modal -->
             <div class="modal fade" id="primary" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <div class="modal-header modal-header-wheat-and-grain">
+                        <div class="modal-header modal-header-grains">
+                            <!--<button type="button" id="render-grains">Render Grains</button>-->
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h1><i class="glyphicon glyphicon-pushpin"></i> Wheat &amp; Grain</h1>
+                            <h1><i>Grains</i></h1>
+                            <span id="edit-button-grains">Edit</span>
+                            <span id="cancel-button-grains" class="disabled hidden">Cancel</span>
+                            <span id="delete-button-grains">Delete</span>
+                            <img id="plus-grains" class="btn add" data-toggle="modal" src="../images/plus-grey.png" alt="manually add foods"/>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body-grains">
+                            <div class="add-slider">
+                                <form>
+                                    <input type="text" name="category" value="Category"></br>
+                                    <input type="date" name="date" value="Date"></br>
+                                    <input type="text" name="market" value="Market"></br>
+                                    <input type="checkbox" name="perishable"><label for="perishable">Perishable?</label></br>
+                                    <input type="submit" value="Done">
+                                </form>
+                            </div>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer-grains">
                             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
                         </div>
                     </div><!-- /.modal-content -->
@@ -60,12 +89,26 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header modal-header-dairy">
+                            <!--<button type="button" id="render-dairy">Render Dairy</button>-->
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h1><i class="glyphicon glyphicon-pushpin"></i> Dairy</h1>
+                            <h1><i>Dairy</i></h1>
+                            <span id="edit-button-dairy" class="">Edit</span>
+                            <span id="cancel-button-dairy" class="disabled hidden">Cancel</span>
+                            <span id="delete-button-dairy">Delete</span>
+                            <img id="plus-dairy" class="btn add" data-toggle="modal" src="../images/plus-grey.png" alt="manually add foods"/>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body-dairy">
+                            <div class="add-slider">
+                                <form>
+                                    <input type="text" name="category" value="Category"></br>
+                                    <input type="date" name="date" value="Date"></br>
+                                    <input type="text" name="market" value="Market"></br>
+                                    <input type="checkbox" name="perishable"><label for="perishable">Perishable?</label></br>
+                                    <input type="submit" value="Done">
+                                </form>
+                            </div>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer-dairy">
                             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
                         </div>
                     </div><!-- /.modal-content -->
@@ -78,12 +121,26 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header modal-header-fruits">
+                            <!--<button type="button" id="render-fruits">Render Fruits</button>-->
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h1><i class="glyphicon glyphicon-pushpin"></i> Fruits</h1>
+                            <h1><i>Fruits</i></h1>
+                            <span id="edit-button-fruits">Edit</span>
+                            <span id="cancel-button-fruits" class="disabled hidden">Cancel</span>
+                            <span id="delete-button-fruits">Delete</span>
+                            <img id="plus-fruits" class="btn add" data-toggle="modal" src="../images/plus-grey.png" alt="manually add foods"/>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body-fruits">
+                            <div class="add-slider">
+                                <form>
+                                    <input type="text" name="category" value="Category"></br>
+                                    <input type="date" name="date" value="Date"></br>
+                                    <input type="text" name="market" value="Market"></br>
+                                    <input type="checkbox" name="perishable"><label for="perishable">Perishable?</label></br>
+                                    <input type="submit" value="Done">
+                                </form>
+                            </div>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer-fruits">
                             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
                         </div>
                     </div><!-- /.modal-content -->
@@ -96,12 +153,26 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header modal-header-vegetables">
+                            <!--<button type="button" id="render-vegetables">Render Vegetables</button>-->
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h1><i class="glyphicon glyphicon-pushpin"></i> Vegetables</h1>
+                            <h1><i>Vegetables</i></h1>
+                            <span id="edit-button-vegetables">Edit</span>
+                            <span id="cancel-button-vegetables" class="disabled hidden">Cancel</span>
+                            <span id="delete-button-vegetables">Delete</span>
+                            <img id="plus-vegetables" class="btn add" data-toggle="modal" src="../images/plus-grey.png" alt="manually add foods"/>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body-vegetables">
+                            <div class="add-slider">
+                                <form>
+                                    <input type="text" name="category" value="Category"></br>
+                                    <input type="date" name="date" value="Date"></br>
+                                    <input type="text" name="market" value="Market"></br>
+                                    <input type="checkbox" name="perishable"><label for="perishable">Perishable?</label></br>
+                                    <input type="submit" value="Done">
+                                </form>
+                             </div>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer-vegetables">
                             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
                         </div>
                     </div><!-- /.modal-content -->
@@ -110,12 +181,11 @@
             <!-- Modal -->
         </div>
 
-<div class="references">Icons made by <a class="references"  href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-<div class="references">Icons made by <a class="references"  href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-<div class="references">Icons made by <a class="references"  href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-<div class="references">Icons made by><a class="references" href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-<div class="references">Icons made by><a class="references" href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-
+<div class="hidden">Icons made by <a class="references"  href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+<div class="hidden">Icons made by <a class="references"  href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+<div class="hidden">Icons made by <a class="references"  href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+<div class="hidden">Icons made by><a class="references" href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+<div class="hidden">Icons made by><a class="references" href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-firestore.js"></script>
 <script>
@@ -130,10 +200,8 @@
     };
     firebase.initializeApp(config);
   </script>
- 
+<script src="/scripts/Fridge.js"></script>
 <script src="//unpkg.com/navigo@6"></script>
 
-<script src="/scripts/Fridge.js"></script>
-<script src="/scripts/index1.js"></script>
 </body>
 </html>
