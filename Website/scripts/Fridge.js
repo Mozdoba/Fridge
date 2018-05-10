@@ -1,10 +1,34 @@
+// Initialize Firebase
+  var config = {
+  apiKey: "AIzaSyDATxhUzfa7mcLVwM02Cfrdi6ErXtRHDIg",
+  authDomain: "fridgedit-f8177.firebaseapp.com",
+  databaseURL: "https://fridgedit-f8177.firebaseio.com",
+  projectId: "fridgedit-f8177",
+  storageBucket: "fridgedit-f8177.appspot.com",
+  messagingSenderId: "252806401867"
+};
+firebase.initializeApp(config);
+
+
+
+function logOut(){
+
+    firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+      window.location.href = "http://fridgedit.com/login.html";
+    }).catch(function(error) {
+      // An error happened.
+    });
+}
+
+
 $(document).ready(function() {
 
 // Initialize Cloud Firestore through Firebase
 var db = firebase.firestore();
 const settings = {timestampsInSnapshots: true};
 db.settings(settings);
-    
+
 //----------------------------------------------------------------------------------------------------------
 //DISPLAY DATA FROM FIRESTORE
 //----------------------------------------------------------------------------------------------------------
@@ -12,7 +36,7 @@ db.settings(settings);
 /**
  * @TO-DO:
  * create render function
- * 
+ *
  */
 
 // Captures user email and password on login
@@ -90,7 +114,7 @@ function getSubCollection(getId) {
 
 // Renders data on HTML page
 function render(data) {
-// @TO-DO: make a list and append it to ".modal-content" 
+// @TO-DO: make a list and append it to ".modal-content"
 
 }
 
@@ -135,7 +159,7 @@ function getDocumentsInQuery(query) {
         if (!snapshot.size) {
             console.log("No changes to documents in query!");
             return;
-        } 
+        }
         snapshot.docChanges.forEach(function(change) {
             if (change.type === 'added') {
                 console.log('Added: ', change.doc.data());
@@ -151,6 +175,17 @@ function getDocumentsInQuery(query) {
     });
 }
 
+function logOut(){
+  console.log("Hello did this work");
+
+firebase.auth().signOut().then(function() {
+  // Sign-out successful.
+  window.location.href = "http://fridgedit.com/login.html";
+}).catch(function(error) {
+  // An error happened.
+});
+}
+
 
 // Returns all Users documents from firestore
 
@@ -162,7 +197,7 @@ function getDocumentsInQuery(query) {
         } else {
             // doc.data() will be undefined in this case
             console.log("No 'Users' docs!");
-            
+
         }
     }).catch(function(error) {
         console.log("Error getting 'Users' documents:", error);
@@ -213,7 +248,11 @@ function getDocumentsInQuery(query) {
 
 
 
-/*  
+<<<<<<< HEAD
+/*
+=======
+/*
+>>>>>>> sakis-feature
   Fridge.prototype.data = {
     market: [
       'Save-On-Foods',
