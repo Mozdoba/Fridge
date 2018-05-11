@@ -14,8 +14,6 @@
   </head>
 
   <body>
-
-
     <div class="fridge_container">
         <img id="logout" src="../images/exit_swing.png" alt="logout" onclick = "logOut()"></a>
             <img id="steak" class="btn btn-meats resize hover" href="#success" data-toggle="modal" src="../images/steak.png" alt="meat"/>
@@ -24,11 +22,16 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header modal-header-meats">
-                            <button type="button" class="display-data">Get Data</button>
-                            <button type="button" class="display-users">Get Users</button>
-                            <button type="button" class="display-foods">Get Food Items</button>
+                            <!--<button type="button" class="display-users">User Docs</button>
+                            <button type="button" class="display-foods">Food Items SubCollection</button>
+                            <button type="button" id="render-meats">Render Meats</button>
+                            <button type="button" class="display-userID">getUserId()</button>-->
+                            <span id="edit-button-meats">Edit</span>
+                            <span id="cancel-button-meats" class="disabled hidden">Cancel</span>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h1><i class="glyphicon glyphicon-pushpin"></i> Meats</h1>
+                            <h1><i>Meats</i></h1>
+                            <span id="delete-button-meats">Delete</span>
+                            <img id="plus-meats" class="btn add" data-toggle="modal" src="../images/plus-grey.png" alt="manually add foods"/>
                         </div>
                         <div class="modal-body">
                         </div>
@@ -44,9 +47,14 @@
             <div class="modal fade" id="primary" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <div class="modal-header modal-header-wheat-and-grain">
+                        <div class="modal-header modal-header-grains">
+                            <!--<button type="button" id="render-grains">Render Grains</button>-->
+                            <span id="edit-button-grains">Edit</span>
+                            <span id="cancel-button-grains" class="disabled hidden">Cancel</span>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h1><i class="glyphicon glyphicon-pushpin"></i> Wheat &amp; Grain</h1>
+                            <h1><i>Grains</i></h1>
+                            <span id="delete-button-grains">Delete</span>
+                            <img id="plus-grains" class="btn add" data-toggle="modal" src="../images/plus-grey.png" alt="manually add foods"/>
                         </div>
                         <div class="modal-body">
                         </div>
@@ -63,8 +71,13 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header modal-header-dairy">
+                            <!--<button type="button" id="render-dairy">Render Dairy</button>-->
+                            <span id="edit-button-dairy" class="">Edit</span>
+                            <span id="cancel-button-dairy" class="disabled hidden">Cancel</span>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h1><i class="glyphicon glyphicon-pushpin"></i> Dairy</h1>
+                            <h1><i>Dairy</i></h1>
+                            <span id="delete-button-dairy">Delete</span>
+                            <img id="plus-dairy" class="btn add" data-toggle="modal" src="../images/plus-grey.png" alt="manually add foods"/>
                         </div>
                         <div class="modal-body">
                         </div>
@@ -81,8 +94,13 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header modal-header-fruits">
+                            <!--<button type="button" id="render-fruits">Render Fruits</button>-->
+                            <span id="edit-button-fruits">Edit</span>
+                            <span id="cancel-button-fruits" class="disabled hidden">Cancel</span>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h1><i class="glyphicon glyphicon-pushpin"></i> Fruits</h1>
+                            <h1><i>Fruits</i></h1>
+                            <span id="delete-button-fruits">Delete</span>
+                            <img id="plus-fruits" class="btn add" data-toggle="modal" src="../images/plus-grey.png" alt="manually add foods"/>
                         </div>
                         <div class="modal-body">
                         </div>
@@ -99,8 +117,13 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header modal-header-vegetables">
+                            <!--<button type="button" id="render-vegetables">Render Vegetables</button>-->
+                            <span id="edit-button-vegetables">Edit</span>
+                            <span id="cancel-button-vegetables" class="disabled hidden">Cancel</span>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h1><i class="glyphicon glyphicon-pushpin"></i> Vegetables</h1>
+                            <h1><i>Vegetables</i></h1>
+                            <span id="delete-button-vegetables">Delete</span>
+                            <img id="plus-vegetables" class="btn add" data-toggle="modal" src="../images/plus-grey.png" alt="manually add foods"/>
                         </div>
                         <div class="modal-body">
                         </div>
