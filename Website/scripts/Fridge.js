@@ -326,34 +326,24 @@ function deleteCheckedBoxes(category) {
         }
     }
 }
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//FUNCTIONS IN DEVELOPMENT
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Adds a new food item to 'Food Item' collection in the Users Database (Firebase)
+function addNewDocument(userID, foodItem, category, market, perishable, price, date) {
+    db.collection("Users").doc(userID).collection("Food Item").doc(foodItem).set({
+        category: category,
+        market: market,
+        perishable: perishable,
+        price: price,
+        timestamp: date
+    })
+}
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //FIRESTORE DATABASE FUNCTIONS
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-function getUserId(userEmail) {
-    console.log("Attempting to retreive Document ID");
-    var query = db.collection("Users").where("email", "==", userEmail);
-    query.get().then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-            // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id);
-            return doc.id;
-        });
-    });
-}
-
-// Gets User data specified by email
-function getAllUsersWithEmail(userEmail) {
-    console.log("Attempting to retreive User Document");
-    var query = db.collection("Users").where("email", "==", userEmail);
-    query.get().then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-            // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
-        });
-    });
-}
 
 function getSubCollection(userID, category) {
     console.log("Attempting to retreive 'category: " + category + "' documents from Food Item subcollection");
@@ -383,15 +373,33 @@ function deleteDocument(userID, documentID) {
     });
 }
 
-// Adds a new food item to 'Food Item' collection in the Users Database (Firebase)
-function addNewDocument(userID, foodItem, category, market, perishable, price, date) {
-    db.collection("Users").doc(userID).collection("Food Item").doc(foodItem).set({
-        category: category,
-        market: market,
-        perishable: perishable,
-        price: price,
-        timestamp: date
-    })
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//WORKING FUNCTIONS NOT YET INCORPORATED
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Gets a User's ID givin the associated email
+function getUserId(userEmail) {
+    console.log("Attempting to retreive Document ID");
+    var query = db.collection("Users").where("email", "==", userEmail);
+    query.get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id);
+            return doc.id;
+        });
+    });
+}
+// Gets User data specified by email
+function getAllUsersWithEmail(userEmail) {
+    console.log("Attempting to retreive User Document");
+    var query = db.collection("Users").where("email", "==", userEmail);
+    query.get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+        });
+    });
 }
 
 var firstname = "Lewis";
@@ -447,113 +455,3 @@ function getDocumentsInQuery(query) {
 }
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*  
-  Fridge.prototype.data = {
-    market: [
-      'Save-On-Foods',
-      'Whole Foods Market',
-      'No Frills',
-      'Safeway',
-      'Walmart',
-      'Famous Foods',
-      'Choices Market',
-      'T & T Supermarket',
-      'Nesters Market',
-      'Marketplace IGA',
-      'Urban Fare',
-      'Buy-Low Foods Ltd\''
-    ],
-    age: [
-      'One Minute',
-      'One Hour',
-      'One Day',
-      'One Week',
-      'Two Weeks',
-      'Three Weeks',
-      '1 Month',
-      '2 Months',
-      '3 Months',
-      '4 Month',
-      '5 Months',
-      '6 Months',
-      '7 Month',
-      '8 Months',
-      '9 Months',
-      '10 Month',
-      '11 Months',
-      '1 Year'
-    ],
-    categories: [
-      'Dairy',
-      'Meats',
-      'Wheat',
-      'Fruits',
-      'Vegelists',
-    ],
-    price: [
-      {
-        price: 1,
-        text: 'Less than a dollar.'
-      },
-      {
-        price: 2,
-        text: 'Less than 5 dollars.'
-      },
-      {
-        price: 3,
-        text: 'Less than 10 dollars'
-      },
-      {
-        price: 4,
-        text: 'Less than 20 dollars'
-      },
-      {
-        price: 5,
-        text: 'This is my favorite place. Literally.'
-      }
-    ]
-  };
-*/
