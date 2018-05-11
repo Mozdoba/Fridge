@@ -1,3 +1,27 @@
+// Initialize Firebase
+  var config = {
+  apiKey: "AIzaSyDATxhUzfa7mcLVwM02Cfrdi6ErXtRHDIg",
+  authDomain: "fridgedit-f8177.firebaseapp.com",
+  databaseURL: "https://fridgedit-f8177.firebaseio.com",
+  projectId: "fridgedit-f8177",
+  storageBucket: "fridgedit-f8177.appspot.com",
+  messagingSenderId: "252806401867"
+};
+firebase.initializeApp(config);
+
+
+
+function logOut(){
+
+    firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+      window.location.href = "http://fridgedit.com/login.html";
+    }).catch(function(error) {
+      // An error happened.
+    });
+}
+
+
 $(document).ready(function() {
 
 // Initialize Cloud Firestore through Firebase
@@ -12,67 +36,22 @@ db.settings(settings);
 var userID = 'LGMsHkEvgKWoxrNqO01y';
 var userEmail = "test@test.com";
 
-getSubCollection(userID, "grains");
-getSubCollection(userID, "meats");
-getSubCollection(userID, "dairy");
-getSubCollection(userID, "fruits");
-getSubCollection(userID, "vegetables");
+//----------------------------------------------------------------------------------------------------------
+//DISPLAY DATA FROM FIRESTORE
+//----------------------------------------------------------------------------------------------------------
 
-//var userID = getUserId(userEmail);
-//console.log(userID);
 /**
  * @TO-DO:
-
- * connect login page to fridgepg3.html (form attribute action?)
- * style unordered list - alphabetically vs timestamp
- * update modal content upon page refresh - 30 min
- * ADD CIRCLE button to add new item manually
- * window where user can choose to upload image or add manually or modify existing?
- * Form to fill out when adding new items manually
- * ADD Shopping List functionality?
- * 
- * test function to add food item to DOM
- * take photo of syrra
- * create form to fill out when adding new food items to the fridge
- * create function to grab input fields
- * create function to use input fields to generate new document
- * create function to modify existing fields of a food item
- * design UI to add new food item manually (edit-btn activates?)
- * design UI to modify existing food item (edit-btn activates?)
- * design UI on Fridge page to link to upload receipt screen (edit-btn activates?)
- * Empty Category message if no food items exist in category
- * style existing edit-button :hover :active
- * style existing delete-button :hover :active
+ * create render function
+ *
  */
 
+// Captures user email and password on login
+
 // Shortcuts to DOM Elements.
-const renderGrainsButton = document.querySelector("#render-grains");
-const renderMeatsButton = document.querySelector("#render-meats");
-const renderDairyButton = document.querySelector("#render-dairy");
-const renderFruitsButton = document.querySelector("#render-fruits");
-const renderVegetablesButton = document.querySelector("#render-vegetables");
-
-const editButtonMeats = document.querySelector("#edit-button-meats");
-const editButtonGrains = document.querySelector("#edit-button-grains");
-const editButtonDairy = document.querySelector("#edit-button-dairy");
-const editButtonFruits = document.querySelector("#edit-button-fruits");
-const editButtonVegetables = document.querySelector("#edit-button-vegetables");
-
-const cancelButtonMeats = document.querySelector("#cancel-button-meats");
-const cancelButtonGrains = document.querySelector("#cancel-button-grains");
-const cancelButtonDairy = document.querySelector("#cancel-button-dairy");
-const cancelButtonFruits = document.querySelector("#cancel-button-fruits");
-const cancelButtonVegetables = document.querySelector("#cancel-button-vegetables");
-
-const deleteButtonMeats = document.querySelector("#delete-button-meats");
-const deleteButtonGrains = document.querySelector("#delete-button-grains");
-const deleteButtonDairy = document.querySelector("#delete-button-dairy");
-const deleteButtonFruits = document.querySelector("#delete-button-fruits");
-const deleteButtonVegetables = document.querySelector("#delete-button-vegetables");
-
+const updateListButton = document.querySelectorAll(".display-data");
 const getUsersButton = document.querySelectorAll(".display-users");
 const getFoodButton = document.querySelectorAll(".display-foods");
-const getUserIdButton = document.querySelectorAll(".display-userID");
 const wheat_content = document.querySelector('#modal-content-wheat');
 const meats_content = document.querySelector('#modal-content-meats');
 const dairy_content = document.querySelector('#modal-content-dairy');
@@ -189,31 +168,16 @@ renderMeatsButton.addEventListener("click", function() {
     getSubCollection(userID, 'meats');
 });
 
-renderDairyButton.addEventListener("click", function() {
-    var userID = 'LGMsHkEvgKWoxrNqO01y';
-    getSubCollection(userID, 'dairy');
-});
-
-renderFruitsButton.addEventListener("click", function() {
-    var userID = 'LGMsHkEvgKWoxrNqO01y';
-    getSubCollection(userID, 'fruits');
-});
-
-renderVegetablesButton.addEventListener("click", function() {
-    var userID = 'LGMsHkEvgKWoxrNqO01y';
-    getSubCollection(userID, 'vegetables');
-});
-
-var userEmail = "test@test.com";
 getUsersButton.forEach((el) => {
-    el.addEventListener("click", function() {
-        getAllUsersWithEmail(userEmail);
-    });
+    console.log(el);
+    el.addEventListener("click", getAllUsersWithEmail);
 });
 
 getFoodButton.forEach((el) => {
+    console.log(el);
     el.addEventListener("click", getSubCollection);
 });
+
 
 getUserIdButton.forEach((el) => {
     el.addEventListener("click", function() {
@@ -327,13 +291,9 @@ function deleteCheckedBoxes(category) {
     }
 }
 
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//FIRESTORE DATABASE FUNCTIONS
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-function getUserId(userEmail) {
+function getId(userEmail) {
     console.log("Attempting to retreive Document ID");
-    var query = db.collection("Users").where("email", "==", userEmail);
+    var query = db.collection("Users").where("email", "==", "test@test.com");
     query.get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
             // doc.data() is never undefined for query doc snapshots
@@ -343,15 +303,21 @@ function getUserId(userEmail) {
     });
 }
 
-// Gets User data specified by email
-function getAllUsersWithEmail(userEmail) {
-    console.log("Attempting to retreive User Document");
-    var query = db.collection("Users").where("email", "==", userEmail);
+// Gets User subcollection Food Item data specified by email
+var useremail = "test@test.com";
+function getSubCollection(getId) {
+    console.log("Attempting to retreive SubCollections");
+    var query = db.collection("Users").doc('LGMsHkEvgKWoxrNqO01y').collection("Food Item");
     query.get().then(function(querySnapshot) {
+        var list = '<ul class="food-list">';
         querySnapshot.forEach(function(doc) {
             // doc.data() is never undefined for query doc snapshots
             console.log(doc.id, " => ", doc.data());
+            // generate content in modal
+            list += "<li>" + doc.id + "</li>";
         });
+        list += '</ul>';
+        $(".modal-content").append(list);
     });
 }
 
@@ -394,6 +360,22 @@ function addNewDocument(userID, foodItem, category, market, perishable, price, d
     })
 }
 
+// Returns mock data from firestore
+function retrieveData() {
+    console.log("Attempting to retreive Document Data");
+    let docRef = db.collection("Food").doc("Dairy");
+    docRef.get().then(function(doc) {
+        if (doc.exists) {
+            console.log("Document data:", doc.data());
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+    }).catch(function(error) {
+        console.log("Error getting document:", error);
+    });
+}
+
 var firstname = "Lewis";
 function getAllUsers(firstname) {
     console.log("Attempting to retreive Document Data");
@@ -410,42 +392,59 @@ function getAllUsers(firstname) {
     });
 }
 
-// Returns mock data from firestore
-function retrieveData(userEmail) {
-    console.log("Attempting to retreive Document Data");
-    let docRef = db.collection("Users").doc(userID);
-    docRef.get().then(function(doc) {
-        if (doc.exists) {
-            console.log("Document data:", doc.data());
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-        }
-    }).catch(function(error) {
-        console.log("Error getting document:", error);
-    });
-}
 
 // Returns all Documents in specefied query
 function getDocumentsInQuery(query) {
     query.onSnapshot(function(snapshot) {
+        console.log(snapshot);
         console.log(snapshot.size);
         if (!snapshot.size) {
             console.log("No changes to documents in query!");
             return;
         }
-        console.log("Returned changed documents in query");
-        return;
-        /*
         snapshot.docChanges.forEach(function(change) {
             if (change.type === 'added') {
-              render(change.doc);
+                console.log('Added: ', change.doc.data());
             }
-          });
-        */
+            if (change.type === 'modified') {
+                console.log('Modified: ', change.doc.data());
+            }
+            if (change.type === 'removed') {
+                console.log('Removed: ', change.doc.data());
+            }
+            return;
+        });
     });
 }
 
+function logOut(){
+  console.log("Hello did this work");
+
+firebase.auth().signOut().then(function() {
+  // Sign-out successful.
+  window.location.href = "http://fridgedit.com/login.html";
+}).catch(function(error) {
+  // An error happened.
+});
+}
+
+
+// Returns all Users documents from firestore
+
+
+    /*usersRef.get().then(function(doc) {
+        if(doc.exists) {
+            console.log("'Users' collection data:", doc.data());
+            return doc.data();
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No 'Users' docs!");
+
+        }
+    }).catch(function(error) {
+        console.log("Error getting 'Users' documents:", error);
+    });
+}*/
 });
 
 
@@ -488,72 +487,3 @@ function getDocumentsInQuery(query) {
 
 
 
-
-
-/*  
-  Fridge.prototype.data = {
-    market: [
-      'Save-On-Foods',
-      'Whole Foods Market',
-      'No Frills',
-      'Safeway',
-      'Walmart',
-      'Famous Foods',
-      'Choices Market',
-      'T & T Supermarket',
-      'Nesters Market',
-      'Marketplace IGA',
-      'Urban Fare',
-      'Buy-Low Foods Ltd\''
-    ],
-    age: [
-      'One Minute',
-      'One Hour',
-      'One Day',
-      'One Week',
-      'Two Weeks',
-      'Three Weeks',
-      '1 Month',
-      '2 Months',
-      '3 Months',
-      '4 Month',
-      '5 Months',
-      '6 Months',
-      '7 Month',
-      '8 Months',
-      '9 Months',
-      '10 Month',
-      '11 Months',
-      '1 Year'
-    ],
-    categories: [
-      'Dairy',
-      'Meats',
-      'Wheat',
-      'Fruits',
-      'Vegelists',
-    ],
-    price: [
-      {
-        price: 1,
-        text: 'Less than a dollar.'
-      },
-      {
-        price: 2,
-        text: 'Less than 5 dollars.'
-      },
-      {
-        price: 3,
-        text: 'Less than 10 dollars'
-      },
-      {
-        price: 4,
-        text: 'Less than 20 dollars'
-      },
-      {
-        price: 5,
-        text: 'This is my favorite place. Literally.'
-      }
-    ]
-  };
-*/

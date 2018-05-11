@@ -6,9 +6,26 @@ body {
     font-family: sans-serif;
 }
 
+#login {
+  background: #34b4a0;
+}
+
 #confirmPassword{
   display: none;
   visibility: hidden;
+}
+
+#zeButton {
+  background-color: transparent;
+  border-color: transparent;
+  font-family: 'Fredoka One';
+  color: white;
+  font-size: 3.5em ;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+  text-shadow: 3px 3px black;
+
+
 }
 
 #lock{
@@ -17,11 +34,29 @@ body {
 }
 
 
-h1 {
-    text-align: center;
-    font-size: 100%;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
+.title {
+  font-family: 'Fredoka One';
+  color: white;
+  font-size: 3.5em ;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+  text-shadow: 3px 3px black;
+
+  }
+
+
+#heading {
+  text-align: center;
+  /* border: 2px solid white; */
+  width: 50%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+
+}
+
+#egg {
+  display: none;
 }
 
 #title {
@@ -35,14 +70,13 @@ h1 {
 }
 
 .container {
-    width: 320px;
+    width: 350px;
     margin: auto;
-    padding: 10px;
 }
 
 .signup,
 .login {
-    width: 160px;
+    width: 175px;
     background: rgba(255, 255, 255, 0.767);
     height: 60px;
     float: left;
@@ -60,7 +94,7 @@ h1 {
     padding: 45px 15px;
     clear: both;
     width: 320px;
-    height: 600px;
+    height: 30%;
 }
 
 .input {
@@ -80,7 +114,7 @@ h1 {
 }
 
 
-#btn {
+.aButton {
     width: 100%;
     background: #34b4a0;
     height: 60px;
@@ -98,6 +132,26 @@ span a {
     text-decoration: none;
     color: #000;
 }
+
+.alert {
+  text-align: center;
+  padding: 10px;
+  background: #79c879;
+  color: #fff;
+  margin-bottom: 10px;
+  display: none;
+}
+
+.alert1 {
+  text-align: center;
+  padding: 10px;
+  background: #91303C;
+  color: #fff;
+  margin-bottom: 10px;
+  display: none;
+}
+
+
 
 /******************************************************************
 MEDIA QUERIES
@@ -124,7 +178,7 @@ MEDIA QUERIES
 
 .signup-form, .login-form {
     width: 75%;
-    height: 80%;
+    height: 40%;
     margin: none;
     border: none;
     background: rgba(255, 255, 255, 0.767);
