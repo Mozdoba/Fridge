@@ -95,109 +95,73 @@ $('.add').click(function() {
 
 editButtonGrains.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
-    toggleCancelEdit(cancelButtonGrains, this);
+    disableEditEnableCancel(cancelButtonGrains, this);
     // Displays selectable checkboxes
-    var checkBoxes = document.querySelectorAll(".selectable");
-    checkBoxes.forEach((el) => {
-            el.style.display = "inline-block";
-    });
+    $(".selectable-grains").css("display", "inline-block");
 });
 
 cancelButtonGrains.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
-    toggleEditCancel(editButtonGrains, this);
-
-    // Displays selectable checkboxes
-    var checkBoxes = document.querySelectorAll(".selectable");
-    checkBoxes.forEach((el) => {
-            el.style.display = "none";
-    });
+    disableCancelEnableEdit(editButtonGrains, this);
+    // Hides selectable checkboxes
+    $(".selectable-grains").css("display", "none");
 });
 
 editButtonMeats.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
-    toggleCancelEdit(cancelButtonMeats, this);
+    disableEditEnableCancel(cancelButtonMeats, this);
     // Displays selectable checkboxes
-    var checkBoxes = document.querySelectorAll(".selectable");
-    checkBoxes.forEach((el) => {
-            el.style.display = "inline-block";
-    });
+    $(".selectable-meats").css("display", "inline-block");
 });
 
 cancelButtonMeats.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
-    toggleEditCancel(editButtonMeats, this);
-
-    // Displays selectable checkboxes
-    var checkBoxes = document.querySelectorAll(".selectable");
-    checkBoxes.forEach((el) => {
-            el.style.display = "none";
-    });
+    disableCancelEnableEdit(editButtonMeats, this);
+    // Hides selectable checkboxes
+    $(".selectable-meats").css("display", "none");
 });
 
 editButtonDairy.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
-    toggleCancelEdit(cancelButtonDairy, this);
+    disableEditEnableCancel(cancelButtonDairy, this);
     // Displays selectable checkboxes
-    var checkBoxes = document.querySelectorAll(".selectable");
-    checkBoxes.forEach((el) => {
-            el.style.display = "inline-block";
-    });
+    $(".selectable-dairy").css("display", "inline-block");
 });
 
 cancelButtonDairy.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
-    toggleEditCancel(editButtonDairy, this);
-
-    // Displays selectable checkboxes
-    var checkBoxes = document.querySelectorAll(".selectable");
-    checkBoxes.forEach((el) => {
-            el.style.display = "none";
-    });
+    disableCancelEnableEdit(editButtonDairy, this);
+    // Hides selectable checkboxes
+    $(".selectable-dairy").css("display", "none");
 });
 
 editButtonFruits.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
-    toggleCancelEdit(cancelButtonFruits, this);
+    disableEditEnableCancel(cancelButtonFruits, this);
     // Displays selectable checkboxes
-    var checkBoxes = document.querySelectorAll(".selectable");
-    checkBoxes.forEach((el) => {
-            el.style.display = "inline-block";
-    });
+    $(".selectable-fruits").css("display", "inline-block");
 });
 
 cancelButtonFruits.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
-    toggleEditCancel(editButtonFruits, this);
-
-    // Displays selectable checkboxes
-    var checkBoxes = document.querySelectorAll(".selectable");
-    checkBoxes.forEach((el) => {
-            el.style.display = "none";
-    });
+    disableCancelEnableEdit(editButtonFruits, this);
+    // Hides selectable checkboxes
+    $(".selectable-fruits").css("display", "none");
 });
 
 editButtonVegetables.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
-    toggleCancelEdit(cancelButtonVegetables, this);
+    disableEditEnableCancel(cancelButtonVegetables, this);
     // Displays selectable checkboxes
-    var checkBoxes = document.querySelectorAll(".selectable");
-    checkBoxes.forEach((el) => {
-            el.style.display = "inline-block";
-    });
+    $(".selectable-vegetables").css("display", "inline-block");
 });
 
 cancelButtonVegetables.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
-    toggleEditCancel(editButtonVegetables, this);
-
-    // Displays selectable checkboxes
-    var checkBoxes = document.querySelectorAll(".selectable");
-    checkBoxes.forEach((el) => {
-            el.style.display = "none";
-    });
+    disableCancelEnableEdit(editButtonVegetables, this);
+    // Hides selectable checkboxes
+    $(".selectable-vegetables").css("display", "none");
 });
-
 
 deleteButton.forEach((el) => {
     el.addEventListener("click", deleteCheckedBoxes);
@@ -253,7 +217,7 @@ getUserIdButton.forEach((el) => {
 //BUTTON FUNCTIONS
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-function toggleCancelEdit(cancelButton, editButton) {
+function disableEditEnableCancel(cancelButton, editButton) {
     $(cancelButton).removeClass("hidden");
     setTimeout(function() {
         $(cancelButton).removeClass("disabled");
@@ -262,7 +226,7 @@ function toggleCancelEdit(cancelButton, editButton) {
     $(editButton).addClass("hidden");
 }
 
-function toggleEditCancel(editButton, cancelButton) {
+function disableCancelEnableEdit(editButton, cancelButton) {
     $(editButton).removeClass("hidden");
     setTimeout(function() {
         $(editButton).removeClass("disabled");
@@ -294,7 +258,8 @@ function showDeleteButton() {
 // Renders data on HTML pages
 function renderFoodItem(foodDoc, category) {
     // @TO-DO: make a list and append it to ".modal-content" 
-    renderedDoc = "<input type='checkbox' class='selectable'/><label class='food-item'>&nbsp&nbsp&nbsp&nbsp" + foodDoc.id + "</label>";
+    renderedDoc = "<input type='checkbox' class='selectable selectable-"
+    + category + "'/><label class='food-item'>&nbsp&nbsp&nbsp&nbsp" + foodDoc.id + "</label>";
     $(".modal-body-" + category).append(renderedDoc);
     // Hide all checkboxes
     $(".selectable").css("display", "none");
@@ -302,8 +267,8 @@ function renderFoodItem(foodDoc, category) {
 }
 
 // Deletes Checked checkboxes and all children from DOM
-function deleteCheckedBoxes(modal) {
-    var checkBoxes = document.querySelectorAll(".selectable");
+function deleteCheckedBoxes(category) {
+    var checkBoxes = document.querySelectorAll(".selectable-" + category);
     var checkedCount = 0;
     for(var i = 0; i < checkBoxes.length; i++) {
         var checkBox = checkBoxes[i];
@@ -385,6 +350,7 @@ function deleteDocument(userID, documentID) {
     });
 }
 
+// Adds a new food item to 'Food Item' collection in the Users Database (Firebase)
 function addNewDocument(userID, foodItem, category, market, perishable, price, date) {
     db.collection("Users").doc(userID).collection("Food Item").doc(foodItem).set({
         category: category,
