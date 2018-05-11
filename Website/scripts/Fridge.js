@@ -11,7 +11,6 @@ db.settings(settings);
 // Captures user email and password on login
 var userID = 'LGMsHkEvgKWoxrNqO01y';
 var userEmail = "test@test.com";
-var userPass;
 
 getSubCollection(userID, "grains");
 getSubCollection(userID, "meats");
@@ -79,7 +78,6 @@ const meats_content = document.querySelector('#modal-content-meats');
 const dairy_content = document.querySelector('#modal-content-dairy');
 const fruits_content = document.querySelector('#modal-content-fruits');
 const vegelists_content = document.querySelector('#modal-content-dairy');
-
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //ADD EVENT LISTENERS TO BUTTONS
@@ -163,12 +161,23 @@ cancelButtonVegetables.addEventListener("click", function() {
     $(".selectable-vegetables").css("display", "none");
 });
 
-deleteButton.forEach((el) => {
-    el.addEventListener("click", deleteCheckedBoxes);
+$(deleteButtonMeats).click(function() {
+    deleteCheckedBoxes("meats");
+});
+$(deleteButtonGrains).click(function() {
+    deleteCheckedBoxes("grains");
+});
+$(deleteButtonDairy).click(function() {
+    deleteCheckedBoxes("dairy");
+});
+$(deleteButtonFruits).click(function() {
+    deleteCheckedBoxes("fruits")
+});
+$(deleteButtonVegetables).click(function() {
+    deleteCheckedBoxes("vegetables");
 });
 
-
-// Events for generating modal content
+// Events for generating modal content and testing
 /*
 renderGrainsButton.addEventListener("click", function() {
     var userID = 'LGMsHkEvgKWoxrNqO01y';
@@ -236,8 +245,8 @@ function disableCancelEnableEdit(editButton, cancelButton) {
 }
 
 // Displays delete-button if at least 1 checkbox is checked
-function showDeleteButton() {
-    var checkBoxes = document.querySelectorAll(".selectable");
+function showOrHideDeleteButton(category) {
+    var checkBoxes = document.querySelectorAll(".selectable-" + category);
     var checkedCount = 0;
     checkBoxes.forEach((el) => {
         if (el.checked) {
@@ -245,13 +254,29 @@ function showDeleteButton() {
         }
     });
     if (checkedCount >= 1) {
-        deleteButton.forEach((el) => {
-            el.style.display = "block";
-        });
+        if (category === "grains") {
+            deleteButtonGrains.style.display = "block";
+        } else if (category === "meats") {
+            deleteButtonMeats.style.display = "block";
+        } else if (category == "dairy") {
+            deleteButtonDairy.style.display = "block";
+        } else if (category === "fruits") {
+            deleteButtonFruits.style.display = "block";
+        } else if (category ==="vegetables") {
+            deleteButtonVegetables.style.display = "block";
+        }
     } else {
-        deleteButton.forEach((el) => {
-            el.style.display = "none";
-        });
+        if (category === "grains") {
+            deleteButtonGrains.style.display = "none";
+        } else if (category === "meats") {
+            deleteButtonMeats.style.display = "none";
+        } else if (category == "dairy") {
+            deleteButtonDairy.style.display = "none";
+        } else if (category === "fruits") {
+            deleteButtonFruits.style.display = "none";
+        } else if (category ==="vegetables") {
+            deleteButtonVegetables.style.display = "none";
+        }
     }
 }
 
@@ -259,10 +284,18 @@ function showDeleteButton() {
 function renderFoodItem(foodDoc, category) {
     // @TO-DO: make a list and append it to ".modal-content" 
     renderedDoc = "<input type='checkbox' class='selectable selectable-"
-    + category + "'/><label class='food-item'>&nbsp&nbsp&nbsp&nbsp" + foodDoc.id + "</label>";
+    + category + "'/><label class='food-item food-item-" + category + "'>&nbsp&nbsp&nbsp&nbsp" + foodDoc.id + "</label>";
     $(".modal-body-" + category).append(renderedDoc);
     // Hide all checkboxes
     $(".selectable").css("display", "none");
+    
+    // addEventListeners to all the food-item inputs that were just rendered
+    let selectableCheckBox = document.querySelectorAll(".selectable-" + category);
+    selectableCheckBox.forEach((el) => {
+        el.addEventListener("click", function() {
+            showOrHideDeleteButton(category);
+        });
+    });
     return renderedDoc; //returns input
 }
 
@@ -279,9 +312,17 @@ function deleteCheckedBoxes(category) {
         }
         // hide delete button on last iteration if there are no more checkboxes
         if (i == checkBoxes.length - 1) {
-            deleteButton.forEach((el) => {
-                el.style.display = "none";
-            });
+            if (category === "grains") {
+                deleteButtonGrains.style.display = "none";
+            } else if (category === "meats") {
+                deleteButtonMeats.style.display = "none";
+            } else if (category == "dairy") {
+                deleteButtonDairy.style.display = "none";
+            } else if (category === "fruits") {
+                deleteButtonFruits.style.display = "none";
+            } else if (category ==="vegetables") {
+                deleteButtonVegetables.style.display = "none";
+            }
         }
     }
 }
@@ -328,14 +369,6 @@ function getSubCollection(userID, category) {
                 // generate content in modal
                 renderFoodItem(doc, category);
             });
-            
-            // addEventListeners to all the food-item inputs that were just rendered
-            let selectableCheckBox = document.querySelectorAll(".selectable");
-            selectableCheckBox.forEach((el) => {
-                el.addEventListener("click", showDeleteButton);
-            });
-            
-            
             console.log("Returned document(s) in '" + category + "' query");
         }
     });

@@ -31,7 +31,26 @@
     font-size: 13pt;
     margin: 0 0 0 0;
 }
-
+.food-item-grains {
+    background-color: #e9b72d75;
+    border-bottom:1px dotted #eee;
+}
+.food-item-meats {
+    background-color: #f79178;
+    border-bottom:1px dotted #eee;
+}
+.food-item-dairy {
+    background-color: #f0f8ff;
+    border-bottom:1px dotted #eee;
+}
+.food-item-fruits {
+    background-color: #f3f051;
+    border-bottom:1px dotted #eee;
+}
+.food-item-vegetables {
+    background-color: #84f779;
+    border-bottom:1px dotted #eee;
+}
 #edit-button-grains, #edit-button-meats, #edit-button-dairy, #edit-button-fruits, #edit-button-vegetables {
     left: right;
     color: rgb(96, 96, 194);
@@ -61,8 +80,8 @@
     -o-transition: opacity 0.8s ease-in-out;
 }
 
-.delete-button {
-    float: right;
+#delete-button-grains, #delete-button-meats, #delete-button-dairy, #delete-button-fruits, #delete-button-vegetables {
+    float: center;
     color: rgb(255, 0, 0);
     font-size: 13pt;
     line-height: 0;
@@ -152,7 +171,7 @@ MEDIA QUERIES
   .modal-header-meats {
       color:#fff;
       padding:9px 15px;
-      border-bottom:1px solid #eee;
+      border-bottom:1px dotted #eee;
       background-color: #f79178;
       -webkit-border-top-left-radius: 5px;
       -webkit-border-top-right-radius: 5px;
@@ -175,6 +194,7 @@ MEDIA QUERIES
   .modal-header-fruits {
   	color:#fff;
     padding:9px 15px;
+    border-bottom:1px dotted #eee;
     background-color: #f3f051;
     -webkit-border-top-left-radius: 5px;
     -webkit-border-top-right-radius: 5px;
@@ -197,6 +217,7 @@ MEDIA QUERIES
   .modal-header-vegetables {
   	color:#fff;
     padding:9px 15px;
+    border-bottom:1px dotted #eee;
     background-color: #84f779;
     -webkit-border-top-left-radius: 5px;
     -webkit-border-top-right-radius: 5px;
@@ -219,6 +240,7 @@ MEDIA QUERIES
   .modal-header-dairy {
       color:rgb(7, 7, 7);
       padding:9px 15px;
+      border-bottom:1px dotted #eee;
       background-color: #f0f8ff;
       -webkit-border-top-left-radius: 5px;
       -webkit-border-top-right-radius: 5px;
@@ -239,9 +261,10 @@ MEDIA QUERIES
      border-bottom-right-radius: 5px;
   }
   .modal-header-grains {
-  	color:rgb(255, 255, 255);
+  	color:rgb(0, 0, 0);
       padding:9px 15px;
-      background-color: #caac5a;
+      border-bottom:1px dotted #eee;
+      background-color: #e9b72d75;
       -webkit-border-top-left-radius: 5px;
       -webkit-border-top-right-radius: 5px;
       -moz-border-radius-topleft: 5px;
@@ -252,7 +275,7 @@ MEDIA QUERIES
   .modal-footer-grains {
     color:#fff;
     height: 35px;
-    background-color: #caac5a;
+    background-color: #e9b72d75;
     -webkit-border-bottom-left-radius: 5px;
     -webkit-border-bottom-right-radius: 5px;
     -moz-border-radius-bottomleft: 5px;
@@ -344,7 +367,7 @@ MEDIA QUERIES
   .modal-header-meats {
     color:#fff;
     padding:9px 15px;
-    border-bottom:1px solid #eee;
+    border-bottom:1px dotted #eee;
     background-color: #f79178;
     -webkit-border-top-left-radius: 5px;
     -webkit-border-top-right-radius: 5px;
@@ -367,7 +390,7 @@ MEDIA QUERIES
 .modal-header-fruits {
     color:#fff;
     padding:9px 15px;
-    border-bottom:1px solid #eee;
+    border-bottom:1px dotted #eee;
     background-color: #f3f051;
     -webkit-border-top-left-radius: 5px;
     -webkit-border-top-right-radius: 5px;
@@ -390,7 +413,7 @@ MEDIA QUERIES
 .modal-header-vegetables {
     color:#fff;
     padding:9px 15px;
-    border-bottom:1px solid #eee;
+    border-bottom:1px dotted #eee;
     background-color: #84f779;
     -webkit-border-top-left-radius: 5px;
     -webkit-border-top-right-radius: 5px;
@@ -413,7 +436,7 @@ MEDIA QUERIES
 .modal-header-dairy {
     color:rgb(7, 7, 7);
     padding:9px 15px;
-    border-bottom:1px solid #eee;
+    border-bottom:1px dotted #eee;
     background-color: #f0f8ff;
     -webkit-border-top-left-radius: 5px;
     -webkit-border-top-right-radius: 5px;
@@ -434,10 +457,10 @@ MEDIA QUERIES
      border-bottom-right-radius: 5px;
   }
 .modal-header-grains {
-    color:rgb(255, 255, 255);
+    color:rgb(0, 0, 0);
     padding:9px 15px;
-    border-bottom:1px solid #eee;
-    background-color: #caac5a;
+    border-bottom:1px dotted #eee;
+    background-color: #e9b72d75;
     -webkit-border-top-left-radius: 5px;
     -webkit-border-top-right-radius: 5px;
     -moz-border-radius-topleft: 5px;
@@ -448,7 +471,7 @@ MEDIA QUERIES
 .modal-footer-grains {
     color:#fff;
     height: 35px;
-    background-color: #caac5a;
+    background-color: #e9b72d75;
     -webkit-border-bottom-left-radius: 5px;
     -webkit-border-bottom-right-radius: 5px;
     -moz-border-radius-bottomleft: 5px;
