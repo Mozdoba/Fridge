@@ -62,9 +62,9 @@ if($_FILES){
    				 die("Something when wrong. Status code: $status" );
 				}
 
-			echo '<pre>';
-			print_r($json_response);
-			echo '</pre>';
+			//echo '<pre>';
+			//print_r($json_response);
+			//echo '</pre>';
 
 			// create an image identifier for the uploaded file
 			switch($_FILES['uploaddocument']['type']){
@@ -108,43 +108,70 @@ if($_FILES){
       return false;
       }
       
-      $food = array(
-        "fruits" => array ("APPLE", "APPLES", "BANANA", "BANANAS", "BLUEBERRIES", "CANTALOUPE", "CHERRIES", "DATES", "DURIAN", "FIGS", "GRAPES", "MANGO", "NECTARINES", "ORANGE", "ORANGES", "PASSIONFRUIT", "PEACHES", "PEARS", "PINEAPPLE", "RASPBERRIES", "STRAWBERRIES","WATERMELON"),
-        "meat" => array ("BACON", "BEEF", "BOLOGNA", "CATFISH", "CHICKEN", "COD", "CRAB", "HALIBUT", "HAM", "HEN", "LAMB", "LIVER", "LOBSTER", "MUSSELS", "OYSTERS", "PRAWN", "PEPPERONI", "PORK", "RIBS", "SALAMI", "SALMON", "SAUSAGE", "SHRIMP", "SNAPPER", "SOCKEYE", "STEAK", "TILAPIA", "TROUT", "TUNA", "TURKEY", "WEINERS", "VEAL"),            
-        "vegetables" => array ("ASPARAGUS", "AVOCADO", "BEANS", "BEETS", "BOK", "BOK-CHOY", "BOK CHOY", "BROCCOLI", "BROCCOLINI", "BRUSSEL", "CABBAGE", "CARROT", "CARROTS", "CAULIFLOWER", "CELERY", "CELERY-ROOT", "CHARD", "CHOY", "CILANTRO", "CORN/COB", "CORN", "CUCUMBER", "CUKE", "EGGPLANT", "ENDIVE", "GARLIC", "GINGER", "FENNEL", "JALAPENO", "KALE", "LEEKS", "LETTUCE", "LETTUCE BUTTER", "LETTUCE-BUTTER", "LETTUCE GREEN LEAF", "LETTUCE-GREEN-LEAF", "LETTUCE ICEBURG", "LETTUCE-ICEBURG", "LETTUCE RED LEAF", "LETTUCE-RED-LEAF", "LETTUCE ROMAIN", "LETTUCE-ROMAIN", "MINT", "MUSHROOMS", "ONION", "ONIONS", "PARSLEY", "PARSNIP", "PARSNIPS", "PEAS", "PEPPERS", "PEPPERS GREEN", "PEPPERS-GREEN", "PEPPERS ORANGE", "PEPPERS-ORANGE", "PEPPERS YELLOW", "PEPPERS-YELLOW", "PEPPERS RED", "PEPPERS-RED", "PEPPERS JALAPENO", "POTATO", "POTATOE", "POTATOES", "RADICCHIO", "RADISH", "RADISHES", "RHUBARD", "RUTABAGAS", "RUTABAGA", "SCALLIONS", "SHALLOTS", "SPINACH", "SPROUTS", "SQUASH", "SUI CHOY","SUI-CHOY", "TOMATILLOS", "TOMATO","TOMATOES","YAMS","ZUCHINNI"),
-        "dairy" => array ("BISCUIT", "BISCUITS", "CHEESE", "CHEESESTRING", "COOKIES", "DIP", "EGGS", "JUICE", "KEFIR", "LEMONADE", "MARGARINE", "MILK", "MOZZARELLA", "PUDDING", "TZATZIKI", "YOGURT"),
-        "grains" => array ("BREAD", "BUCKWHEAT", "CEREAL", "CHIA", "CRACKER", "CRACKERS", "LENTIL", "LENTILS", "MILLET", "NOODLE", "NOODLES", "OATMEAL", "PASTA", "QUINOA", "RICE", "TORTILLAS" ),
-      );
+      
+        $fruits = array ("APPLE", "APPLES", "BANANA", "BANANAS", "BLUEBERRIES", "CANTALOUPE", "CHERRIES", "DATES", "DURIAN", "FIGS", "GRAPES", "MANGO", "NECTARINES", "ORANGE", "ORANGES", "PASSIONFRUIT", "PEACHES", "PEARS", "PINEAPPLE", "RASPBERRIES", "STRAWBERRIES", "WATERMELON");
+      
+        $meat = array ("BACON", "BEEF", "BOLOGNA", "CATFISH", "CHICKEN", "COD", "CRAB", "HALIBUT", "HAM", "HEN", "LAMB", "LIVER", "LOBSTER", "MUSSELS", "OYSTERS", "PRAWN", "PEPPERONI", "PORK", "RIBS", "SALAMI", "SALMON", "SAUSAGE", "SHRIMP", "SNAPPER", "SOCKEYE", "STEAK", "TILAPIA", "TROUT", "TUNA", "TURKEY", "WEINERS", "VEAL");
+      
+        $vegetables = array ("ASPARAGUS", "AVOCADO", "BEANS", "BEETS", "BOK", "BOK-CHOY", "BOK CHOY", "BROCCOLI", "BROCCOLINI", "BRUSSEL", "CABBAGE", "CARROT", "CARROTS", "CAULIFLOWER", "CELERY", "CELERY-ROOT", "CHARD", "CHOY", "CILANTRO", "CORN/COB", "CORN", "CUCUMBER", "CUKE", "EGGPLANT", "ENDIVE", "GARLIC", "GINGER", "FENNEL", "JALAPENO", "KALE", "LEEKS", "LETTUCE", "LETTUCE BUTTER", "LETTUCE-BUTTER", "LETTUCE GREEN LEAF", "LETTUCE-GREEN-LEAF", "LETTUCE ICEBURG", "LETTUCE-ICEBURG", "LETTUCE RED LEAF", "LETTUCE-RED-LEAF", "LETTUCE ROMAIN", "LETTUCE-ROMAIN", "MINT", "MUSHROOMS", "ONION", "ONIONS", "PARSLEY", "PARSNIP", "PARSNIPS", "PEAS", "PEPPERS", "PEPPERS GREEN", "PEPPERS-GREEN", "PEPPERS ORANGE", "PEPPERS-ORANGE", "PEPPERS YELLOW", "PEPPERS-YELLOW", "PEPPERS RED", "PEPPERS-RED", "PEPPERS JALAPENO", "POTATO", "POTATOE", "POTATOES", "RADICCHIO", "RADISH", "RADISHES", "RHUBARD", "RUTABAGAS", "RUTABAGA", "SCALLIONS", "SHALLOTS", "SPINACH", "SPROUTS", "SQUASH", "SUI CHOY","SUI-CHOY", "TOMATILLOS", "TOMATO","TOMATOES","YAMS","ZUCHINNI");
+      
+        $dairy = array ("BISCUIT", "BISCUITS", "CHEESE", "CHEESESTRING", "COOKIES", "DIP", "EGGS", "JUICE", "KEFIR", "LEMONADE", "MARGARINE", "MILK", "MOZZARELLA", "PUDDING", "TZATZIKI", "YOGURT");
+      
+        $grains = array ("BREAD", "BUCKWHEAT", "CEREAL", "CHIA", "CRACKER", "CRACKERS", "LENTIL", "LENTILS", "MILLET", "NOODLE", "NOODLES", "OATMEAL", "PASTA", "QUINOA", "RICE", "TORTILLAS");
+      
 
       
-      $selectedFood = array ();
-      //$food = array ("BANANA", "MILK", "POTATOES", "BROCCOLI", "BRUSSEL");
+      $grainFood = array ();
+      $dairyFood = array ();
+      $vegetableFood = array ();
+      $meatFood = array ();
+      $fruitsFood = array ();
+      
           $someArray = $response['responses'][0]['textAnnotations'];
             foreach($someArray as $key => $value) {
               //echo $value['description'];
-              if (in_array_r(($value['description']), $food)){
-                echo $key . "<br>";
-                array_push($selectedFood, ($value['description']));
+              if (in_array_r(($value['description']), $grains)){
+                
+                array_push($grainFood, ($value['description']));
+          }
+              if (in_array_r(($value['description']), $dairy)){
+                
+                array_push($dairyFood, ($value['description']));
+          }
+              if (in_array_r(($value['description']), $vegetables)){
+                
+                array_push($vegetableFood, ($value['description']));
+          }
+              if (in_array_r(($value['description']), $meat)){
+                
+                array_push($meatFood, ($value['description']));
+          }
+              if (in_array_r(($value['description']), $fruits)){
+                
+                array_push($fruitsFood, ($value['description']));
           }
             }
       
-        echo '<pre>';
-        print_r(array_values($selectedFood));
-        echo '</pre>';
-      
-//          echo '<pre>';
-//          foreach($selectedFood as $scanned){
-//            print_r($selectedFood);
-//          }
-//          echo '</pre>';
-//          $counting = 0;
-//          for($i=0; $i<count($someArray)-1; $i++) {
-//            for ($x = 0; $x<count($food)-1; $x++){
-//              if ($someArray[$i] == $food[$x]){
-//                $counting++;
-//              }
-//            }
-//          }
+//        echo '<pre>';
+//        print_r(array_values($grainFood));
+//        echo '</pre>';
+//      
+//        echo '<pre>';
+//        print_r(array_values($dairyFood));
+//        echo '</pre>';
+//      
+//        echo '<pre>';
+//        print_r(array_values($vegetableFood));
+//        echo '</pre>';
+//      
+//        echo '<pre>';
+//        print_r(array_values($meatFood));
+//        echo '</pre>';
+//      
+//        echo '<pre>';
+//        print_r(array_values($fruitsFood));
+//        echo '</pre>';
+//      
 //      
 //          echo $counting;
 			// give our image a name and store it
@@ -157,9 +184,9 @@ if($_FILES){
 
 			echo'<div style="width:50%; float:left; padding:20px;">';
 					// display the first text annotation
-					echo'<pre>';
-					print_r($response['responses'][0]['textAnnotations'][0]['description']);
-					echo'</pre>';
+//					echo'<pre>';
+//					print_r($response['responses'][0]['textAnnotations'][0]['description']);
+//					echo'</pre>';
 			echo'</div>';
 
 	    	}
@@ -168,12 +195,7 @@ if($_FILES){
 	    	}
 
 	}
-    
-    
-  
-//    
-//    $result = count(array_intersect($food, $response));
-//    echo $result;
+
 ?>
     <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
@@ -196,16 +218,19 @@ if($_FILES){
       const settings = {/* your settings... */ timestampsInSnapshots: true};
       firestore.settings(settings);
 
-      
-      var resultArray = <?php echo json_encode($selectedFood); ?>;
+      var grainArray = <?php echo json_encode($grainFood); ?>;
+      var fruitArray = <?php echo json_encode($fruitsFood); ?>;
+      var meatArray = <?php echo json_encode($meatFood); ?>;
+      var vegetableArray = <?php echo json_encode($vegetableFood); ?>;
+      var dairyArray = <?php echo json_encode($dairyFood); ?>;
       
       function transfer(){
         var db = firebase.firestore();
       
-        var user1 = db.collection('Users').doc('1giU3F3JlXm6lSDnADly').collection('Fridge').doc('Food');
-      
-        user1.set({
-          resultArray
+        var user1 = db.collection('Users').doc('53NbBqt83BFHEGzxd5xW').collection('Food Item');
+        grainArray.forEach((item) => {
+          user1.doc(item).set({
+            category: "grains",
         })
         .then(function(){
           console.log("Documents were added");
@@ -214,6 +239,59 @@ if($_FILES){
           console.error("Error adding documents:", error);
         });
          
+        });
+        
+        fruitArray.forEach((item) => {
+          user1.doc(item).set({
+            category: "fruits",
+        })
+        .then(function(){
+          console.log("Documents were added");
+        })
+        .catch(function (error){
+          console.error("Error adding documents:", error);
+        });
+         
+        });
+        
+        meatArray.forEach((item) => {
+          user1.doc(item).set({
+            category: "meats",
+        })
+        .then(function(){
+          console.log("Documents were added");
+        })
+        .catch(function (error){
+          console.error("Error adding documents:", error);
+        });
+         
+        });
+        
+        vegetableArray.forEach((item) => {
+          user1.doc(item).set({
+            category: "vegetables",
+        })
+        .then(function(){
+          console.log("Documents were added");
+        })
+        .catch(function (error){
+          console.error("Error adding documents:", error);
+        });
+         
+        });
+        
+        dairyArray.forEach((item) => {
+          user1.doc(item).set({
+            category: "dairy",
+        })
+        .then(function(){
+          console.log("Documents were added");
+        })
+        .catch(function (error){
+          console.error("Error adding documents:", error);
+        });
+         
+        });        
       
               
       }
