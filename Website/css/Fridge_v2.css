@@ -1,27 +1,27 @@
 
-h1 {
-    text-align: center;
-    font-size: 100%;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
+h1 span {
+  border: 2px solid white;
+  padding: 20px;
+  text-shadow: 6px 6px black;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.5em;
+  -webkit-text-stroke-width: 5px;
+  -webkit-text-stroke-color: black;
+
 }
 
-.centerHeader {
-  text-align: center;
-  margin-bottom: 25px;
-}
+#heading h1 {
+      font-family: 'Fredoka One', cursive;
+      color: white;
+      text-align: center;
+      font-size: 3em ;
+      -webkit-text-stroke-width: 1.5px;
+      -webkit-text-stroke-color: black;
+      padding-top: 70px;
 
-#heading2 {
-    text-align: center;  
-    font-family: 'Merriweather Sans', sans-serif;
-<<<<<<< HEAD
-    font-size: 1em;;
-    background-color: aliceblue;
-    opacity: 0.8;
-=======
-    font-size: 180%;
->>>>>>> d6061499efaa5feaa642241ff194d18f229159af
-}
+  }
+
+
 
 body {
   background-color: #ffffff;
@@ -32,8 +32,25 @@ body {
   padding: 0;
   background-image: url(../images/pattern.png);
   background-position: center;
-  background-repeat:repeat; 
+  background-repeat:repeat;
   height: 100%;
+}
+
+
+
+
+.centerHeader {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+
+#heading2 {
+    text-align: center;
+    font-family: 'Fredoka One', sans-serif;
+    font-size: 2em;
+    background-color: aliceblue;
+    opacity: 0.8;
 }
 
 #login {
@@ -42,15 +59,15 @@ body {
     width: 100%;
 }
 #title {
-    padding-top: 50px;
+
     color: azure;
 }
 
 .carousel-inner .item {
-    height: 125px; 
+    height: 125px;
     border-radius: 25px;
-    background-position: center center; 
-    background-repeat: no-repeat; 
+    background-position: center center;
+    background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
 }
@@ -59,7 +76,7 @@ body {
     opacity: 0.9;
     border-radius: 25px;
     width: 100%;
-} 
+}
 
 .item p {
     color: #143612;
@@ -79,8 +96,10 @@ body {
     border-radius: 25%;
     opacity: 0.1;
 
+  }
+
+
 
 a {
   text-decoration: none !important;
 }
-

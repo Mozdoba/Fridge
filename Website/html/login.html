@@ -4,14 +4,18 @@
     <title></title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fridge.</title>
+    <title>fridged-it</title>
     <link rel="stylesheet" href="../css/style-login.css">
     <link href="https://fonts.googleapis.com/css?family=Yeseva+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <script>
         $(document).ready(function() {
-            $(".login-form").hide();
-            $(".login").css("background", "rgba(255, 255, 255, 0.767)");
+            $(".signup-form").hide();
+            $(".signup").css("background", "rgba(255, 255, 255, 0.767)");
 
             $(".login").click(function(){
                 $(".signup-form").hide();
@@ -31,87 +35,183 @@
                 $(".input").val("");
             });
 
+            var count = 0;
+            $("#zeButton").click(function() {
+              count+=1;
+              console.log(count);
+              if ((count %  7) == 0) {
+                $('#egg').dialog();
+
+              }
+            });
+
         });
 
     </script>
   </head>
   <body>
-    <!--    
-    <h2 id="bigOne"></h2>
-    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyCEnMpLTEJm4pYdFfnKbk4EtNbH5kUyUaY",
-            authDomain: "fridge-442c0.firebaseapp.com",
-            databaseURL: "https://fridge-442c0.firebaseio.com",
-            projectId: "fridge-442c0",
-            storageBucket: "",
-            messagingSenderId: "230945302656"
-        };
-        firebase.initializeApp(config);
 
-        var bigOne = document.getElementById('bigOne');
-        var dbRef = firebase.database().ref().child('text');
-        dbRef.on('value', snap => bigOne.innerText = snap.value());
-    </script>
-    -->
-     <div id="heading"><h1 id="heading"></h1></div> 
+     <div id="heading">
+       <div class = "title">f</div>
+       <div class = "title">r</div>
+       <div class = "title">i</div>
+       <div id="theD"><button id="zeButton">d</button></div>
+       <div class = "title">g</div>
+       <div class = "title">e</div>
+       <div class = "title">d</div>
+       <div class = "title">-</div>
+       <div class = "title">i</div>
+       <div class = "title">t</div>
+   </div>
      <div class="container">
-         <div class="signup">Sign Up</div>
-         <div class="login">Login</div>
+         <div class="login" id="login">Login</div>
+         <div class="signup" id="signUp">Sign Up</div>
+
      </div>
-    
+
      <div class="signup-form">
-        <form id="registration">
-            <img class="img" src="../images/man.png" alt="Person"><span>&emsp;</span><input type="text" name="first_name" id="first" placeholder="First Name" class="input"><br>
-            <img class="img" src="../images/man.png" alt="Person"><span>&emsp;</span><input type="text" name="last_name" placeholder="Last Name" class="input" required="required"><br>
-            <img class="img" src="../images/email.png" alt="Email"><span>&emsp;</span><input type="email" name="email" placeholder="Email Address" class="input" required="required"><br>
+        <div id="registration">
+            <div class="alert"> Thank you for registering! </div>
+            <img class="img" src="../images/email.png" alt="Email"><span>&emsp;</span><input type="email" name="email" id = "email" placeholder="Email Address" class="input" required="required"><br>
             <img class="img" src="../images/unlock.png" alt="Unlock"><span>&emsp;</span><input type="password" name="password" id="password" placeholder="Create a Password" class="input" required="required"><br>
-            <img class="img" src="../images/unlock.png" alt="Unlock"><span>&emsp;</span><input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" class="input" required="required"><br>
-            <p id="message"></p>
-            <input type="submit" value="Create Account" id="btn">
-        </form>
+
+            <!--img class="img" src="../images/unlock.png" alt="Unlock" id = "lock"><span>&emsp;</span><input type="password" name="confirm_password" id="confirmPassword" placeholder="Confirm Password" class="input" required="required" novalidate><br>
+            <p id="message"></p> -->
+
+
+            <div class="alert1"> Passwords must be minimum 8 character and have atleast one upper case, one lower case, and one number! </div>
+            <button type="submit" id="button-signUp" class ="aButton">Create Account</button>
+
+        </div>
      </div>
+<<<<<<< HEAD
+      
+    
 
      <div class="login-form">
-        <form id="registration">
-            <img class="img" src="../images/email.png" alt="Email"><span>&emsp;</span><input type="email" placeholder="Email Address" class="input" required="required"><br>
-            <img class="img" src="../images/key.png" alt="Key"><span>&emsp;</span><input type="password" placeholder="Password" class="input" required="required"><br>
-            <input type="submit" value="Login" id="btn">
+        <form id="registration1" onsubmit="return onLogin();">
+            <img class="img" src="../images/email.png" alt="Email"><span>&emsp;</span><input type="email" placeholder="Email Address" id="login-email" class="input" required="required"><br>
+            <img class="img" src="../images/key.png" alt="Key"><span>&emsp;</span><input type="password" placeholder="Password" id="login-pass" class="input" required="required"><br>
+            <button type="submit" value="Login" id="btnLogin"></button>
             <span><a href="#">Forgot Password</a></span>
         </form>
+=======
+
+
+
+     <div id="login_div" class="login-form">
+        <div id="registration1">
+            <img class="img" src="../images/email.png" alt="Email"><span>&emsp;</span><input type="email" placeholder="Email Address" class="input" id ="email_field" required="required"><br>
+            <img class="img" src="../images/key.png" alt="Key"><span>&emsp;</span><input type="password" placeholder="Password" class="input" id = "password_field" required="required"><br>
+            <button type="submit" id="btnLogin" class = "aButton">Login</button>
+            <span><a href="https://media.giphy.com/media/FgjKGypLCAety/giphy.gif">Forgot Password</a></span>
+        </div>
+>>>>>>> sakis-feature
+     </div>
+     <div id="egg">
+       <img src="../images/egg.jpg" height="400" width="400">
      </div>
 
-    <script>  
-        var myHeading = document.querySelector('h1');
+
+    <script>
+
+        /**var myHeading = document.querySelector('h1');
         myHeading.textContent = 'fridged-it';
-            
+
           myHeading.style.fontSize = "500%";
           myHeading.style.fontFamily = "Yeseva One";
           myHeading.style.fontWeight = "bold";
           myHeading.style.textShadow = "-2px 0 white, 0 2px white, 2px 0 white, 0 -2px white";
-        
+
         myHeading.onmouseover = function() {mouseOver()};
-        
+
         myHeading.onmouseout = function() {mouseOut()};
-        
+
         function mouseOver() {
           myHeading.style.color = "black";
-          /**myHeading.style.color = "#008B8B"; **/
+          //myHeading.style.color = "#008B8B";
           myHeading.style.fontSize = "500%";
           myHeading.style.fontFamily = "Yeseva One";
           myHeading.style.fontWeight = "bold";
         }
-        
+
         function mouseOut() {
-          /**the subtle patternmyHeading.style.color = "#FFD700";**/
+          //the subtle patternmyHeading.style.color = "#FFD700";
           myHeading.style.color = "black";
           myHeading.style.fontSize = "500%";
           myHeading.style.fontWeight = "bold";
-   
+
+        } **/
+
+      function hasLowerCase(str) {
+        return (/[a-z]/.test(str));
+      }
+
+      function hasUpperCase(str) {
+        return (/[A-Z]/.test(str));
+      }
+
+      function hasNumber(myString) {
+        return (/\d/.test(myString));
+      }
+
+      function patternCheck(){
+        if (hasLowerCase(document.getElementById("password").value) &&
+            hasUpperCase(document.getElementById("password").value) &&
+            hasNumber(document.getElementById("password").value)) {
+              return true;
+        } else{
+              return false;
+        }
+      }
+
+      function check() {
+        if (document.getElementById('password').value ==
+          document.getElementById('confirmPassword1').value && patternCheck) {
+          document.getElementById('matchOrNot').style.color = 'green';
+          document.getElementById('matchOrNot').style.fontWeight = 'bold';
+          document.getElementById('matchOrNot').style.fontFamily = 'Helvetica';
+          document.getElementById('matchOrNot').innerHTML = 'Passwords match!';
+          console.log("Testtesttest");
+          storeData();
+          clearForms();
+
+
+        } else {
+          document.getElementById('matchOrNot').style.color = 'red';
+          document.getElementById('matchOrNot').style.fontWeight = 'bold';
+          document.getElementById('matchOrNot').style.fontFamily = 'Helvetica';
+          document.getElementById('matchOrNot').innerHTML = 'Passwords do not match or do not meet password requirements';
+        }
+    }
+
+        function clearForms() {
+          $(':input').not(':button, :submit, :reset, :hidden, :checkbox, :radio').val('');
+          $(':checkbox, :radio').prop('checked', false);
         }
     </script>
 
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-firestore.js"></script>
+<<<<<<< HEAD
+    <script>
+  // Initialize Firebase
+    var config = {
+    apiKey: "AIzaSyDATxhUzfa7mcLVwM02Cfrdi6ErXtRHDIg",
+    authDomain: "fridgedit-f8177.firebaseapp.com",
+    databaseURL: "https://fridgedit-f8177.firebaseio.com",
+    projectId: "fridgedit-f8177",
+    storageBucket: "fridgedit-f8177.appspot.com",
+    messagingSenderId: "252806401867"
+  };
+  firebase.initializeApp(config);
+    </script>
+    <script src = "../scripts/index1.js"></script>
+    <script src="../scripts/Fridge.js"></script>
+=======
+
+    <script src = "index1.js"></script>
+>>>>>>> sakis-feature
 </body>
 </html>

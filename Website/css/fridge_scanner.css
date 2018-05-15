@@ -4,6 +4,23 @@
 
 @import url('https://fonts.googleapis.com/css?family=Kite+One');
 
+
+.hero-image {
+    background-image: url("../images/pattern.png") !important;
+    /* Set a specific height */
+    height: 35%;
+
+    /* Position and center the image to scale nicely on all screens */
+    /* background-position: center; */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    position: relative;
+
+    /* shadow underneath image */
+    box-shadow: 7px 5px 2px #d9d9d9;
+}
+
+
 body {
   background-color: #ebebe0;
   font-family: 'Kite One', sans-serif;

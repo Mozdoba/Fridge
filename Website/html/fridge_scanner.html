@@ -16,7 +16,7 @@
         <a href="#">About Us</a>
       </div>
 
-      <!-- <div id="main"> -->
+      <div id="main">
         <span onclick="openNav()">&#9776; Menu</span>
       <!-- MENU BUTTON FOR SIDE NAV -->
 
@@ -44,8 +44,7 @@
 
       <br />
 
-      <!-- CODE IN THIS FILE
-      <label for="fileInput">Choose Receipt to scan:</label>
+      <!-- <label for="fileInput">Choose Receipt to scan:</label>
       <input type="file" id="fileInput" name="fileInput"/>
       <br />
       <br />
@@ -53,7 +52,7 @@
       </div>
       <div id = "ocr_status"></div> -->
 
-      <!-- ALAN'S ORIGINAL CODE
+
       <label for=fileInput>Choose your receipt:</label>
       <br>
       <br>
@@ -61,10 +60,10 @@
 
       <div id="document-content"></div>
       <div id="ocr_status"></div>
-    <!-- </div> -->
+    </div>
 
     <!-- TESSERACT SCRIPT TO PARSE RECEIPT -->
-    <!-- <script>
+    <script>
     document.addEventListener('DOMContentLoaded', function(){
           var fileInput = document.getElementById('fileInput');
           fileInput.addEventListener('change', handleInputChange);
@@ -92,8 +91,8 @@
       }
     </script>
 
-    JAVASCRIPT FOR SIDE NAV -->
-    <!-- <script>
+    <!-- JAVASCRIPT FOR SIDE NAV -->
+    <script>
       function openNav() {
         document.getElementById("mySidenav").style.width = "250px";
         document.getElementById("main").style.marginLeft = "250px";
@@ -103,126 +102,7 @@
         document.getElementById("mySidenav").style.width = "0";
         document.getElementById("main").style.marginLeft= "0";
       }
-    </script>  -->
-    <!-- CREDIT: http://www.leanx.eu/tutorials/use-google-cloud-vision-api-to-process-invoices-and-receipts -->
-    <form enctype="multipart/form-data" action="" method="POST">
-    Choose file to upload: <input name="uploaddocument" type="file" /><br />
-    <input type="submit" value="Upload" />
-    </form>
-
-    <?php
-
-    // settings
-    $api_key = 'AIzaSyDATxhUzfa7mcLVwM02Cfrdi6ErXtRHDIg';
-    $url = "https://vision.googleapis.com/v1/images:annotate?key=" . $api_key;
-    $detection_type = "TEXT_DETECTION";
-
-    // allowed image mime types
-    // Cloud Vision allows more image types but this application will only support three
-    $allowed_types = array('image/jpeg','image/png','image/gif');
-
-    if($_FILES){
-
-      // check if uploaded image has an allowed mime type
-      if(in_array($_FILES['uploaddocument']['type'],$allowed_types)){
-
-          // base64 encode image
-            $image = file_get_contents($_FILES['uploaddocument']['tmp_name']);
-          $image_base64 = base64_encode($image);
-
-          $json_request ='{
-                "requests": [
-                {
-                  "image": {
-                    "content":"' . $image_base64. '"
-                  },
-                  "features": [
-                      {
-                        "type": "' .$detection_type. '",
-                    "maxResults": 200
-                      }
-                  ]
-                }
-              ]
-            }';
-
-          $curl = curl_init();
-
-          curl_setopt($curl, CURLOPT_URL, $url);
-          curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-          curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-          curl_setopt($curl, CURLOPT_HTTPHEADER, array("Content-type: application/json"));
-          curl_setopt($curl, CURLOPT_POST, true);
-          curl_setopt($curl, CURLOPT_POSTFIELDS, $json_request);
-
-          $json_response = curl_exec($curl);
-          $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-
-          curl_close($curl);
-
-          // verify if we got a correct response
-          if ( $status != 200 ) {
-               die("Something when wrong. Status code: $status" );
-            }
-
-          //echo '<pre>';
-          //print_r($json_response);
-          //echo '</pre>';
-
-          // create an image identifier for the uploaded file
-          switch($_FILES['uploaddocument']['type']){
-            case 'image/jpeg':
-              $im = imagecreatefromjpeg($_FILES['uploaddocument']['tmp_name']);
-              break;
-            case 'image/png':
-              $im = imagecreatefrompng($_FILES['uploaddocument']['tmp_name']);
-              break;
-            case 'image/gif':
-              $im = imagecreatefromgif($_FILES['uploaddocument']['tmp_name']);
-              break;
-            }
-
-          $red = imagecolorallocate($im, 255, 0, 42);
-
-          // transform the json response to an associative array
-          $response = json_decode($json_response, true);
-
-          // for each of the detected text fragments we'll draw a box
-          // the cloud API returns veticis for each fragment
-          foreach($response['responses'][0]['textAnnotations'] as $box){
-
-            $points = array();
-
-            foreach($box['boundingPoly']['vertices'] as $vertex){
-              array_push($points, $vertex['x'], $vertex['y']);
-              }
-
-            imagepolygon($im, $points, count($box['boundingPoly']['vertices']), $red);
-
-            }
-
-          // give our image a name and store it
-          $image_name = time().'.jpg';
-          imagejpeg($im, $image_name);
-          imagedestroy($im);
-
-          // output the results
-          echo'<div style="width:20%; float:left;"><img src="'.$image_name.'" style="width:100%;"/></div>';
-
-          echo'<div style="width:50%; float:left; padding:20px;">';
-              // display the first text annotation
-              echo'<pre>';
-              print_r($response['responses'][0]['textAnnotations'][0]['description']);
-              echo'</pre>';
-          echo'</div>';
-
-            }
-          else{
-            echo 'File type not allowed';
-            }
-
-      }
-    ?>
+    </script>
 
   </body>
 </html>
