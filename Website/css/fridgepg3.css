@@ -82,14 +82,15 @@
 
 #delete-button-grains, #delete-button-meats, #delete-button-dairy, #delete-button-fruits, #delete-button-vegetables {
     position: relative;
-    top: 45%;
-    left: 2%;
+    top: 35px;
+    left: 3%;
     color: grey;
     font-size: 13pt;
     line-height: 0;
     display: block;
     cursor: default;
     user-select: none;
+    opacity: 0;
 }
 .add-slider {
     max-height: 0px;

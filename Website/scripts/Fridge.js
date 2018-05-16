@@ -89,7 +89,8 @@ editButtonGrains.addEventListener("click", function() {
     disableEditEnableCancel(cancelButtonGrains, this);
     // Displays selectable checkboxes
     $(".selectable-grains").css("display", "inline-block");
-    // Displays delete-slider
+    // Slides delete-button out
+    $('#delete-button-grains').animate({top: '+=-18px', opacity: '1'}, 'fast');
 
 });
 
@@ -98,6 +99,8 @@ cancelButtonGrains.addEventListener("click", function() {
     disableCancelEnableEdit(editButtonGrains, this);
     // Hides selectable checkboxes
     $(".selectable-grains").css("display", "none");
+    // Slides delete-button out
+    $('#delete-button-grains').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
 
 editButtonMeats.addEventListener("click", function() {
@@ -105,6 +108,8 @@ editButtonMeats.addEventListener("click", function() {
     disableEditEnableCancel(cancelButtonMeats, this);
     // Displays selectable checkboxes
     $(".selectable-meats").css("display", "inline-block");
+    // Displays delete-slider
+    $('#delete-button-meats').animate({top: '+=-18px', opacity: '1'}, 'fast');
 });
 
 cancelButtonMeats.addEventListener("click", function() {
@@ -112,6 +117,8 @@ cancelButtonMeats.addEventListener("click", function() {
     disableCancelEnableEdit(editButtonMeats, this);
     // Hides selectable checkboxes
     $(".selectable-meats").css("display", "none");
+    // Slides delete-button out
+    $('#delete-button-meats').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
 
 editButtonDairy.addEventListener("click", function() {
@@ -119,6 +126,8 @@ editButtonDairy.addEventListener("click", function() {
     disableEditEnableCancel(cancelButtonDairy, this);
     // Displays selectable checkboxes
     $(".selectable-dairy").css("display", "inline-block");
+    // Displays delete-slider
+    $('#delete-button-dairy').animate({top: '+=-18px', opacity: '1'}, 'fast');
 });
 
 cancelButtonDairy.addEventListener("click", function() {
@@ -126,6 +135,8 @@ cancelButtonDairy.addEventListener("click", function() {
     disableCancelEnableEdit(editButtonDairy, this);
     // Hides selectable checkboxes
     $(".selectable-dairy").css("display", "none");
+    // Slides delete-button out
+    $('#delete-button-dairy').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
 
 editButtonFruits.addEventListener("click", function() {
@@ -133,6 +144,8 @@ editButtonFruits.addEventListener("click", function() {
     disableEditEnableCancel(cancelButtonFruits, this);
     // Displays selectable checkboxes
     $(".selectable-fruits").css("display", "inline-block");
+    // Displays delete-slider
+    $('#delete-button-fruits').animate({top: '+=-18px', opacity: '1'}, 'fast');
 });
 
 cancelButtonFruits.addEventListener("click", function() {
@@ -140,6 +153,8 @@ cancelButtonFruits.addEventListener("click", function() {
     disableCancelEnableEdit(editButtonFruits, this);
     // Hides selectable checkboxes
     $(".selectable-fruits").css("display", "none");
+    // Slides delete-button out
+    $('#delete-button-fruits').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
 
 editButtonVegetables.addEventListener("click", function() {
@@ -148,7 +163,7 @@ editButtonVegetables.addEventListener("click", function() {
     // Displays selectable checkboxes
     $(".selectable-vegetables").css("display", "inline-block");
     // Displays delete-slider
-    $('#delete-slider-vegetables').addClass('delete-slider-opened');
+    $('#delete-button-vegetables').animate({top: '+=-18px', opacity: '1'}, 'fast');
 });
 
 cancelButtonVegetables.addEventListener("click", function() {
@@ -156,8 +171,8 @@ cancelButtonVegetables.addEventListener("click", function() {
     disableCancelEnableEdit(editButtonVegetables, this);
     // Hides selectable checkboxes
     $(".selectable-vegetables").css("display", "none");
-    // Hides delete slider
-    $('#delete-slider-vegetables').removeClass('delete-slider-opened');
+    // Slides delete-button out
+    $('#delete-button-vegetables').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
 
 $(deleteButtonMeats).click(function() {
@@ -255,36 +270,36 @@ function activateOrInactivateDeleteButton(category) {
     });
     if (checkedCount >= 1) {
         if (category === "grains") {
-            deleteButtonGrains.style.display = "block";
+            deleteButtonGrains.style.cursor = "pointer";
             deleteButtonGrains.style.color = "red";
         } else if (category === "meats") {
-            deleteButtonMeats.style.display = "block";
+            deleteButtonMeats.style.cursor = "pointer";
             deleteButtonMeats.style.color = "red";
         } else if (category == "dairy") {
-            deleteButtonDairy.style.display = "block";
+            deleteButtonDairy.style.cursor = "pointer";
             deleteButtonDairy.style.color = "red";
         } else if (category === "fruits") {
-            deleteButtonFruits.style.display = "block";
+            deleteButtonFruits.style.cursor = "pointer";
             deleteButtonFruits.style.color = "red";
         } else if (category ==="vegetables") {
-            deleteButtonVegetables.style.display = "block";
+            deleteButtonVegetables.style.cursor = "pointer";
             deleteButtonVegetables.style.color = "red";
         }
     } else {
         if (category === "grains") {
-            /*deleteButtonGrains.style.display = "none";*/
+            deleteButtonGrains.style.cursor = "default";
             deleteButtonGrains.style.color = "grey";
         } else if (category === "meats") {
-            /*deleteButtonMeats.style.display = "none";*/
+            deleteButtonMeats.style.cursor = "default";
             deleteButtonMeats.style.color = "grey";
         } else if (category == "dairy") {
-            /*deleteButtonDairy.style.display = "none";*/
+            deleteButtonDairy.style.cursor = "default";
             deleteButtonDairy.style.color = "grey";
         } else if (category === "fruits") {
-            /*deleteButtonFruits.style.display = "none";*/
+            deleteButtonFruits.style.cursor = "default";
             deleteButtonFruits.style.color = "grey";
         } else if (category ==="vegetables") {
-            /*deleteButtonVegetables.style.display = "none";*/
+            deleteButtonVegetables.style.cursor = "default";
             deleteButtonVegetables.style.color = "grey";
         }
     }
