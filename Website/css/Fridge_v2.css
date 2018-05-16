@@ -1,0 +1,105 @@
+
+h1 span {
+  border: 2px solid white;
+  padding: 20px;
+  text-shadow: 6px 6px black;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.5em;
+  -webkit-text-stroke-width: 5px;
+  -webkit-text-stroke-color: black;
+
+}
+
+#heading h1 {
+      font-family: 'Fredoka One', cursive;
+      color: white;
+      text-align: center;
+      font-size: 3em ;
+      -webkit-text-stroke-width: 1.5px;
+      -webkit-text-stroke-color: black;
+      padding-top: 70px;
+
+  }
+
+
+
+body {
+  background-color: #ffffff;
+  color: white;
+  align-items: center;
+  font-family: monospace;
+  margin: 0;
+  padding: 0;
+  background-image: url(../images/pattern.png);
+  background-position: center;
+  background-repeat:repeat;
+  height: 100%;
+}
+
+
+
+
+.centerHeader {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+
+#heading2 {
+    text-align: center;
+    font-family: 'Fredoka One', sans-serif;
+    font-size: 2em;
+    background-color: aliceblue;
+    opacity: 0.8;
+}
+
+#login {
+    float: right;
+    margin-left: 100px;
+    width: 100%;
+}
+#title {
+
+    color: azure;
+}
+
+.carousel-inner .item {
+    height: 125px;
+    border-radius: 25px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+.item img {
+    opacity: 0.9;
+    border-radius: 25px;
+    width: 100%;
+}
+
+.item p {
+    color: #143612;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 90%;
+}
+.item h3 {
+    color: #FF7F50;
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+.left.carousel-control {
+    border-radius: 25%;
+    opacity: 0.1;
+}
+.right.carousel-control {
+    border-radius: 25%;
+    opacity: 0.1;
+
+  }
+
+
+
+a {
+  text-decoration: none !important;
+}
