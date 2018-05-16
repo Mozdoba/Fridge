@@ -34,8 +34,6 @@ getSubCollection(userID, "vegetables");
  * design UI to modify existing food item (edit-btn activates?)
  * design UI on Fridge page to link to upload receipt screen (edit-btn activates?)
  * Empty Category message if no food items exist in category
- * style existing edit-button :hover :active
- * style existing delete-button :hover :active
  */
 
 // Shortcuts to DOM Elements.
@@ -260,9 +258,8 @@ function disableCancelEnableEdit(editButton, cancelButton) {
 
 // Displays delete-button if at least 1 checkbox is checked
 function activateOrInactivateDeleteButton(category) {
-    var checkBoxes = document.querySelectorAll(".selectable-" + category);
-    console.log(checkBoxes);
-    var checkedCount = 0;
+    let checkBoxes = document.querySelectorAll(".selectable-" + category);
+    let checkedCount = 0;
     checkBoxes.forEach((el) => {
         if (el.checked) {
             checkedCount++;
@@ -307,13 +304,13 @@ function activateOrInactivateDeleteButton(category) {
 
 // Renders data on HTML pages
 function renderFoodItem(foodDoc, category) {
-    // @TO-DO: make a list and append it to ".modal-content" 
-    renderedDoc = "<input type='checkbox' class='selectable selectable-"
-    + category + "'/><label class='food-item food-item-" + category + "'>&nbsp&nbsp&nbsp&nbsp" + foodDoc.id + "</label>";
+    // @TO-DO: make a list and append it to ".modal-content"
+    let num = 0; 
+    renderedDoc = "<input id='" + category + num + "' type='checkbox' class='selectable selectable-"
+    + category + "'/><label for='" + category + num++ + "' class='food-item food-item-" + category + "'>&nbsp&nbsp&nbsp&nbsp" + foodDoc.id + "</label>";
     $(".modal-body-" + category).append(renderedDoc);
     // Hide all checkboxes
     $(".selectable").css("display", "none");
-    
     // addEventListeners to all the food-item inputs that were just rendered
     let selectableCheckBox = document.querySelectorAll(".selectable-" + category);
     selectableCheckBox.forEach((el) => {
@@ -321,15 +318,33 @@ function renderFoodItem(foodDoc, category) {
             activateOrInactivateDeleteButton(category);
         });
     });
+    /*
+    let label = document.querySelectorAll(".food-item");
+    label.forEach((el) => {
+        el.addEventListener("click", function() {
+            this.previousSibling.checked = !this.previousSibling.checked;
+            activateOrInactivateDeleteButton(category);
+        });
+    });
+    
+    $(".food-item-" + category).on("click", function(e) {
+        if ($('#edit-button-' + category).hasClass("disabled")) {
+            console.log(this);
+            this.previousSibling.checked = !this.previousSibling.checked;
+            activateOrInactivateDeleteButton(category);
+        }
+    });
+    */
+    
     return renderedDoc; //returns input
 }
 
 // Deletes Checked checkboxes and all children from DOM
 function deleteCheckedBoxes(category) {
-    var checkBoxes = document.querySelectorAll(".selectable-" + category);
-    var checkedCount = 0;
+    let checkBoxes = document.querySelectorAll(".selectable-" + category);
+    let checkedCount = 0;
     for(var i = 0; i < checkBoxes.length; i++) {
-        var checkBox = checkBoxes[i];
+        let checkBox = checkBoxes[i];
         if (checkBox.checked) {
             //deleteDocument(userID, checkBox.nextElementSibling.innerHTML.replace(/\&nbsp;/g, ''));
             checkBox.parentNode.removeChild(checkBox.nextSibling);
@@ -383,7 +398,7 @@ function getSubCollection(userID, category) {
         } else {
             querySnapshot.forEach(function(doc) {
                 // doc.data() is never undefined for query doc snapshots
-                console.log(doc.id, " => ", doc.data());
+                //console.log(doc.id, " => ", doc.data());
                 // generate content in modal
                 renderFoodItem(doc, category);
             });

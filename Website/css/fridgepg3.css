@@ -30,6 +30,7 @@
     width: 100%;
     font-size: 13pt;
     margin: 0 0 0 0;
+    user-select: none;
 }
 .food-item-grains {
     background-color: #e9b72d75;
