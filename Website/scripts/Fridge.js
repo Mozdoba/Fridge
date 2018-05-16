@@ -99,6 +99,7 @@ cancelButtonGrains.addEventListener("click", function() {
     // Hides selectable checkboxes
     $(".selectable-grains").css("display", "none");
     $('.selectable-grains').attr('disabled', true);
+    $('.selectable-grains').prop('checked', false);
     // Slides delete-button out
     $('#delete-button-grains').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
@@ -119,6 +120,7 @@ cancelButtonMeats.addEventListener("click", function() {
     // Hides selectable checkboxes
     $(".selectable-meats").css("display", "none");
     $('.selectable-meats').attr('disabled', true);
+    $('.selectable-meats').prop('checked', false);
     // Slides delete-button out
     $('#delete-button-meats').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
@@ -139,6 +141,7 @@ cancelButtonDairy.addEventListener("click", function() {
     // Hides selectable checkboxes
     $(".selectable-dairy").css("display", "none");
     $('.selectable-dairy').attr('disabled', true);
+    $('.selectable-dairy').prop('checked', false);
     // Slides delete-button out
     $('#delete-button-dairy').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
@@ -159,6 +162,7 @@ cancelButtonFruits.addEventListener("click", function() {
     // Hides selectable checkboxes
     $(".selectable-fruits").css("display", "none");
     $('.selectable-fruits').attr('disabled', true);
+    $('.selectable-fruits').prop('checked', false);
     // Slides delete-button out
     $('#delete-button-fruits').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
@@ -179,6 +183,7 @@ cancelButtonVegetables.addEventListener("click", function() {
     // Hides selectable checkboxes
     $(".selectable-vegetables").css("display", "none");
     $('.selectable-vegetables').attr('disabled', true);
+    $('.selectable-vegetables').prop('checked', false);
     // Slides delete-button out
     $('#delete-button-vegetables').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
