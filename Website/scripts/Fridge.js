@@ -85,8 +85,9 @@ $('.add').click(function() {
 editButtonGrains.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
     disableEditEnableCancel(cancelButtonGrains, this);
-    // Displays selectable checkboxes
+    // Displays selectable checkboxes and makes them selectable
     $(".selectable-grains").css("display", "inline-block");
+    $('.selectable-grains').attr('disabled', false);
     // Slides delete-button out
     $('#delete-button-grains').animate({top: '+=-18px', opacity: '1'}, 'fast');
 
@@ -97,6 +98,7 @@ cancelButtonGrains.addEventListener("click", function() {
     disableCancelEnableEdit(editButtonGrains, this);
     // Hides selectable checkboxes
     $(".selectable-grains").css("display", "none");
+    $('.selectable-grains').attr('disabled', true);
     // Slides delete-button out
     $('#delete-button-grains').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
@@ -106,6 +108,7 @@ editButtonMeats.addEventListener("click", function() {
     disableEditEnableCancel(cancelButtonMeats, this);
     // Displays selectable checkboxes
     $(".selectable-meats").css("display", "inline-block");
+    $('.selectable-meats').attr('disabled', false);
     // Displays delete-slider
     $('#delete-button-meats').animate({top: '+=-18px', opacity: '1'}, 'fast');
 });
@@ -115,6 +118,7 @@ cancelButtonMeats.addEventListener("click", function() {
     disableCancelEnableEdit(editButtonMeats, this);
     // Hides selectable checkboxes
     $(".selectable-meats").css("display", "none");
+    $('.selectable-meats').attr('disabled', true);
     // Slides delete-button out
     $('#delete-button-meats').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
@@ -124,6 +128,7 @@ editButtonDairy.addEventListener("click", function() {
     disableEditEnableCancel(cancelButtonDairy, this);
     // Displays selectable checkboxes
     $(".selectable-dairy").css("display", "inline-block");
+    $('.selectable-dairy').attr('disabled', false);
     // Displays delete-slider
     $('#delete-button-dairy').animate({top: '+=-18px', opacity: '1'}, 'fast');
 });
@@ -133,6 +138,7 @@ cancelButtonDairy.addEventListener("click", function() {
     disableCancelEnableEdit(editButtonDairy, this);
     // Hides selectable checkboxes
     $(".selectable-dairy").css("display", "none");
+    $('.selectable-dairy').attr('disabled', true);
     // Slides delete-button out
     $('#delete-button-dairy').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
@@ -142,6 +148,7 @@ editButtonFruits.addEventListener("click", function() {
     disableEditEnableCancel(cancelButtonFruits, this);
     // Displays selectable checkboxes
     $(".selectable-fruits").css("display", "inline-block");
+    $('.selectable-fruits').attr('disabled', false);
     // Displays delete-slider
     $('#delete-button-fruits').animate({top: '+=-18px', opacity: '1'}, 'fast');
 });
@@ -151,6 +158,7 @@ cancelButtonFruits.addEventListener("click", function() {
     disableCancelEnableEdit(editButtonFruits, this);
     // Hides selectable checkboxes
     $(".selectable-fruits").css("display", "none");
+    $('.selectable-fruits').attr('disabled', true);
     // Slides delete-button out
     $('#delete-button-fruits').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
@@ -160,6 +168,7 @@ editButtonVegetables.addEventListener("click", function() {
     disableEditEnableCancel(cancelButtonVegetables, this);
     // Displays selectable checkboxes
     $(".selectable-vegetables").css("display", "inline-block");
+    $('.selectable-vegetables').attr('disabled', false);
     // Displays delete-slider
     $('#delete-button-vegetables').animate({top: '+=-18px', opacity: '1'}, 'fast');
 });
@@ -169,6 +178,7 @@ cancelButtonVegetables.addEventListener("click", function() {
     disableCancelEnableEdit(editButtonVegetables, this);
     // Hides selectable checkboxes
     $(".selectable-vegetables").css("display", "none");
+    $('.selectable-vegetables').attr('disabled', true);
     // Slides delete-button out
     $('#delete-button-vegetables').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
@@ -245,6 +255,7 @@ function disableEditEnableCancel(cancelButton, editButton) {
     }, 20);
     $(editButton).addClass("disabled");
     $(editButton).addClass("hidden");
+    $('')
 }
 
 function disableCancelEnableEdit(editButton, cancelButton) {
@@ -317,8 +328,7 @@ var num = 0;
 // Renders data on HTML pages
 function renderFoodItem(foodDoc, category) {
     // @TO-DO: make a list and append it to ".modal-content"
-    renderedDoc = "<input id='" + category + num + "' type='checkbox' class='selectable selectable-"
-    + category + "'/><label for='" + category + num++ + "' class='food-item food-item-" + category + "'>&nbsp&nbsp&nbsp&nbsp" + foodDoc.id + "</label>";
+    renderedDoc = "<input id='" + category + num + "' type='checkbox' class='selectable selectable-" + category + "' disabled='disabled'/><label for='" + category + num++ + "' class='food-item food-item-" + category + "'>&nbsp&nbsp&nbsp&nbsp" + foodDoc.id + "</label>";
     $(".modal-body-" + category).append(renderedDoc);
     // Hide all checkboxes
     $(".selectable").css("display", "none");
