@@ -22,18 +22,11 @@ getSubCollection(userID, "vegetables");
 //console.log(userID);
 /**
  * @TO-DO:
-
- * connect login page to fridgepg3.html (form attribute action?)
  * style unordered list - alphabetically vs timestamp
- * update modal content upon page refresh - 30 min
- * ADD CIRCLE button to add new item manually
  * window where user can choose to upload image or add manually or modify existing?
- * Form to fill out when adding new items manually
  * ADD Shopping List functionality?
  * 
  * test function to add food item to DOM
- * take photo of syrra
- * create form to fill out when adding new food items to the fridge
  * create function to grab input fields
  * create function to use input fields to generate new document
  * create function to modify existing fields of a food item
@@ -91,12 +84,13 @@ $('.add').click(function() {
     }
 });
 
-
 editButtonGrains.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
     disableEditEnableCancel(cancelButtonGrains, this);
     // Displays selectable checkboxes
     $(".selectable-grains").css("display", "inline-block");
+    // Displays delete-slider
+
 });
 
 cancelButtonGrains.addEventListener("click", function() {
@@ -153,6 +147,8 @@ editButtonVegetables.addEventListener("click", function() {
     disableEditEnableCancel(cancelButtonVegetables, this);
     // Displays selectable checkboxes
     $(".selectable-vegetables").css("display", "inline-block");
+    // Displays delete-slider
+    $('#delete-slider-vegetables').addClass('delete-slider-opened');
 });
 
 cancelButtonVegetables.addEventListener("click", function() {
@@ -160,6 +156,8 @@ cancelButtonVegetables.addEventListener("click", function() {
     disableCancelEnableEdit(editButtonVegetables, this);
     // Hides selectable checkboxes
     $(".selectable-vegetables").css("display", "none");
+    // Hides delete slider
+    $('#delete-slider-vegetables').removeClass('delete-slider-opened');
 });
 
 $(deleteButtonMeats).click(function() {
@@ -246,7 +244,7 @@ function disableCancelEnableEdit(editButton, cancelButton) {
 }
 
 // Displays delete-button if at least 1 checkbox is checked
-function showOrHideDeleteButton(category) {
+function activateOrInactivateDeleteButton(category) {
     var checkBoxes = document.querySelectorAll(".selectable-" + category);
     console.log(checkBoxes);
     var checkedCount = 0;
@@ -258,26 +256,36 @@ function showOrHideDeleteButton(category) {
     if (checkedCount >= 1) {
         if (category === "grains") {
             deleteButtonGrains.style.display = "block";
+            deleteButtonGrains.style.color = "red";
         } else if (category === "meats") {
             deleteButtonMeats.style.display = "block";
+            deleteButtonMeats.style.color = "red";
         } else if (category == "dairy") {
             deleteButtonDairy.style.display = "block";
+            deleteButtonDairy.style.color = "red";
         } else if (category === "fruits") {
             deleteButtonFruits.style.display = "block";
+            deleteButtonFruits.style.color = "red";
         } else if (category ==="vegetables") {
             deleteButtonVegetables.style.display = "block";
+            deleteButtonVegetables.style.color = "red";
         }
     } else {
         if (category === "grains") {
-            deleteButtonGrains.style.display = "none";
+            /*deleteButtonGrains.style.display = "none";*/
+            deleteButtonGrains.style.color = "grey";
         } else if (category === "meats") {
-            deleteButtonMeats.style.display = "none";
+            /*deleteButtonMeats.style.display = "none";*/
+            deleteButtonMeats.style.color = "grey";
         } else if (category == "dairy") {
-            deleteButtonDairy.style.display = "none";
+            /*deleteButtonDairy.style.display = "none";*/
+            deleteButtonDairy.style.color = "grey";
         } else if (category === "fruits") {
-            deleteButtonFruits.style.display = "none";
+            /*deleteButtonFruits.style.display = "none";*/
+            deleteButtonFruits.style.color = "grey";
         } else if (category ==="vegetables") {
-            deleteButtonVegetables.style.display = "none";
+            /*deleteButtonVegetables.style.display = "none";*/
+            deleteButtonVegetables.style.color = "grey";
         }
     }
 }
@@ -295,7 +303,7 @@ function renderFoodItem(foodDoc, category) {
     let selectableCheckBox = document.querySelectorAll(".selectable-" + category);
     selectableCheckBox.forEach((el) => {
         el.addEventListener("click", function() {
-            showOrHideDeleteButton(category);
+            activateOrInactivateDeleteButton(category);
         });
     });
     return renderedDoc; //returns input
@@ -315,15 +323,20 @@ function deleteCheckedBoxes(category) {
         // hide delete button on last iteration if there are no more checkboxes
         if (i == checkBoxes.length - 1) {
             if (category === "grains") {
-                deleteButtonGrains.style.display = "none";
+                /*deleteButtonGrains.style.display = "none";*/
+                deleteButtonGrains.style.color = "grey";
             } else if (category === "meats") {
-                deleteButtonMeats.style.display = "none";
+                /*deleteButtonMeats.style.display = "none";*/
+                deleteButtonMeats.style.color = "grey";
             } else if (category == "dairy") {
-                deleteButtonDairy.style.display = "none";
+                /*deleteButtonDairy.style.display = "none";*/
+                deleteButtonDairy.style.color = "grey";
             } else if (category === "fruits") {
-                deleteButtonFruits.style.display = "none";
+                /*deleteButtonFruits.style.display = "none";*/
+                deleteButtonFruits.style.color = "grey";
             } else if (category ==="vegetables") {
-                deleteButtonVegetables.style.display = "none";
+                /*deleteButtonVegetables.style.display = "none";*/
+                deleteButtonVegetables.style.color = "grey";
             }
         }
     }
