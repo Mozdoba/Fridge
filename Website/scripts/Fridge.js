@@ -284,23 +284,23 @@ function activateOrInactivateDeleteButton(category) {
     if (checkedCount >= 1) {
         if (category === "grains") {
             deleteButtonGrains.style.cursor = "pointer";
-            deleteButtonGrains.style.color = "blue";
+            deleteButtonGrains.style.color = "rgb(96, 96, 194)";
             //deleteButtonGrains.style.fontWeight = "bold";
         } else if (category === "meats") {
             deleteButtonMeats.style.cursor = "pointer";
-            deleteButtonMeats.style.color = "blue";
+            deleteButtonMeats.style.color = "rgb(96, 96, 194)";
             //deleteButtonMeats.style.fontWeight = "bold";
         } else if (category == "dairy") {
             deleteButtonDairy.style.cursor = "pointer";
-            deleteButtonDairy.style.color = "blue";
+            deleteButtonDairy.style.color = "rgb(96, 96, 194)";
             //deleteButtonDairy.style.fontWeight = "bold";
         } else if (category === "fruits") {
             deleteButtonFruits.style.cursor = "pointer";
-            deleteButtonFruits.style.color = "blue";
+            deleteButtonFruits.style.color = "rgb(96, 96, 194)";
             //deleteButtonFruits.style.fontWeight = "bold";
         } else if (category ==="vegetables") {
             deleteButtonVegetables.style.cursor = "pointer";
-            deleteButtonVegetables.style.color = "blue";
+            deleteButtonVegetables.style.color = "rgb(96, 96, 194)";
             //deleteButtonVegetables.style.fontWeight = "bold";
         }
     } else {
