@@ -22,7 +22,7 @@
 
 
 body {
-  background-color: #ffffe6;
+  background-color: #ebebe0;
   font-family: 'Kite One', sans-serif;
 }
 
@@ -50,22 +50,27 @@ h2 > span {
   box-shadow: 5px 5px 5px #d9d9d9;
 }
 
+.hero-text span {
+  border: 2px solid white;
+  padding: 20px;
+  text-shadow: 2px 2px black;
+  font-family: 'Fredoka One', cursive;
+  font-size: 2em;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
 input {
   font-size: 1em;
 }
 
-/* #main {
+#main {
   transition: margin-left .5s;
   padding: 16px;
   color: black;
-  font-size: 30px;
-} */
-
-.main {
-  font-size: 20px;
 }
 
-#menu {
+#main > span {
   font-size: 1.5em;
   cursor: pointer;
   color: black;
@@ -79,14 +84,14 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 60%;
+  width: 50%;
 }
 
 /******** HERO IMAGE ********/
 .hero-image {
     background-image: url("../images/pattern.png") !important;
     /* Set a specific height */
-    height: 50%;
+    height: 35%;
 
     /* Position and center the image to scale nicely on all screens */
     /* background-position: center; */
@@ -106,23 +111,13 @@ img {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
+    font-size: 1.5vw;
 }
-
-.hero-text span {
-  border: 2px solid white;
-  padding: 20px;
-  text-shadow: 2px 2px black;
-  font-family: 'Fredoka One', cursive;
-  font-size: 2em;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
-}
-
 /******** HERO IMAGE ********/
 
 /******** SIDE NAV MENU ********/
 .sidenav {
-  height: 40%;
+  height: 100%;
   width: 0;
   position: fixed;
   z-index: 1;
@@ -137,7 +132,7 @@ img {
 .sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 1.5em;
+  font-size: 25px;
   color: black;;
   display: block;
   transition: 0.3s;
@@ -159,9 +154,3 @@ img {
 }
 
 /******** SIDE NAV MENU ********/
-
-@media only screen and (max-width: 600px) {
-  .hero-text span {
-    font-size: 30px;
-  }
-}
