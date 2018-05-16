@@ -268,44 +268,55 @@ function activateOrInactivateDeleteButton(category) {
     if (checkedCount >= 1) {
         if (category === "grains") {
             deleteButtonGrains.style.cursor = "pointer";
-            deleteButtonGrains.style.color = "red";
+            deleteButtonGrains.style.color = "blue";
+            //deleteButtonGrains.style.fontWeight = "bold";
         } else if (category === "meats") {
             deleteButtonMeats.style.cursor = "pointer";
-            deleteButtonMeats.style.color = "red";
+            deleteButtonMeats.style.color = "blue";
+            //deleteButtonMeats.style.fontWeight = "bold";
         } else if (category == "dairy") {
             deleteButtonDairy.style.cursor = "pointer";
-            deleteButtonDairy.style.color = "red";
+            deleteButtonDairy.style.color = "blue";
+            //deleteButtonDairy.style.fontWeight = "bold";
         } else if (category === "fruits") {
             deleteButtonFruits.style.cursor = "pointer";
-            deleteButtonFruits.style.color = "red";
+            deleteButtonFruits.style.color = "blue";
+            //deleteButtonFruits.style.fontWeight = "bold";
         } else if (category ==="vegetables") {
             deleteButtonVegetables.style.cursor = "pointer";
-            deleteButtonVegetables.style.color = "red";
+            deleteButtonVegetables.style.color = "blue";
+            //deleteButtonVegetables.style.fontWeight = "bold";
         }
     } else {
         if (category === "grains") {
             deleteButtonGrains.style.cursor = "default";
             deleteButtonGrains.style.color = "grey";
+            deleteButtonGrains.style.fontWeight = "normal";
         } else if (category === "meats") {
             deleteButtonMeats.style.cursor = "default";
             deleteButtonMeats.style.color = "grey";
+            deleteButtonMeats.style.fontWeight = "normal";
         } else if (category == "dairy") {
             deleteButtonDairy.style.cursor = "default";
             deleteButtonDairy.style.color = "grey";
+            deleteButtonDairy.style.fontWeight = "normal";
         } else if (category === "fruits") {
             deleteButtonFruits.style.cursor = "default";
             deleteButtonFruits.style.color = "grey";
+            deleteButtonFruits.style.fontWeight = "normal";
         } else if (category ==="vegetables") {
             deleteButtonVegetables.style.cursor = "default";
             deleteButtonVegetables.style.color = "grey";
+            deleteButtonVegetables.style.fontWeight = "normal";
         }
     }
 }
 
+// Integer to give each input a unique id. Eg. id="grains1"
+var num = 0;
 // Renders data on HTML pages
 function renderFoodItem(foodDoc, category) {
     // @TO-DO: make a list and append it to ".modal-content"
-    let num = 0; 
     renderedDoc = "<input id='" + category + num + "' type='checkbox' class='selectable selectable-"
     + category + "'/><label for='" + category + num++ + "' class='food-item food-item-" + category + "'>&nbsp&nbsp&nbsp&nbsp" + foodDoc.id + "</label>";
     $(".modal-body-" + category).append(renderedDoc);
@@ -318,24 +329,6 @@ function renderFoodItem(foodDoc, category) {
             activateOrInactivateDeleteButton(category);
         });
     });
-    /*
-    let label = document.querySelectorAll(".food-item");
-    label.forEach((el) => {
-        el.addEventListener("click", function() {
-            this.previousSibling.checked = !this.previousSibling.checked;
-            activateOrInactivateDeleteButton(category);
-        });
-    });
-    
-    $(".food-item-" + category).on("click", function(e) {
-        if ($('#edit-button-' + category).hasClass("disabled")) {
-            console.log(this);
-            this.previousSibling.checked = !this.previousSibling.checked;
-            activateOrInactivateDeleteButton(category);
-        }
-    });
-    */
-    
     return renderedDoc; //returns input
 }
 
