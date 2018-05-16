@@ -400,6 +400,18 @@ function retrieveData(userEmail) {
     });
 }
 
+// log user out of account
+function logOut(){
+
+    firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+      // window.location.href = "http://fridgedit.com/login.html";
+      console.log("Lewis is a sweetheart");
+    }).catch(function(error) {
+      // An error happened.
+    });
+}
+
 });
 
 

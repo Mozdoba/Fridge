@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url(../images/pattern.png);
+    background-position: center;
+    font-family: sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-size: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+#title {
+    padding-top: 50px;
+    color: azure;
+}
+
+.img {
+    position: relative;
+    top: 12px;
+}
+
+.container {
+    width: 320px;
+    margin: auto;
+    padding: 10px;
+}
+
+.signup,
+.login {
+    width: 160px;
+    background: rgba(255, 255, 255, 0.767);
+    height: 60px;
+    float: left;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.signup-form,
+.login-form {
+    margin: auto;
+    background: rgba(255, 255, 255, 0.767);
+    box-sizing: border-box;
+    padding: 45px 15px;
+    clear: both;
+    width: 320px;
+    height: 600px;
+}
+
+.input {
+    width: 80%;
+    box-sizing: border-box;
+    padding: 20px;
+    margin-bottom: 25px;
+    border: 2px solid #e9eaea;
+    color: #3e3e40;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.5s ease;
+}
+
+.input:focus {
+    border: 2px solid #34b4a0;
+}
+
+
+.btn {
+    width: 100%;
+    background: #34b4a0;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+span a {
+    text-decoration: none;
+    color: #000;
+}
+
+.alert{
+  text-align: center;
+  padding:10px;
+  background:#79c879;
+  color:#fff;
+  margin-bottom:10px;
+  display:none;
+}
+
+/******************************************************************
+MEDIA QUERIES
+******************************************************************/
+
+/* for 425px or less */
+@media screen and (max-width: 425px) {
+
+.container {
+    width: 75%;
+}
+
+.signup, .login {
+    width: 50%;
+    margin: none;
+    background: rgba(255, 255, 255, 0.767);
+    height: 60px;
+    float: left;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.signup-form, .login-form {
+    width: 75%;
+    height: 80%;
+    margin: none;
+    border: none;
+    background: rgba(255, 255, 255, 0.767);
+    box-sizing: border-box;
+    /*padding: 45px 15px; */
+    clear: both;
+}
+
+}
