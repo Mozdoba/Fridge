@@ -9,27 +9,24 @@
 .disabled {
     opacity: 0;
 }
-
 .food-list {
     overflow-y: scroll;
 }
-
 .selectable {
     display: none;
     position: absolute;
     left: 4px;
 }
-
 .selectable:checked + label {
     background-color: rgb(255, 180, 180);
     clear: left;
 }
-
 .food-item {
     display: block;
     width: 100%;
     font-size: 13pt;
     margin: 0 0 0 0;
+    user-select: none;
 }
 .food-item-grains {
     background-color: #e9b72d75;
@@ -64,7 +61,6 @@
     -ms-transition: opacity 0.8s ease-in-out;
     -o-transition: opacity 0.8s ease-in-out;
 }
-
 #cancel-button-grains, #cancel-button-meats, #cancel-button-dairy, #cancel-button-fruits, #cancel-button-vegetables {
     left: right;
     color: rgb(96, 96, 194);
@@ -79,34 +75,123 @@
     -ms-transition: opacity 0.8s ease-in-out;
     -o-transition: opacity 0.8s ease-in-out;
 }
-
 #delete-button-grains, #delete-button-meats, #delete-button-dairy, #delete-button-fruits, #delete-button-vegetables {
-    float: center;
-    color: rgb(255, 0, 0);
+    position: relative;
+    top: 35px;
+    left: 3%;
+    color: grey;
     font-size: 13pt;
     line-height: 0;
-    display: none;
-    cursor:pointer;
+    display: block;
+    cursor: default;
     user-select: none;
+    opacity: 0;
 }
-.add-slider {
+#select-all-grains, #select-all-meats, #select-all-dairy, #select-all-fruits, #select-all-vegetables {
+    position: relative;
+    top: 35px;
+    left: 83%;
+    color: rgb(96, 96, 194);
+    font-size: 13pt;
+    line-height: 0;
+    display: block;
+    cursor: pointer;
+    user-select: none;
+    opacity: 0;
+}
+#add-slider-grains, #add-slider-meats, #add-slider-dairy, #add-slider-fruits, #add-slider-vegetables {
     max-height: 0px;
     overflow-y: hidden;
     transition-property: all;
     transition-duration: 0.5s;
     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
   }
-  .add-slider.opened {
+  #add-slider-grains.opened, #add-slider-meats.opened, #add-slider-dairy.opened, #add-slider-fruits.opened, #add-slider-vegetables.opened{
     max-height: 200px;
     overflow: hidden;
     transition-property: all;
     transition-duration: 0.5s;
     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
   }
+#add-slider-grains {
+    background-color: #e9b72d75;
+}
+#add-slider-meats {
+    background-color: #f79178;
+}
+#add-slider-dairy {
+    background-color: #f0f8ff;
+}
+#add-slider-fruits {
+    background-color: #f3f051;
+}  
+#add-slider-vegetables {
+    background-color: #84f779;
+}
+label {
+    display: block;
+    padding-left: 5%;
+}
+input {
+    background-color: #f1f1f1;
+}
+::placeholder {
+    color: rgb(96, 96, 194);
+}
+input[type=submit] {
+    margin-left: 5%;
+    border-radius: 5px;
+    color: rgb(96, 96, 194);
+}
+input[type=text], input[type=date] {
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+    border: 1px solid #81818175;
+    padding: 2%;
+    border-radius: 5px;
+    color: rgb(96, 96, 194);
+}
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+    color: rgb(96, 96, 194);
+  }
+  .autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff; 
+    border-bottom: 1px solid #d4d4d4; 
+  }
+  .autocomplete-items div:hover {
+    background-color: #e9e9e9; 
+  }
+  .autocomplete-active {
+    background-color: DodgerBlue !important; 
+    color: #ffffff; 
+  }
+  .override-position {
+      position:absolute;
+      top: 166px;
+  }
+  .food-suggestions {
+      width: 90%;
+      margin: 0 auto;
+      border-radius: 5px;
+  }
 
-/**************************************************************************************************************************************************************
-MEDIA QUERIES
-***************************************************************************************************************************************************************/
+/********************************************
+*                                           *
+*               MEDIA QUERIES               *
+*                                           *
+********************************************/
 /* for 414px or less */
 @media screen and (max-width: 414px) {
   html {
@@ -239,7 +324,7 @@ MEDIA QUERIES
   }
   .modal-header-dairy {
       color:rgb(7, 7, 7);
-      padding:9px 15px;
+      padding: 9px 15px;
       border-bottom:1px dotted #eee;
       background-color: #f0f8ff;
       -webkit-border-top-left-radius: 5px;
@@ -285,14 +370,34 @@ MEDIA QUERIES
   }
   .add {
     position: absolute;
-    left: 308px;
-    top: 50px;
+    left: 295px;
+    top: 35px;
+    transform: scale(0.65);
   }
+  .add:active {
+      transform: scale(0.85);
+      filter: brightness(1.2);
+      transition: all 0.20s;
+  }
+  #select-all-grains, #select-all-meats, #select-all-dairy, #select-all-fruits, #select-all-vegetables {
+    position: relative;
+    top: 35px;
+    left: 75%;
+    color: rgb(96, 96, 194);
+    font-size: 13pt;
+    line-height: 0;
+    display: block;
+    cursor: pointer;
+    user-select: none;
+    opacity: 0;
+}
 }
 
-/******************************************************************************************************************************************************
-MEDIA QUERIES
-*******************************************************************************************************************************************************/
+/********************************************
+*                                           *
+*               MEDIA QUERIES               *
+*                                           *
+********************************************/
 /* for 415px or more */
 @media screen and (min-width: 415px) {
   html {
@@ -396,8 +501,8 @@ MEDIA QUERIES
     -webkit-border-top-right-radius: 5px;
     -moz-border-radius-topleft: 5px;
     -moz-border-radius-topright: 5px;
-     border-top-left-radius: 5px;
-     border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 .modal-footer-fruits {
     color:#fff;
@@ -407,8 +512,8 @@ MEDIA QUERIES
     -webkit-border-bottom-right-radius: 5px;
     -moz-border-radius-bottomleft: 5px;
     -moz-border-radius-bottomright: 5px;
-     border-bottom-left-radius: 5px;
-     border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
   }
 .modal-header-vegetables {
     color:#fff;
@@ -481,9 +586,14 @@ MEDIA QUERIES
   }
   .add {
     position: absolute;
-    left: 510px;
-    top: 45px;
+    left: 82%;
+    top: 35px;
   }
-
+  .add:hover {
+    transform: scale(0.75);
+    filter: saturate(3);
+    filter: brightness(1.2);
+    transition: color 2s;
+  }
 }
 
