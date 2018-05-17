@@ -92,7 +92,7 @@
 #select-all-grains, #select-all-meats, #select-all-dairy, #select-all-fruits, #select-all-vegetables {
     position: relative;
     top: 35px;
-    left: 86%;
+    left: 83%;
     color: rgb(96, 96, 194);
     font-size: 13pt;
     line-height: 0;
@@ -115,6 +115,21 @@
     transition-duration: 0.5s;
     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
   }
+#add-slider-grains {
+    background-color: #e9b72d75;
+}
+#add-slider-meats {
+    background-color: #f79178;
+}
+#add-slider-dairy {
+    background-color: #f0f8ff;
+}
+#add-slider-fruits {
+    background-color: #f3f051;
+}  
+#add-slider-vegetables {
+    background-color: #84f779;
+}
 
 /********************************************
 *                                           *
@@ -308,6 +323,18 @@
       filter: brightness(1.2);
       transition: all 0.20s;
   }
+  #select-all-grains, #select-all-meats, #select-all-dairy, #select-all-fruits, #select-all-vegetables {
+    position: relative;
+    top: 35px;
+    left: 75%;
+    color: rgb(96, 96, 194);
+    font-size: 13pt;
+    line-height: 0;
+    display: block;
+    cursor: pointer;
+    user-select: none;
+    opacity: 0;
+}
 }
 
 /********************************************
