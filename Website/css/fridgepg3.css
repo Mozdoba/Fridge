@@ -9,11 +9,9 @@
 .disabled {
     opacity: 0;
 }
-
 .food-list {
     overflow-y: scroll;
 }
-
 .selectable {
     display: none;
     position: absolute;
@@ -65,7 +63,6 @@
     -ms-transition: opacity 0.8s ease-in-out;
     -o-transition: opacity 0.8s ease-in-out;
 }
-
 #cancel-button-grains, #cancel-button-meats, #cancel-button-dairy, #cancel-button-fruits, #cancel-button-vegetables {
     left: right;
     color: rgb(96, 96, 194);
@@ -80,7 +77,6 @@
     -ms-transition: opacity 0.8s ease-in-out;
     -o-transition: opacity 0.8s ease-in-out;
 }
-
 #delete-button-grains, #delete-button-meats, #delete-button-dairy, #delete-button-fruits, #delete-button-vegetables {
     position: relative;
     top: 35px;
@@ -93,34 +89,32 @@
     user-select: none;
     opacity: 0;
 }
-.add-slider {
+#select-all-grains, #select-all-meats, #select-all-dairy, #select-all-fruits, #select-all-vegetables {
+    position: relative;
+    top: 35px;
+    left: 86%;
+    color: rgb(96, 96, 194);
+    font-size: 13pt;
+    line-height: 0;
+    display: block;
+    cursor: pointer;
+    user-select: none;
+    opacity: 0;
+}
+#add-slider-grains, #add-slider-meats, #add-slider-dairy, #add-slider-fruits, #add-slider-vegetables {
     max-height: 0px;
     overflow-y: hidden;
     transition-property: all;
     transition-duration: 0.5s;
     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
   }
-  .add-slider.opened {
+  #add-slider-grains.opened, #add-slider-meats.opened, #add-slider-dairy.opened, #add-slider-fruits.opened, #add-slider-vegetables.opened{
     max-height: 200px;
     overflow: hidden;
     transition-property: all;
     transition-duration: 0.5s;
     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
   }
-  #delete-slider-vegetables {
-    max-height: 0px;
-    overflow-y: hidden;
-    transition-property: all;
-    transition: 0.5s;
-    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-  }
-  .delete-slider-opened {
-    height: 200px;
-    overflow-y: hidden;
-    transition-property: all;
-    transition: 0.5s;
-    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-}
 
 /********************************************
 *                                           *
@@ -305,8 +299,14 @@
   }
   .add {
     position: absolute;
-    left: 308px;
-    top: 50px;
+    left: 295px;
+    top: 35px;
+    transform: scale(0.65);
+  }
+  .add:active {
+      transform: scale(0.85);
+      filter: brightness(1.2);
+      transition: all 0.20s;
   }
 }
 
@@ -418,8 +418,8 @@
     -webkit-border-top-right-radius: 5px;
     -moz-border-radius-topleft: 5px;
     -moz-border-radius-topright: 5px;
-     border-top-left-radius: 5px;
-     border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 .modal-footer-fruits {
     color:#fff;
@@ -429,8 +429,8 @@
     -webkit-border-bottom-right-radius: 5px;
     -moz-border-radius-bottomleft: 5px;
     -moz-border-radius-bottomright: 5px;
-     border-bottom-left-radius: 5px;
-     border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
   }
 .modal-header-vegetables {
     color:#fff;
@@ -503,9 +503,14 @@
   }
   .add {
     position: absolute;
-    left: 510px;
-    top: 45px;
+    left: 83%;
+    top: 35px;
   }
-
+  .add:hover {
+    transform: scale(0.75);
+    filter: saturate(3);
+    filter: brightness(1.2);
+    transition: color 2s;
+  }
 }
 

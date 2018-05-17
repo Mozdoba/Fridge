@@ -74,12 +74,20 @@ const vegelists_content = document.querySelector('#modal-content-dairy');
 //ADD EVENT LISTENERS TO BUTTONS
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-$('.add').click(function() {
-    if ($('.add-slider').hasClass("opened")) {
-        $(".add-slider").removeClass("opened");
-    } else {
-        $(".add-slider").addClass("opened");
-    }
+$('#plus-grains').click(function() {
+    toggleForm('grains');
+});
+$('#plus-meats').click(function() {
+    toggleForm('meats');
+});
+$('#plus-dairy').click(function() {
+    toggleForm('dairy');
+});
+$('#plus-fruits').click(function() {
+    toggleForm('fruits');
+});
+$('#plus-vegetables').click(function() {
+    toggleForm('vegetables');
 });
 
 editButtonGrains.addEventListener("click", function() {
@@ -90,7 +98,7 @@ editButtonGrains.addEventListener("click", function() {
     $('.selectable-grains').attr('disabled', false);
     // Slides delete-button out
     $('#delete-button-grains').animate({top: '+=-18px', opacity: '1'}, 'fast');
-
+    $('#select-all-grains').animate({top: '+=-18px', opacity: '1'}, 'fast');
 });
 
 cancelButtonGrains.addEventListener("click", function() {
@@ -102,6 +110,7 @@ cancelButtonGrains.addEventListener("click", function() {
     $('.selectable-grains').prop('checked', false);
     // Slides delete-button out
     $('#delete-button-grains').animate({top: '+=18px', opacity: '0'}, 'fast');
+    $('#select-all-grains').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
 
 editButtonMeats.addEventListener("click", function() {
@@ -112,6 +121,7 @@ editButtonMeats.addEventListener("click", function() {
     $('.selectable-meats').attr('disabled', false);
     // Displays delete-slider
     $('#delete-button-meats').animate({top: '+=-18px', opacity: '1'}, 'fast');
+    $('#select-all-meats').animate({top: '+=-18px', opacity: '1'}, 'fast');
 });
 
 cancelButtonMeats.addEventListener("click", function() {
@@ -123,6 +133,7 @@ cancelButtonMeats.addEventListener("click", function() {
     $('.selectable-meats').prop('checked', false);
     // Slides delete-button out
     $('#delete-button-meats').animate({top: '+=18px', opacity: '0'}, 'fast');
+    $('#select-all-meats').animate({top: '+=18px', opacity: '0'}, 'fast'); 
 });
 
 editButtonDairy.addEventListener("click", function() {
@@ -133,6 +144,7 @@ editButtonDairy.addEventListener("click", function() {
     $('.selectable-dairy').attr('disabled', false);
     // Displays delete-slider
     $('#delete-button-dairy').animate({top: '+=-18px', opacity: '1'}, 'fast');
+    $('#select-all-dairy').animate({top: '+=-18px', opacity: '1'}, 'fast');
 });
 
 cancelButtonDairy.addEventListener("click", function() {
@@ -144,6 +156,7 @@ cancelButtonDairy.addEventListener("click", function() {
     $('.selectable-dairy').prop('checked', false);
     // Slides delete-button out
     $('#delete-button-dairy').animate({top: '+=18px', opacity: '0'}, 'fast');
+    $('#select-all-dairy').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
 
 editButtonFruits.addEventListener("click", function() {
@@ -154,6 +167,7 @@ editButtonFruits.addEventListener("click", function() {
     $('.selectable-fruits').attr('disabled', false);
     // Displays delete-slider
     $('#delete-button-fruits').animate({top: '+=-18px', opacity: '1'}, 'fast');
+    $('#select-all-fruits').animate({top: '+=-18px', opacity: '1'}, 'fast');
 });
 
 cancelButtonFruits.addEventListener("click", function() {
@@ -165,6 +179,7 @@ cancelButtonFruits.addEventListener("click", function() {
     $('.selectable-fruits').prop('checked', false);
     // Slides delete-button out
     $('#delete-button-fruits').animate({top: '+=18px', opacity: '0'}, 'fast');
+    $('#select-all-fruits').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
 
 editButtonVegetables.addEventListener("click", function() {
@@ -175,6 +190,7 @@ editButtonVegetables.addEventListener("click", function() {
     $('.selectable-vegetables').attr('disabled', false);
     // Displays delete-slider
     $('#delete-button-vegetables').animate({top: '+=-18px', opacity: '1'}, 'fast');
+    $('#select-all-vegetables').animate({top: '+=-18px', opacity: '1'}, 'fast');
 });
 
 cancelButtonVegetables.addEventListener("click", function() {
@@ -186,6 +202,7 @@ cancelButtonVegetables.addEventListener("click", function() {
     $('.selectable-vegetables').prop('checked', false);
     // Slides delete-button out
     $('#delete-button-vegetables').animate({top: '+=18px', opacity: '0'}, 'fast');
+    $('#select-all-vegetables').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
 
 $(deleteButtonMeats).click(function() {
@@ -198,10 +215,13 @@ $(deleteButtonDairy).click(function() {
     deleteCheckedBoxes("dairy");
 });
 $(deleteButtonFruits).click(function() {
-    deleteCheckedBoxes("fruits")
+    deleteCheckedBoxes("fruits");
 });
 $(deleteButtonVegetables).click(function() {
     deleteCheckedBoxes("vegetables");
+});
+$('#select-all-grains').click(function() {
+    $('.selectable-grains').prop('checked', !$(this).is(':checked'));
 });
 
 // Events for generating modal content and testing
@@ -272,6 +292,9 @@ function disableCancelEnableEdit(editButton, cancelButton) {
     $(cancelButton).addClass("hidden");
 }
 
+function selectAll(category) {
+    $('.selectable-' + category).prop('checked', !this.checked);
+}
 // Displays delete-button if at least 1 checkbox is checked
 function activateOrInactivateDeleteButton(category) {
     let checkBoxes = document.querySelectorAll(".selectable-" + category);
@@ -328,6 +351,13 @@ function activateOrInactivateDeleteButton(category) {
     }
 }
 
+function toggleForm(category) {
+    if ($('#add-slider-' + category).hasClass("opened")) {
+        $('#add-slider-' + category).removeClass("opened");
+    } else {
+        $('#add-slider-' + category).addClass("opened");
+    }
+}
 // Integer to give each input a unique id. Eg. id="grains1"
 var num = 0;
 // Renders data on HTML pages
