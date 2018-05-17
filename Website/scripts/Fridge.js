@@ -4,13 +4,26 @@ $(document).ready(function() {
 var db = firebase.firestore();
 const settings = {timestampsInSnapshots: true};
 db.settings(settings);
-    
+
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //DISPLAY DATA FROM FIRESTORE
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// firebase.auth().onAuthStateChanged(function(user) {
+//   if (user) {
+//     const userID = user.uid;
+//     const userEmail = user.email;
+//     console.log("TEST");
+//     console.log(userEmail);
+//   } else {
+//     // No user is signed in.
+//   }
+// });
+
+console.log("TEST1");
+console.log(userEmail);
+
 // Captures user email and password on login
-var userID = 'LGMsHkEvgKWoxrNqO01y';
-var userEmail = "test@test.com";
+
 
 getSubCollection(userID, "grains");
 getSubCollection(userID, "meats");
@@ -25,7 +38,7 @@ getSubCollection(userID, "vegetables");
  * style unordered list - alphabetically vs timestamp
  * window where user can choose to upload image or add manually or modify existing?
  * ADD Shopping List functionality?
- * 
+ *
  * test function to add food item to DOM
  * create function to grab input fields
  * create function to use input fields to generate new document
@@ -333,10 +346,12 @@ var num = 0;
 // Renders data on HTML pages
 function renderFoodItem(foodDoc, category) {
     // @TO-DO: make a list and append it to ".modal-content"
+
     renderedDoc = "<input id='" + category + num + "' type='checkbox' class='selectable selectable-" + category + "' disabled='disabled'/><label for='" + category + num++ + "' class='food-item food-item-" + category + "'>&nbsp&nbsp&nbsp&nbsp" + foodDoc.id + "</label>";
     $(".modal-body-" + category).append(renderedDoc);
     // Hide all checkboxes
     $(".selectable").css("display", "none");
+
     // addEventListeners to all the food-item inputs that were just rendered
     let selectableCheckBox = document.querySelectorAll(".selectable-" + category);
     selectableCheckBox.forEach((el) => {
@@ -451,6 +466,14 @@ function retrieveData(userEmail) {
     });
 }
 
+function logOut(){
+
+    firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+      window.location.href = "http://fridgedit.com/login.html";
+    }).catch(function(error) {
+      // An error happened.
+    });
+}
+
 });
-
-
