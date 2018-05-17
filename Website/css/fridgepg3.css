@@ -135,8 +135,13 @@ label {
 input {
     background-color: #f1f1f1;
 }
+::placeholder {
+    color: rgb(96, 96, 194);
+}
 input[type=submit] {
     margin-left: 5%;
+    border-radius: 5px;
+    color: rgb(96, 96, 194);
 }
 input[type=text], input[type=date] {
     display: block;
@@ -145,6 +150,7 @@ input[type=text], input[type=date] {
     border: 1px solid #81818175;
     padding: 2%;
     border-radius: 5px;
+    color: rgb(96, 96, 194);
 }
 .autocomplete-items {
     position: absolute;
@@ -156,6 +162,7 @@ input[type=text], input[type=date] {
     top: 100%;
     left: 0;
     right: 0;
+    color: rgb(96, 96, 194);
   }
   .autocomplete-items div {
     padding: 10px;
@@ -317,7 +324,7 @@ input[type=text], input[type=date] {
   }
   .modal-header-dairy {
       color:rgb(7, 7, 7);
-      padding:9px 15px;
+      padding: 9px 15px;
       border-bottom:1px dotted #eee;
       background-color: #f0f8ff;
       -webkit-border-top-left-radius: 5px;
@@ -579,7 +586,7 @@ input[type=text], input[type=date] {
   }
   .add {
     position: absolute;
-    left: 83%;
+    left: 82%;
     top: 35px;
   }
   .add:hover {
