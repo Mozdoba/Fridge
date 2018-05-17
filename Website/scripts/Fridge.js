@@ -35,18 +35,11 @@ getSubCollection(userID, "vegetables");
 //console.log(userID);
 /**
  * @TO-DO:
-
- * connect login page to fridgepg3.html (form attribute action?)
  * style unordered list - alphabetically vs timestamp
- * update modal content upon page refresh - 30 min
- * ADD CIRCLE button to add new item manually
  * window where user can choose to upload image or add manually or modify existing?
- * Form to fill out when adding new items manually
  * ADD Shopping List functionality?
  *
  * test function to add food item to DOM
- * take photo of syrra
- * create form to fill out when adding new food items to the fridge
  * create function to grab input fields
  * create function to use input fields to generate new document
  * create function to modify existing fields of a food item
@@ -54,8 +47,6 @@ getSubCollection(userID, "vegetables");
  * design UI to modify existing food item (edit-btn activates?)
  * design UI on Fridge page to link to upload receipt screen (edit-btn activates?)
  * Empty Category message if no food items exist in category
- * style existing edit-button :hover :active
- * style existing delete-button :hover :active
  */
 
 // Shortcuts to DOM Elements.
@@ -104,12 +95,15 @@ $('.add').click(function() {
     }
 });
 
-
 editButtonGrains.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
     disableEditEnableCancel(cancelButtonGrains, this);
-    // Displays selectable checkboxes
+    // Displays selectable checkboxes and makes them selectable
     $(".selectable-grains").css("display", "inline-block");
+    $('.selectable-grains').attr('disabled', false);
+    // Slides delete-button out
+    $('#delete-button-grains').animate({top: '+=-18px', opacity: '1'}, 'fast');
+
 });
 
 cancelButtonGrains.addEventListener("click", function() {
@@ -117,6 +111,10 @@ cancelButtonGrains.addEventListener("click", function() {
     disableCancelEnableEdit(editButtonGrains, this);
     // Hides selectable checkboxes
     $(".selectable-grains").css("display", "none");
+    $('.selectable-grains').attr('disabled', true);
+    $('.selectable-grains').prop('checked', false);
+    // Slides delete-button out
+    $('#delete-button-grains').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
 
 editButtonMeats.addEventListener("click", function() {
@@ -124,6 +122,9 @@ editButtonMeats.addEventListener("click", function() {
     disableEditEnableCancel(cancelButtonMeats, this);
     // Displays selectable checkboxes
     $(".selectable-meats").css("display", "inline-block");
+    $('.selectable-meats').attr('disabled', false);
+    // Displays delete-slider
+    $('#delete-button-meats').animate({top: '+=-18px', opacity: '1'}, 'fast');
 });
 
 cancelButtonMeats.addEventListener("click", function() {
@@ -131,6 +132,10 @@ cancelButtonMeats.addEventListener("click", function() {
     disableCancelEnableEdit(editButtonMeats, this);
     // Hides selectable checkboxes
     $(".selectable-meats").css("display", "none");
+    $('.selectable-meats').attr('disabled', true);
+    $('.selectable-meats').prop('checked', false);
+    // Slides delete-button out
+    $('#delete-button-meats').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
 
 editButtonDairy.addEventListener("click", function() {
@@ -138,6 +143,9 @@ editButtonDairy.addEventListener("click", function() {
     disableEditEnableCancel(cancelButtonDairy, this);
     // Displays selectable checkboxes
     $(".selectable-dairy").css("display", "inline-block");
+    $('.selectable-dairy').attr('disabled', false);
+    // Displays delete-slider
+    $('#delete-button-dairy').animate({top: '+=-18px', opacity: '1'}, 'fast');
 });
 
 cancelButtonDairy.addEventListener("click", function() {
@@ -145,6 +153,10 @@ cancelButtonDairy.addEventListener("click", function() {
     disableCancelEnableEdit(editButtonDairy, this);
     // Hides selectable checkboxes
     $(".selectable-dairy").css("display", "none");
+    $('.selectable-dairy').attr('disabled', true);
+    $('.selectable-dairy').prop('checked', false);
+    // Slides delete-button out
+    $('#delete-button-dairy').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
 
 editButtonFruits.addEventListener("click", function() {
@@ -152,6 +164,9 @@ editButtonFruits.addEventListener("click", function() {
     disableEditEnableCancel(cancelButtonFruits, this);
     // Displays selectable checkboxes
     $(".selectable-fruits").css("display", "inline-block");
+    $('.selectable-fruits').attr('disabled', false);
+    // Displays delete-slider
+    $('#delete-button-fruits').animate({top: '+=-18px', opacity: '1'}, 'fast');
 });
 
 cancelButtonFruits.addEventListener("click", function() {
@@ -159,6 +174,10 @@ cancelButtonFruits.addEventListener("click", function() {
     disableCancelEnableEdit(editButtonFruits, this);
     // Hides selectable checkboxes
     $(".selectable-fruits").css("display", "none");
+    $('.selectable-fruits').attr('disabled', true);
+    $('.selectable-fruits').prop('checked', false);
+    // Slides delete-button out
+    $('#delete-button-fruits').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
 
 editButtonVegetables.addEventListener("click", function() {
@@ -166,6 +185,9 @@ editButtonVegetables.addEventListener("click", function() {
     disableEditEnableCancel(cancelButtonVegetables, this);
     // Displays selectable checkboxes
     $(".selectable-vegetables").css("display", "inline-block");
+    $('.selectable-vegetables').attr('disabled', false);
+    // Displays delete-slider
+    $('#delete-button-vegetables').animate({top: '+=-18px', opacity: '1'}, 'fast');
 });
 
 cancelButtonVegetables.addEventListener("click", function() {
@@ -173,6 +195,10 @@ cancelButtonVegetables.addEventListener("click", function() {
     disableCancelEnableEdit(editButtonVegetables, this);
     // Hides selectable checkboxes
     $(".selectable-vegetables").css("display", "none");
+    $('.selectable-vegetables').attr('disabled', true);
+    $('.selectable-vegetables').prop('checked', false);
+    // Slides delete-button out
+    $('#delete-button-vegetables').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
 
 $(deleteButtonMeats).click(function() {
@@ -247,6 +273,7 @@ function disableEditEnableCancel(cancelButton, editButton) {
     }, 20);
     $(editButton).addClass("disabled");
     $(editButton).addClass("hidden");
+    $('')
 }
 
 function disableCancelEnableEdit(editButton, cancelButton) {
@@ -259,10 +286,9 @@ function disableCancelEnableEdit(editButton, cancelButton) {
 }
 
 // Displays delete-button if at least 1 checkbox is checked
-function showOrHideDeleteButton(category) {
-    var checkBoxes = document.querySelectorAll(".selectable-" + category);
-    console.log(checkBoxes);
-    var checkedCount = 0;
+function activateOrInactivateDeleteButton(category) {
+    let checkBoxes = document.querySelectorAll(".selectable-" + category);
+    let checkedCount = 0;
     checkBoxes.forEach((el) => {
         if (el.checked) {
             checkedCount++;
@@ -270,36 +296,58 @@ function showOrHideDeleteButton(category) {
     });
     if (checkedCount >= 1) {
         if (category === "grains") {
-            deleteButtonGrains.style.display = "block";
+            deleteButtonGrains.style.cursor = "pointer";
+            deleteButtonGrains.style.color = "rgb(96, 96, 194)";
+            //deleteButtonGrains.style.fontWeight = "bold";
         } else if (category === "meats") {
-            deleteButtonMeats.style.display = "block";
+            deleteButtonMeats.style.cursor = "pointer";
+            deleteButtonMeats.style.color = "rgb(96, 96, 194)";
+            //deleteButtonMeats.style.fontWeight = "bold";
         } else if (category == "dairy") {
-            deleteButtonDairy.style.display = "block";
+            deleteButtonDairy.style.cursor = "pointer";
+            deleteButtonDairy.style.color = "rgb(96, 96, 194)";
+            //deleteButtonDairy.style.fontWeight = "bold";
         } else if (category === "fruits") {
-            deleteButtonFruits.style.display = "block";
+            deleteButtonFruits.style.cursor = "pointer";
+            deleteButtonFruits.style.color = "rgb(96, 96, 194)";
+            //deleteButtonFruits.style.fontWeight = "bold";
         } else if (category ==="vegetables") {
-            deleteButtonVegetables.style.display = "block";
+            deleteButtonVegetables.style.cursor = "pointer";
+            deleteButtonVegetables.style.color = "rgb(96, 96, 194)";
+            //deleteButtonVegetables.style.fontWeight = "bold";
         }
     } else {
         if (category === "grains") {
-            deleteButtonGrains.style.display = "none";
+            deleteButtonGrains.style.cursor = "default";
+            deleteButtonGrains.style.color = "grey";
+            deleteButtonGrains.style.fontWeight = "normal";
         } else if (category === "meats") {
-            deleteButtonMeats.style.display = "none";
+            deleteButtonMeats.style.cursor = "default";
+            deleteButtonMeats.style.color = "grey";
+            deleteButtonMeats.style.fontWeight = "normal";
         } else if (category == "dairy") {
-            deleteButtonDairy.style.display = "none";
+            deleteButtonDairy.style.cursor = "default";
+            deleteButtonDairy.style.color = "grey";
+            deleteButtonDairy.style.fontWeight = "normal";
         } else if (category === "fruits") {
-            deleteButtonFruits.style.display = "none";
+            deleteButtonFruits.style.cursor = "default";
+            deleteButtonFruits.style.color = "grey";
+            deleteButtonFruits.style.fontWeight = "normal";
         } else if (category ==="vegetables") {
-            deleteButtonVegetables.style.display = "none";
+            deleteButtonVegetables.style.cursor = "default";
+            deleteButtonVegetables.style.color = "grey";
+            deleteButtonVegetables.style.fontWeight = "normal";
         }
     }
 }
 
+// Integer to give each input a unique id. Eg. id="grains1"
+var num = 0;
 // Renders data on HTML pages
 function renderFoodItem(foodDoc, category) {
     // @TO-DO: make a list and append it to ".modal-content"
-    renderedDoc = "<input type='checkbox' class='selectable selectable-"
-    + category + "'/><label class='food-item food-item-" + category + "'>&nbsp&nbsp&nbsp&nbsp" + foodDoc.id + "</label>";
+
+    renderedDoc = "<input id='" + category + num + "' type='checkbox' class='selectable selectable-" + category + "' disabled='disabled'/><label for='" + category + num++ + "' class='food-item food-item-" + category + "'>&nbsp&nbsp&nbsp&nbsp" + foodDoc.id + "</label>";
     $(".modal-body-" + category).append(renderedDoc);
     // Hide all checkboxes
     $(".selectable").css("display", "none");
@@ -308,7 +356,7 @@ function renderFoodItem(foodDoc, category) {
     let selectableCheckBox = document.querySelectorAll(".selectable-" + category);
     selectableCheckBox.forEach((el) => {
         el.addEventListener("click", function() {
-            showOrHideDeleteButton(category);
+            activateOrInactivateDeleteButton(category);
         });
     });
     return renderedDoc; //returns input
@@ -316,10 +364,10 @@ function renderFoodItem(foodDoc, category) {
 
 // Deletes Checked checkboxes and all children from DOM
 function deleteCheckedBoxes(category) {
-    var checkBoxes = document.querySelectorAll(".selectable-" + category);
-    var checkedCount = 0;
+    let checkBoxes = document.querySelectorAll(".selectable-" + category);
+    let checkedCount = 0;
     for(var i = 0; i < checkBoxes.length; i++) {
-        var checkBox = checkBoxes[i];
+        let checkBox = checkBoxes[i];
         if (checkBox.checked) {
             //deleteDocument(userID, checkBox.nextElementSibling.innerHTML.replace(/\&nbsp;/g, ''));
             checkBox.parentNode.removeChild(checkBox.nextSibling);
@@ -328,15 +376,20 @@ function deleteCheckedBoxes(category) {
         // hide delete button on last iteration if there are no more checkboxes
         if (i == checkBoxes.length - 1) {
             if (category === "grains") {
-                deleteButtonGrains.style.display = "none";
+                /*deleteButtonGrains.style.display = "none";*/
+                deleteButtonGrains.style.color = "grey";
             } else if (category === "meats") {
-                deleteButtonMeats.style.display = "none";
+                /*deleteButtonMeats.style.display = "none";*/
+                deleteButtonMeats.style.color = "grey";
             } else if (category == "dairy") {
-                deleteButtonDairy.style.display = "none";
+                /*deleteButtonDairy.style.display = "none";*/
+                deleteButtonDairy.style.color = "grey";
             } else if (category === "fruits") {
-                deleteButtonFruits.style.display = "none";
+                /*deleteButtonFruits.style.display = "none";*/
+                deleteButtonFruits.style.color = "grey";
             } else if (category ==="vegetables") {
-                deleteButtonVegetables.style.display = "none";
+                /*deleteButtonVegetables.style.display = "none";*/
+                deleteButtonVegetables.style.color = "grey";
             }
         }
     }
@@ -368,7 +421,7 @@ function getSubCollection(userID, category) {
         } else {
             querySnapshot.forEach(function(doc) {
                 // doc.data() is never undefined for query doc snapshots
-                console.log(doc.id, " => ", doc.data());
+                //console.log(doc.id, " => ", doc.data());
                 // generate content in modal
                 renderFoodItem(doc, category);
             });

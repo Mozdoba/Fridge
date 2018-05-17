@@ -30,6 +30,7 @@
     width: 100%;
     font-size: 13pt;
     margin: 0 0 0 0;
+    user-select: none;
 }
 .food-item-grains {
     background-color: #e9b72d75;
@@ -81,13 +82,16 @@
 }
 
 #delete-button-grains, #delete-button-meats, #delete-button-dairy, #delete-button-fruits, #delete-button-vegetables {
-    float: center;
-    color: rgb(255, 0, 0);
+    position: relative;
+    top: 35px;
+    left: 3%;
+    color: grey;
     font-size: 13pt;
     line-height: 0;
-    display: none;
-    cursor:pointer;
+    display: block;
+    cursor: default;
     user-select: none;
+    opacity: 0;
 }
 .add-slider {
     max-height: 0px;
@@ -103,10 +107,26 @@
     transition-duration: 0.5s;
     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
   }
+  #delete-slider-vegetables {
+    max-height: 0px;
+    overflow-y: hidden;
+    transition-property: all;
+    transition: 0.5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  }
+  .delete-slider-opened {
+    height: 200px;
+    overflow-y: hidden;
+    transition-property: all;
+    transition: 0.5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
 
-/**************************************************************************************************************************************************************
-MEDIA QUERIES
-***************************************************************************************************************************************************************/
+/********************************************
+*                                           *
+*               MEDIA QUERIES               *
+*                                           *
+********************************************/
 /* for 414px or less */
 @media screen and (max-width: 414px) {
   html {
@@ -290,9 +310,11 @@ MEDIA QUERIES
   }
 }
 
-/******************************************************************************************************************************************************
-MEDIA QUERIES
-*******************************************************************************************************************************************************/
+/********************************************
+*                                           *
+*               MEDIA QUERIES               *
+*                                           *
+********************************************/
 /* for 415px or more */
 @media screen and (min-width: 415px) {
   html {
