@@ -4,10 +4,17 @@ $(document).ready(function() {
 var db = firebase.firestore();
 const settings = {timestampsInSnapshots: true};
 db.settings(settings);
+    
+/********************************************
+*                                           *
+*       DISPLAY DATA FROM FIRESTORE         *
+*                                           *
+********************************************/
 
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//DISPLAY DATA FROM FIRESTORE
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Captures user email and password on login
+var userID = 'nld2X0z7zedzQK4K1zUg';
+var userEmail = "sick@gmail.com";
+
 // firebase.auth().onAuthStateChanged(function(user) {
 //   if (user) {
 //     const userID = user.uid;
@@ -18,11 +25,6 @@ db.settings(settings);
 //     // No user is signed in.
 //   }
 // });
-
-console.log("TEST1");
-console.log(userEmail);
-
-// Captures user email and password on login
 
 
 getSubCollection(userID, "grains");
@@ -83,16 +85,26 @@ const dairy_content = document.querySelector('#modal-content-dairy');
 const fruits_content = document.querySelector('#modal-content-fruits');
 const vegelists_content = document.querySelector('#modal-content-dairy');
 
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//ADD EVENT LISTENERS TO BUTTONS
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/********************************************
+*                                           *
+*      ADD EVENT LISTENERS TO BUTTONS       *
+*                                           *
+********************************************/
 
-$('.add').click(function() {
-    if ($('.add-slider').hasClass("opened")) {
-        $(".add-slider").removeClass("opened");
-    } else {
-        $(".add-slider").addClass("opened");
-    }
+$('#plus-grains').click(function() {
+    toggleForm('grains');
+});
+$('#plus-meats').click(function() {
+    toggleForm('meats');
+});
+$('#plus-dairy').click(function() {
+    toggleForm('dairy');
+});
+$('#plus-fruits').click(function() {
+    toggleForm('fruits');
+});
+$('#plus-vegetables').click(function() {
+    toggleForm('vegetables');
 });
 
 editButtonGrains.addEventListener("click", function() {
@@ -103,18 +115,20 @@ editButtonGrains.addEventListener("click", function() {
     $('.selectable-grains').attr('disabled', false);
     // Slides delete-button out
     $('#delete-button-grains').animate({top: '+=-18px', opacity: '1'}, 'fast');
-
+    $('#select-all-grains').animate({top: '+=-18px', opacity: '1'}, 'fast');
 });
 
 cancelButtonGrains.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
     disableCancelEnableEdit(editButtonGrains, this);
-    // Hides selectable checkboxes
+    // Hides selectable checkboxes and Changes 'Deselect All' text to 'Select All'
     $(".selectable-grains").css("display", "none");
     $('.selectable-grains').attr('disabled', true);
     $('.selectable-grains').prop('checked', false);
+    $('#select-all-grains').html('Select All');
     // Slides delete-button out
     $('#delete-button-grains').animate({top: '+=18px', opacity: '0'}, 'fast');
+    $('#select-all-grains').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
 
 editButtonMeats.addEventListener("click", function() {
@@ -125,17 +139,20 @@ editButtonMeats.addEventListener("click", function() {
     $('.selectable-meats').attr('disabled', false);
     // Displays delete-slider
     $('#delete-button-meats').animate({top: '+=-18px', opacity: '1'}, 'fast');
+    $('#select-all-meats').animate({top: '+=-18px', opacity: '1'}, 'fast');
 });
 
 cancelButtonMeats.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
     disableCancelEnableEdit(editButtonMeats, this);
-    // Hides selectable checkboxes
+    // Hides selectable checkboxes and Changes 'Deselect All' text to 'Select All'
     $(".selectable-meats").css("display", "none");
     $('.selectable-meats').attr('disabled', true);
     $('.selectable-meats').prop('checked', false);
+    $('#select-all-meats').html('Select All');
     // Slides delete-button out
     $('#delete-button-meats').animate({top: '+=18px', opacity: '0'}, 'fast');
+    $('#select-all-meats').animate({top: '+=18px', opacity: '0'}, 'fast'); 
 });
 
 editButtonDairy.addEventListener("click", function() {
@@ -146,17 +163,20 @@ editButtonDairy.addEventListener("click", function() {
     $('.selectable-dairy').attr('disabled', false);
     // Displays delete-slider
     $('#delete-button-dairy').animate({top: '+=-18px', opacity: '1'}, 'fast');
+    $('#select-all-dairy').animate({top: '+=-18px', opacity: '1'}, 'fast');
 });
 
 cancelButtonDairy.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
     disableCancelEnableEdit(editButtonDairy, this);
-    // Hides selectable checkboxes
+    // Hides selectable checkboxes and Changes 'Deselect All' text to 'Select All'
     $(".selectable-dairy").css("display", "none");
     $('.selectable-dairy').attr('disabled', true);
     $('.selectable-dairy').prop('checked', false);
+    $('#select-all-dairy').html('Select All');
     // Slides delete-button out
     $('#delete-button-dairy').animate({top: '+=18px', opacity: '0'}, 'fast');
+    $('#select-all-dairy').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
 
 editButtonFruits.addEventListener("click", function() {
@@ -167,17 +187,20 @@ editButtonFruits.addEventListener("click", function() {
     $('.selectable-fruits').attr('disabled', false);
     // Displays delete-slider
     $('#delete-button-fruits').animate({top: '+=-18px', opacity: '1'}, 'fast');
+    $('#select-all-fruits').animate({top: '+=-18px', opacity: '1'}, 'fast');
 });
 
 cancelButtonFruits.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
     disableCancelEnableEdit(editButtonFruits, this);
-    // Hides selectable checkboxes
+    // Hides selectable checkboxes and Changes 'Deselect All' text to 'Select All'
     $(".selectable-fruits").css("display", "none");
     $('.selectable-fruits').attr('disabled', true);
     $('.selectable-fruits').prop('checked', false);
+    $('#select-all-fruits').html('Select All');
     // Slides delete-button out
     $('#delete-button-fruits').animate({top: '+=18px', opacity: '0'}, 'fast');
+    $('#select-all-fruits').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
 
 editButtonVegetables.addEventListener("click", function() {
@@ -188,17 +211,20 @@ editButtonVegetables.addEventListener("click", function() {
     $('.selectable-vegetables').attr('disabled', false);
     // Displays delete-slider
     $('#delete-button-vegetables').animate({top: '+=-18px', opacity: '1'}, 'fast');
+    $('#select-all-vegetables').animate({top: '+=-18px', opacity: '1'}, 'fast');
 });
 
 cancelButtonVegetables.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
     disableCancelEnableEdit(editButtonVegetables, this);
-    // Hides selectable checkboxes
+    // Hides selectable checkboxes and Changes 'Deselect All' text to 'Select All'
     $(".selectable-vegetables").css("display", "none");
     $('.selectable-vegetables').attr('disabled', true);
     $('.selectable-vegetables').prop('checked', false);
+    $('#select-all-vegetables').html('Select All');
     // Slides delete-button out
     $('#delete-button-vegetables').animate({top: '+=18px', opacity: '0'}, 'fast');
+    $('#select-all-vegetables').animate({top: '+=18px', opacity: '0'}, 'fast');
 });
 
 $(deleteButtonMeats).click(function() {
@@ -211,11 +237,63 @@ $(deleteButtonDairy).click(function() {
     deleteCheckedBoxes("dairy");
 });
 $(deleteButtonFruits).click(function() {
-    deleteCheckedBoxes("fruits")
+    deleteCheckedBoxes("fruits");
 });
 $(deleteButtonVegetables).click(function() {
     deleteCheckedBoxes("vegetables");
 });
+
+$('#select-all-grains').click(function() { 
+    if ($('.selectable-grains').is(':checked')) {
+        $('.selectable-grains').prop('checked', false);
+        this.innerHTML = "Select All";
+    } else {
+        $('.selectable-grains').prop('checked', true);
+        this.innerHTML = "Deselect All";
+    }
+});
+
+$('#select-all-meats').click(function() { 
+    if ($('.selectable-meats').is(':checked')) {
+        $('.selectable-meats').prop('checked', false);
+        this.innerHTML = "Select All";
+    } else {
+        $('.selectable-meats').prop('checked', true);
+        this.innerHTML = "Deselect All";
+    }
+});
+
+$('#select-all-dairy').click(function() { 
+    if ($('.selectable-dairy').is(':checked')) {
+        $('.selectable-dairy').prop('checked', false);
+        this.innerHTML = "Select All";
+    } else {
+        $('.selectable-dairy').prop('checked', true);
+        this.innerHTML = "Deselect All";
+    }
+});
+
+$('#select-all-fruits').click(function() { 
+    if ($('.selectable-fruits').is(':checked')) {
+        $('.selectable-fruits').prop('checked', false);
+        this.innerHTML = "Select All";
+    } else {
+        $('.selectable-fruits').prop('checked', true);
+        this.innerHTML = "Deselect All";
+    }
+});
+
+$('#select-all-vegetables').click(function() { 
+    if ($('.selectable-vegetables').is(':checked')) {
+        $('.selectable-vegetables').prop('checked', false);
+        this.innerHTML = "Select All";
+    } else {
+        $('.selectable-vegetables').prop('checked', true);
+        this.innerHTML = "Deselect All";
+    }
+});
+
+
 
 // Events for generating modal content and testing
 /*
@@ -262,9 +340,11 @@ getUserIdButton.forEach((el) => {
 });
 */
 
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//BUTTON FUNCTIONS
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/********************************************
+*                                           *
+*             BUTTON FUNCTIONS              *
+*                                           *
+********************************************/
 
 function disableEditEnableCancel(cancelButton, editButton) {
     $(cancelButton).removeClass("hidden");
@@ -284,7 +364,6 @@ function disableCancelEnableEdit(editButton, cancelButton) {
     $(cancelButton).addClass("disabled");
     $(cancelButton).addClass("hidden");
 }
-
 // Displays delete-button if at least 1 checkbox is checked
 function activateOrInactivateDeleteButton(category) {
     let checkBoxes = document.querySelectorAll(".selectable-" + category);
@@ -298,22 +377,27 @@ function activateOrInactivateDeleteButton(category) {
         if (category === "grains") {
             deleteButtonGrains.style.cursor = "pointer";
             deleteButtonGrains.style.color = "rgb(96, 96, 194)";
+            $('#select-all-grains').html('Deselect All');
             //deleteButtonGrains.style.fontWeight = "bold";
         } else if (category === "meats") {
             deleteButtonMeats.style.cursor = "pointer";
             deleteButtonMeats.style.color = "rgb(96, 96, 194)";
+            $('#select-all-meats').html('Deselect All');
             //deleteButtonMeats.style.fontWeight = "bold";
         } else if (category == "dairy") {
             deleteButtonDairy.style.cursor = "pointer";
             deleteButtonDairy.style.color = "rgb(96, 96, 194)";
+            $('#select-all-dairy').html('Deselect All');
             //deleteButtonDairy.style.fontWeight = "bold";
         } else if (category === "fruits") {
             deleteButtonFruits.style.cursor = "pointer";
             deleteButtonFruits.style.color = "rgb(96, 96, 194)";
+            $('#select-all-fruits').html('Deselect All');
             //deleteButtonFruits.style.fontWeight = "bold";
         } else if (category ==="vegetables") {
             deleteButtonVegetables.style.cursor = "pointer";
             deleteButtonVegetables.style.color = "rgb(96, 96, 194)";
+            $('#select-all-vegetables').html('Deselect All');
             //deleteButtonVegetables.style.fontWeight = "bold";
         }
     } else {
@@ -341,6 +425,13 @@ function activateOrInactivateDeleteButton(category) {
     }
 }
 
+function toggleForm(category) {
+    if ($('#add-slider-' + category).hasClass("opened")) {
+        $('#add-slider-' + category).removeClass("opened");
+    } else {
+        $('#add-slider-' + category).addClass("opened");
+    }
+}
 // Integer to give each input a unique id. Eg. id="grains1"
 var num = 0;
 // Renders data on HTML pages
@@ -395,9 +486,11 @@ function deleteCheckedBoxes(category) {
     }
 }
 
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//FIRESTORE DATABASE FUNCTIONS
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/********************************************
+*                                           *
+*       FIRESTORE DATABASE FUNCTIONS        *
+*                                           *
+********************************************/
 
 function getUserId(userEmail) {
     console.log("Attempting to retreive Document ID");
