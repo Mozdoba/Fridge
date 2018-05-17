@@ -67,6 +67,30 @@ function saveUser(email, password) {
     });
 }
 
+function getUserId(userEmail) {
+  console.log("Attempting to retreive Document ID");
+  var query = db.collection("Users").where("email", "==", userEmail);
+  return query.get().then(function(querySnapshot) { //this fxn not returning anything before
+      console.log(querySnapshot);
+      let x;
+      querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(x);
+          console.log(doc.id);
+          x = doc.id;
+          return doc.id;
+      });
+      return x;
+  });
+}
+
+function foodItem() {
+  var userDoc = getUserId(userEmail);
+  var newFood = db.collection("Users").doc(userDoc).collection("FoodItem").doc();
+}
+
+
+
 
 // Checks for lowerCase letter
 function hasLowerCase(str) {
@@ -93,7 +117,7 @@ function patternCheck() {
   if (hasLowerCase(userPassword) &&
     hasUpperCase(userPassword) &&
     hasNumber(userPassword) &&
-    userPassword.length => 8) {
+    userPassword.length > 7) {
     return true;
   } else {
     return false;
@@ -237,7 +261,7 @@ function loginUser(e) {
     var errorCode = error.code;
     var errorMessage = error.message;
 
-    window.alert("Error :" + error.message);
-    // ...
-  });
+        window.alert("Error :" +  error.message);
+      // ...
+    });
 }

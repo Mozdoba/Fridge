@@ -15,7 +15,7 @@
     
     <div class="fridge_container">
         <a href="./login.html"><img id="logout" src="../images/exit_swing.png" alt="logout" onclick=logOut()></a>
-        <img id="camera" class="btn resize hover" data-toggle="modal" src="../images/photo-camera.png" alt="scan"/>
+        <a href="fridge_scanner.php"></a><img id="camera" class="btn resize hover" data-toggle="modal" src="../images/photo-camera.png" alt="scan"/>
             <!-- Modal MEATS-->
             <img id="steak" class="btn btn-meats resize hover" href="#success" data-toggle="modal" src="../images/steak.png" alt="meat"/>
             <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -215,5 +215,6 @@
     firebase.initializeApp(config);
   </script>
 <script src="../scripts/Fridge.js"></script>
+
 </body>
 </html>
