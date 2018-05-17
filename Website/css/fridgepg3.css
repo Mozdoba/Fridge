@@ -17,12 +17,10 @@
     position: absolute;
     left: 4px;
 }
-
 .selectable:checked + label {
     background-color: rgb(255, 180, 180);
     clear: left;
 }
-
 .food-item {
     display: block;
     width: 100%;
@@ -130,6 +128,64 @@
 #add-slider-vegetables {
     background-color: #84f779;
 }
+label {
+    display: block;
+    padding-left: 5%;
+}
+input {
+    background-color: #f1f1f1;
+}
+::placeholder {
+    color: rgb(96, 96, 194);
+}
+input[type=submit] {
+    margin-left: 5%;
+    border-radius: 5px;
+    color: rgb(96, 96, 194);
+}
+input[type=text], input[type=date] {
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+    border: 1px solid #81818175;
+    padding: 2%;
+    border-radius: 5px;
+    color: rgb(96, 96, 194);
+}
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+    color: rgb(96, 96, 194);
+  }
+  .autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff; 
+    border-bottom: 1px solid #d4d4d4; 
+  }
+  .autocomplete-items div:hover {
+    background-color: #e9e9e9; 
+  }
+  .autocomplete-active {
+    background-color: DodgerBlue !important; 
+    color: #ffffff; 
+  }
+  .override-position {
+      position:absolute;
+      top: 166px;
+  }
+  .food-suggestions {
+      width: 90%;
+      margin: 0 auto;
+      border-radius: 5px;
+  }
 
 /********************************************
 *                                           *
@@ -268,7 +324,7 @@
   }
   .modal-header-dairy {
       color:rgb(7, 7, 7);
-      padding:9px 15px;
+      padding: 9px 15px;
       border-bottom:1px dotted #eee;
       background-color: #f0f8ff;
       -webkit-border-top-left-radius: 5px;
@@ -530,7 +586,7 @@
   }
   .add {
     position: absolute;
-    left: 83%;
+    left: 82%;
     top: 35px;
   }
   .add:hover {
