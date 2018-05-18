@@ -715,7 +715,6 @@ autocomplete(document.getElementById("myDairyInput"), dairyList);
 autocomplete(document.getElementById("myFruitsInput"), fruitsList);
 autocomplete(document.getElementById("myVegetablesInput"), vegetablesList);
 
-
 });
 
 
