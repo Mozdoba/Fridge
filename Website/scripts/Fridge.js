@@ -12,8 +12,8 @@ db.settings(settings);
 ********************************************/
 
 // Captures user email and password on login
-var userID = 'nld2X0z7zedzQK4K1zUg';
-var userEmail = "sick@gmail.com";
+var userID = '9xTgdOquM8R84BsANmc0oT4rOAR2';
+var userEmail = "error2@hotmail.com";
 
 firebase.auth().onAuthStateChanged(async (user) => {
     if (user) {
@@ -24,12 +24,34 @@ firebase.auth().onAuthStateChanged(async (user) => {
       console.log("TEST");
       console.log(userEmail);
 
-
 getSubCollection(userID, "grains");
 getSubCollection(userID, "meats");
 getSubCollection(userID, "dairy");
 getSubCollection(userID, "fruits");
 getSubCollection(userID, "vegetables");
+
+// Integer to give each input a unique id. Eg. id="grains1"
+var num = 0;
+// Renders data on HTML pages
+function renderFoodItem(foodDoc, category) {
+    // @TO-DO: make a list and append it to ".modal-content"
+
+    let renderedDoc = "<input id='" + category + num + "' type='checkbox' class='selectable selectable-" + category + "' disabled='disabled'/><label for='" + category + num++ + "' class='food-item food-item-" + category + "'>&nbsp&nbsp&nbsp&nbsp" + foodDoc.id + "</label>";
+    $(".modal-body-" + category).append(renderedDoc);
+    // Hide all checkboxes
+    $(".selectable").css("display", "none");
+
+    // addEventListeners to all the food-item inputs that were just rendered
+    let selectableCheckBox = document.querySelectorAll(".selectable-" + category);
+    selectableCheckBox.forEach((el) => {
+        el.addEventListener("click", function() {
+            activateOrInactivateDeleteButton(category);
+        });
+    });
+    return renderedDoc; //returns input
+}
+
+
 
 /********************************************
 *                                           *
@@ -82,16 +104,7 @@ function deleteDocument(userID, documentID) {
     });
 }
 
-// Adds a new food item to 'Food Item' collection in the Users Database (Firebase)
-function addNewDocument(userID, foodItem, category, market, perishable, price, date) {
-    db.collection("Users").doc(userID).collection("Food Item").doc(foodItem).set({
-        category: category,
-        market: market,
-        perishable: perishable,
-        price: price,
-        timestamp: date
-    })
-}
+
 
 // Returns mock data from firestore
 function retrieveData(userEmail) {
@@ -124,7 +137,6 @@ function logOut(){
     // No user is signed in.
   }
 });
-
 
 //var userID = getUserId(userEmail);
 //console.log(userID);
@@ -322,18 +334,23 @@ cancelButtonVegetables.addEventListener("click", function() {
 
 $(deleteButtonMeats).click(function() {
     deleteCheckedBoxes("meats");
+    $('#select-all-meats').html('Select All');
 });
 $(deleteButtonGrains).click(function() {
     deleteCheckedBoxes("grains");
+    $('#select-all-grains').html('Select All');
 });
 $(deleteButtonDairy).click(function() {
     deleteCheckedBoxes("dairy");
+    $('#select-all-dairy').html('Select All');
 });
 $(deleteButtonFruits).click(function() {
     deleteCheckedBoxes("fruits");
+    $('#select-all-fruits').html('Select All');
 });
 $(deleteButtonVegetables).click(function() {
     deleteCheckedBoxes("vegetables");
+    $('#select-all-vegetables').html('Select All');
 });
 
 $('#select-all-grains').click(function() { 
@@ -456,7 +473,6 @@ function disableEditEnableCancel(cancelButton, editButton) {
     }, 20);
     $(editButton).addClass("disabled");
     $(editButton).addClass("hidden");
-    $('')
 }
 
 function disableCancelEnableEdit(editButton, cancelButton) {
@@ -540,26 +556,7 @@ function toggleForm(category) {
         $('#add-slider-' + category).addClass("opened");
     }
 }
-// Integer to give each input a unique id. Eg. id="grains1"
-var num = 0;
-// Renders data on HTML pages
-function renderFoodItem(foodDoc, category) {
-    // @TO-DO: make a list and append it to ".modal-content"
 
-    renderedDoc = "<input id='" + category + num + "' type='checkbox' class='selectable selectable-" + category + "' disabled='disabled'/><label for='" + category + num++ + "' class='food-item food-item-" + category + "'>&nbsp&nbsp&nbsp&nbsp" + foodDoc.id + "</label>";
-    $(".modal-body-" + category).append(renderedDoc);
-    // Hide all checkboxes
-    $(".selectable").css("display", "none");
-
-    // addEventListeners to all the food-item inputs that were just rendered
-    let selectableCheckBox = document.querySelectorAll(".selectable-" + category);
-    selectableCheckBox.forEach((el) => {
-        el.addEventListener("click", function() {
-            activateOrInactivateDeleteButton(category);
-        });
-    });
-    return renderedDoc; //returns input
-}
 
 // Deletes Checked checkboxes and all children from DOM
 function deleteCheckedBoxes(category) {
@@ -568,7 +565,7 @@ function deleteCheckedBoxes(category) {
     for(var i = 0; i < checkBoxes.length; i++) {
         let checkBox = checkBoxes[i];
         if (checkBox.checked) {
-            //deleteDocument(userID, checkBox.nextElementSibling.innerHTML.replace(/\&nbsp;/g, ''));
+            deleteDocument(userID, checkBox.nextElementSibling.innerHTML.replace(/\&nbsp;/g, ''));
             checkBox.parentNode.removeChild(checkBox.nextSibling);
             checkBox.parentNode.removeChild(checkBox);
         }
@@ -705,9 +702,7 @@ function autocomplete(inp, arr) {
   document.addEventListener("click", function (e) {
       closeAllLists(e.target);
   });
-  }
-
-
+}
 
 autocomplete(document.getElementById("myGrainsInput"), grainsList);
 autocomplete(document.getElementById("myMeatsInput"), meatsList);
@@ -715,8 +710,102 @@ autocomplete(document.getElementById("myDairyInput"), dairyList);
 autocomplete(document.getElementById("myFruitsInput"), fruitsList);
 autocomplete(document.getElementById("myVegetablesInput"), vegetablesList);
 
+// Adds a new food item to 'Food Item' collection in the Users Database (Firebase)
+function addNewDocument(userID, category, foodItem, date) {
+    db.collection("Users").doc(userID).collection("Food Item").doc(foodItem).set({
+        category: category,
+        date: date
+    })
+    .then(function() {
+        console.log("Document '" + foodItem + "' successfully written!");
+    })
+    .catch(function(error) {
+        console.error("Error writing document: ", error);
+    });
+}
 
+var numMan = 0;
+function renderFoodItemManually(foodDoc, category) {
 
+    let renderedDoc = "<input id='" + category + numMan + "' type='checkbox' class='selectable selectable-" + category + "' disabled='disabled'/><label for='" + category + numMan++ + "' class='food-item food-item-" + category + "'>&nbsp&nbsp&nbsp&nbsp" + foodDoc + "</label>";
+    $(".modal-body-" + category).append(renderedDoc);
+    // Hide all checkboxes
+    $(".selectable").css("display", "none");
+
+    // addEventListeners to all the food-item inputs that were just rendered
+    let selectableCheckBox = document.querySelectorAll(".selectable-" + category);
+    selectableCheckBox.forEach((el) => {
+        el.addEventListener("click", function() {
+            activateOrInactivateDeleteButton(category);
+        });
+    });
+    return renderedDoc; //returns input
+}
+
+$('#form-grains').submit(function(e) {
+    e.preventDefault();
+    let grainItem = document.getElementById('myGrainsInput').value.toUpperCase();
+    let dateAdded = document.getElementById('dateAddedGrains').value;
+    if (dateAdded === "") {
+        let todayDate = new Date();
+        dateAdded = "" + todayDate.getFullYear() + "-" + todayDate.getMonth() + "-" + todayDate.getDate();
+    }
+    addNewDocument(userID, 'grains', '' + grainItem + '', dateAdded);
+    renderFoodItemManually(grainItem, 'grains');
+    $(this).trigger("reset");
+});
+
+$('#form-meats').submit(function(e) {
+    e.preventDefault();
+    let meatItem = document.getElementById('myMeatsInput').value.toUpperCase();
+    let dateAdded = document.getElementById('dateAddedMeats').value;
+    if (dateAdded === "") {
+        let todayDate = new Date();
+        dateAdded = "" + todayDate.getFullYear() + "-" + todayDate.getMonth() + "-" + todayDate.getDate();
+    }
+    addNewDocument(userID, 'meats', '' + meatItem + '', dateAdded);
+    renderFoodItemManually(meatItem, 'meats');
+    $(this).trigger("reset");
+});
+
+$('#form-dairy').submit(function(e) {
+    e.preventDefault();
+    let dairyItem = document.getElementById('myDairyInput').value.toUpperCase();
+    let dateAdded = document.getElementById('dateAddedDairy').value;
+    if (dateAdded === "") {
+        let todayDate = new Date();
+        dateAdded = "" + todayDate.getFullYear() + "-" + todayDate.getMonth() + "-" + todayDate.getDate();
+    }
+    addNewDocument(userID, 'dairy', '' + dairyItem + '', dateAdded);
+    renderFoodItemManually(dairyItem, 'dairy');
+    $(this).trigger("reset");
+});
+
+$('#form-fruits').submit(function(e) {
+    e.preventDefault();
+    let fruitItem = document.getElementById('myFruitsInput').value.toUpperCase();
+    let dateAdded = document.getElementById('dateAddedFruits').value;
+    if (dateAdded === "") {
+        let todayDate = new Date();
+        dateAdded = "" + todayDate.getFullYear() + "-" + todayDate.getMonth() + "-" + todayDate.getDate();
+    }
+    addNewDocument(userID, 'fruits', '' + fruitItem + '', dateAdded);
+    renderFoodItemManually(fruitItem, 'fruits');
+    $(this).trigger("reset");
+});
+
+$('#form-vegetables').submit(function(e) {
+    e.preventDefault();
+    let vegetableItem = document.getElementById('myVegetablesInput').value.toUpperCase();
+    let dateAdded = document.getElementById('dateAddedVegetables').value;
+    if (dateAdded === "") {
+        let todayDate = new Date();
+        dateAdded = "" + todayDate.getFullYear() + "-" + todayDate.getMonth() + "-" + todayDate.getDate();
+    }
+    addNewDocument(userID, 'vegetables', '' + vegetableItem + '', dateAdded);
+    renderFoodItemManually(vegetableItem, 'vegetables');
+    $(this).trigger("reset");
+});
 
 });
 

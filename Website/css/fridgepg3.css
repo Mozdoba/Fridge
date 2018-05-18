@@ -2,7 +2,6 @@
     0% { transform: rotate(3deg); }
     100% { transform: rotate(-3deg); }
 }
-
 .hidden {
     display: none;
 }
@@ -27,6 +26,7 @@
     font-size: 13pt;
     margin: 0 0 0 0;
     user-select: none;
+    color: rgb(133, 130, 130);
 }
 .food-item-grains {
     background-color: #e9b72d75;
@@ -177,10 +177,6 @@ input[type=text], input[type=date] {
     background-color: DodgerBlue !important; 
     color: #ffffff; 
   }
-  .override-position {
-      position:absolute;
-      top: 166px;
-  }
   .food-suggestions {
       width: 90%;
       margin: 0 auto;
@@ -189,25 +185,243 @@ input[type=text], input[type=date] {
 
 /********************************************
 *                                           *
-*               MEDIA QUERIES               *
+*               IPHONE 5/SE                 *
 *                                           *
 ********************************************/
-/* for 414px or less */
-@media screen and (max-width: 414px) {
+
+@media only screen 
+    and (min-device-width: 320px)
+    and (max-device-height: 568px)
+    and (-webkit-device-pixel-ratio : 2) {
+        html {
+            background: url("../images/Fridge_iPhone5SE.png") no-repeat center center fixed;
+            /*background-size: cover;*/
+          }
+          img {
+            transform: scale(0.45);
+            height: auto;
+          }
+        
+          .hover:active {
+            transform: scale(0.50);
+            filter: drop-shadow(16px 16px 16px #ffffff);
+        }
+          .fridge_container {
+            position: relative;
+            /*1st level: 85px
+              2nd level: 520px
+              3rd level: 1000px
+              4th level: 1415px*/
+          }
+          #camera {
+              position: absolute;
+              top: -10px;
+              left: -15px;
+          }
+          #plus {
+              position: absolute;
+              top: 10px;
+              left: 125px;
+          }
+          #logout {
+              position: absolute;
+              top: -35px;
+              left: 200px;
+              transform: scale(0.6);
+          }
+          #toast {
+              position: absolute;
+              top: 65px;
+              left: 25px;
+          }
+          #steak {
+              position: absolute;
+              top: 220px;
+              left: -40px;
+          }
+          #milk {
+              position: absolute;
+              top: 220px;
+              left: 90px;
+          }
+          #banana {
+              position: absolute;
+              top: 360px;
+              left: -40px;
+          }
+          #cabbage {
+              position: absolute;
+              top: 360px;
+              left: 90px;
+          }
+          .modal-header-meats {
+              color:#fff;
+              padding:9px 15px;
+              border-bottom:1px dotted #eee;
+              background-color: #f79178;
+              -webkit-border-top-left-radius: 5px;
+              -webkit-border-top-right-radius: 5px;
+              -moz-border-radius-topleft: 5px;
+              -moz-border-radius-topright: 5px;
+               border-top-left-radius: 5px;
+               border-top-right-radius: 5px;
+          }
+          .modal-footer-meats {
+            color:#fff;
+            height: 35px;
+            background-color: #f79178;
+            -webkit-border-bottom-left-radius: 5px;
+            -webkit-border-bottom-right-radius: 5px;
+            -moz-border-radius-bottomleft: 5px;
+            -moz-border-radius-bottomright: 5px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+           }
+          .modal-header-fruits {
+              color:#fff;
+            padding:9px 15px;
+            border-bottom:1px dotted #eee;
+            background-color: #f3f051;
+            -webkit-border-top-left-radius: 5px;
+            -webkit-border-top-right-radius: 5px;
+            -moz-border-radius-topleft: 5px;
+            -moz-border-radius-topright: 5px;
+             border-top-left-radius: 5px;
+             border-top-right-radius: 5px;
+          }
+          .modal-footer-fruits {
+            color:#fff;
+            height: 35px;
+            background-color: #f3f051;
+            -webkit-border-bottom-left-radius: 5px;
+            -webkit-border-bottom-right-radius: 5px;
+            -moz-border-radius-bottomleft: 5px;
+            -moz-border-radius-bottomright: 5px;
+             border-bottom-left-radius: 5px;
+             border-bottom-right-radius: 5px;
+          }
+          .modal-header-vegetables {
+              color:#fff;
+            padding:9px 15px;
+            border-bottom:1px dotted #eee;
+            background-color: #84f779;
+            -webkit-border-top-left-radius: 5px;
+            -webkit-border-top-right-radius: 5px;
+            -moz-border-radius-topleft: 5px;
+            -moz-border-radius-topright: 5px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+          }
+          .modal-footer-vegetables {
+            color:#fff;
+            height: 35px;
+            background-color: #84f779;
+            -webkit-border-bottom-left-radius: 5px;
+            -webkit-border-bottom-right-radius: 5px;
+            -moz-border-radius-bottomleft: 5px;
+            -moz-border-radius-bottomright: 5px;
+             border-bottom-left-radius: 5px;
+             border-bottom-right-radius: 5px;
+          }
+          .modal-header-dairy {
+              color:rgb(7, 7, 7);
+              padding: 9px 15px;
+              border-bottom:1px dotted #eee;
+              background-color: #f0f8ff;
+              -webkit-border-top-left-radius: 5px;
+              -webkit-border-top-right-radius: 5px;
+              -moz-border-radius-topleft: 5px;
+              -moz-border-radius-topright: 5px;
+               border-top-left-radius: 5px;
+               border-top-right-radius: 5px;
+          }
+          .modal-footer-dairy {
+            color:rgb(7, 7, 7);
+            height: 35px;
+            background-color: #f0f8ff;
+            -webkit-border-bottom-left-radius: 5px;
+            -webkit-border-bottom-right-radius: 5px;
+            -moz-border-radius-bottomleft: 5px;
+            -moz-border-radius-bottomright: 5px;
+             border-bottom-left-radius: 5px;
+             border-bottom-right-radius: 5px;
+          }
+          .modal-header-grains {
+              color:rgb(0, 0, 0);
+              padding:9px 15px;
+              border-bottom:1px dotted #eee;
+              background-color: #e9b72d75;
+              -webkit-border-top-left-radius: 5px;
+              -webkit-border-top-right-radius: 5px;
+              -moz-border-radius-topleft: 5px;
+              -moz-border-radius-topright: 5px;
+               border-top-left-radius: 5px;
+               border-top-right-radius: 5px;
+          }
+          .modal-footer-grains {
+            color:#fff;
+            height: 35px;
+            background-color: #e9b72d75;
+            -webkit-border-bottom-left-radius: 5px;
+            -webkit-border-bottom-right-radius: 5px;
+            -moz-border-radius-bottomleft: 5px;
+            -moz-border-radius-bottomright: 5px;
+             border-bottom-left-radius: 5px;
+             border-bottom-right-radius: 5px;
+          }
+          .add {
+            position: absolute;
+            left: 204px;
+            top: 35px;
+            transform: scale(0.65);
+          }
+          .add:active {
+              transform: scale(0.85);
+              filter: brightness(1.2);
+              transition: all 0.20s;
+          }
+          #select-all-grains, #select-all-meats, #select-all-dairy, #select-all-fruits, #select-all-vegetables {
+            position: relative;
+            top: 35px;
+            left: 68%;
+            color: rgb(96, 96, 194);
+            font-size: 13pt;
+            line-height: 0;
+            display: block;
+            cursor: pointer;
+            user-select: none;
+            opacity: 0;
+        }
+        
+          .override-position {
+              position:absolute;
+              top: 154px;
+          }
+}  
+/********************************************
+*                                           *
+*                GALAXY S5                  *
+*                                           *
+********************************************/
+@media only screen
+    and (min-device-width: 360px)
+    and (max-device-height: 640px)
+    and (-webkit-device-pixel-ratio: 2) {
+
   html {
-    background: url("../images/fridge_mobile.png") no-repeat center center fixed;
-    /*background-size: cover;*/
+    background: url("../images/Fridge_Galaxy_S5.png") no-repeat center center fixed;
   }
   img {
     transform: scale(0.5);
     height: auto;
   }
-
   .hover:hover {
-    transform: scale(0.65);
+    transform: scale(0.6);
     filter: drop-shadow(16px 16px 16px #ffffff);
 }
   .fridge_container {
+    max-width: 360px;
+    max-height: 640px;
     position: relative;
     /*1st level: 85px
       2nd level: 520px
@@ -216,7 +430,7 @@ input[type=text], input[type=date] {
   }
   #camera {
       position: absolute;
-      top: 20px;
+      top: 18px;
   }
   #plus {
       position: absolute;
@@ -226,27 +440,28 @@ input[type=text], input[type=date] {
   #logout {
       position: absolute;
       top: -30px;
-      left: 300px;
+      left: 290px;
+      transform: scale(0.75);
   }
   #toast {
       position: absolute;
-      top: 135px;
-      left: 80px;
+      top: 130px;
+      left: 70px;
   }
   #steak {
       position: absolute;
       top: 335px;
-      left: 10px;
+      left: -20px;
   }
   #milk {
       position: absolute;
       top: 335px;
       left: 150px;
   }
-  #apple {
+  #banana {
       position: absolute;
       top: 510px;
-      left: 10px;
+      left: -20px;
   }
   #cabbage {
       position: absolute;
@@ -391,89 +606,537 @@ input[type=text], input[type=date] {
     user-select: none;
     opacity: 0;
 }
-}
 
+  .override-position {
+      position:absolute;
+      top: 158px;
+  }
+}
 /********************************************
 *                                           *
-*               MEDIA QUERIES               *
+*               IPHONE 6/7/8                *
 *                                           *
 ********************************************/
-/* for 415px or more */
-@media screen and (min-width: 415px) {
+
+@media only screen 
+    and (min-device-width: 375px)
+    and (max-device-height: 667px)
+    and (-webkit-device-pixel-ratio : 2) {
+        html {
+            background: url("../images/Fridge_iPhone678.png") no-repeat center center fixed;
+            /*background-size: cover;*/
+          }
+          img {
+            transform: scale(0.5);
+            height: auto;
+          }
+        
+          .hover:hover {
+            transform: scale(0.55);
+            filter: drop-shadow(16px 16px 16px #ffffff);
+        }
+          .fridge_container {
+            position: relative;
+            /*1st level: 85px
+              2nd level: 520px
+              3rd level: 1000px
+              4th level: 1415px*/
+          }
+          #camera {
+              position: absolute;
+              top: 7px;
+          }
+          #plus {
+              position: absolute;
+              top: 10px;
+              left: 125px;
+          }
+          #logout {
+              position: absolute;
+              top: -35px;
+              left: 260px;
+              transform: scale(0.6);
+          }
+          #toast {
+              position: absolute;
+              top: 105px;
+              left: 50px;
+          }
+          #steak {
+              position: absolute;
+              top: 285px;
+              left: -25px;
+          }
+          #milk {
+              position: absolute;
+              top: 285px;
+              left: 120px;
+          }
+          #banana {
+              position: absolute;
+              top: 450px;
+              left: -25px;
+          }
+          #cabbage {
+              position: absolute;
+              top: 450px;
+              left: 120px;
+          }
+          .modal-header-meats {
+              color:#fff;
+              padding:9px 15px;
+              border-bottom:1px dotted #eee;
+              background-color: #f79178;
+              -webkit-border-top-left-radius: 5px;
+              -webkit-border-top-right-radius: 5px;
+              -moz-border-radius-topleft: 5px;
+              -moz-border-radius-topright: 5px;
+               border-top-left-radius: 5px;
+               border-top-right-radius: 5px;
+          }
+          .modal-footer-meats {
+            color:#fff;
+            height: 35px;
+            background-color: #f79178;
+            -webkit-border-bottom-left-radius: 5px;
+            -webkit-border-bottom-right-radius: 5px;
+            -moz-border-radius-bottomleft: 5px;
+            -moz-border-radius-bottomright: 5px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+           }
+          .modal-header-fruits {
+              color:#fff;
+            padding:9px 15px;
+            border-bottom:1px dotted #eee;
+            background-color: #f3f051;
+            -webkit-border-top-left-radius: 5px;
+            -webkit-border-top-right-radius: 5px;
+            -moz-border-radius-topleft: 5px;
+            -moz-border-radius-topright: 5px;
+             border-top-left-radius: 5px;
+             border-top-right-radius: 5px;
+          }
+          .modal-footer-fruits {
+            color:#fff;
+            height: 35px;
+            background-color: #f3f051;
+            -webkit-border-bottom-left-radius: 5px;
+            -webkit-border-bottom-right-radius: 5px;
+            -moz-border-radius-bottomleft: 5px;
+            -moz-border-radius-bottomright: 5px;
+             border-bottom-left-radius: 5px;
+             border-bottom-right-radius: 5px;
+          }
+          .modal-header-vegetables {
+              color:#fff;
+            padding:9px 15px;
+            border-bottom:1px dotted #eee;
+            background-color: #84f779;
+            -webkit-border-top-left-radius: 5px;
+            -webkit-border-top-right-radius: 5px;
+            -moz-border-radius-topleft: 5px;
+            -moz-border-radius-topright: 5px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+          }
+          .modal-footer-vegetables {
+            color:#fff;
+            height: 35px;
+            background-color: #84f779;
+            -webkit-border-bottom-left-radius: 5px;
+            -webkit-border-bottom-right-radius: 5px;
+            -moz-border-radius-bottomleft: 5px;
+            -moz-border-radius-bottomright: 5px;
+             border-bottom-left-radius: 5px;
+             border-bottom-right-radius: 5px;
+          }
+          .modal-header-dairy {
+              color:rgb(7, 7, 7);
+              padding: 9px 15px;
+              border-bottom:1px dotted #eee;
+              background-color: #f0f8ff;
+              -webkit-border-top-left-radius: 5px;
+              -webkit-border-top-right-radius: 5px;
+              -moz-border-radius-topleft: 5px;
+              -moz-border-radius-topright: 5px;
+               border-top-left-radius: 5px;
+               border-top-right-radius: 5px;
+          }
+          .modal-footer-dairy {
+            color:rgb(7, 7, 7);
+            height: 35px;
+            background-color: #f0f8ff;
+            -webkit-border-bottom-left-radius: 5px;
+            -webkit-border-bottom-right-radius: 5px;
+            -moz-border-radius-bottomleft: 5px;
+            -moz-border-radius-bottomright: 5px;
+             border-bottom-left-radius: 5px;
+             border-bottom-right-radius: 5px;
+          }
+          .modal-header-grains {
+              color:rgb(0, 0, 0);
+              padding:9px 15px;
+              border-bottom:1px dotted #eee;
+              background-color: #e9b72d75;
+              -webkit-border-top-left-radius: 5px;
+              -webkit-border-top-right-radius: 5px;
+              -moz-border-radius-topleft: 5px;
+              -moz-border-radius-topright: 5px;
+               border-top-left-radius: 5px;
+               border-top-right-radius: 5px;
+          }
+          .modal-footer-grains {
+            color:#fff;
+            height: 35px;
+            background-color: #e9b72d75;
+            -webkit-border-bottom-left-radius: 5px;
+            -webkit-border-bottom-right-radius: 5px;
+            -moz-border-radius-bottomleft: 5px;
+            -moz-border-radius-bottomright: 5px;
+             border-bottom-left-radius: 5px;
+             border-bottom-right-radius: 5px;
+          }
+          .add {
+            position: absolute;
+            left: 255px;
+            top: 35px;
+            transform: scale(0.65);
+          }
+          .add:active {
+              transform: scale(0.85);
+              filter: brightness(1.2);
+              transition: all 0.20s;
+          }
+          #select-all-grains, #select-all-meats, #select-all-dairy, #select-all-fruits, #select-all-vegetables {
+            position: relative;
+            top: 35px;
+            left: 73%;
+            color: rgb(96, 96, 194);
+            font-size: 13pt;
+            line-height: 0;
+            display: block;
+            cursor: pointer;
+            user-select: none;
+            opacity: 0;
+        }
+        
+          .override-position {
+              position:absolute;
+              top: 156px;
+          }
+}
+/********************************************
+*                                           *
+*                  IPHONE X                 *
+*                                           *
+********************************************/
+@media only screen
+    and (min-device-width: 375px)
+    and (max-device-height: 812px)
+    and (-webkit-device-pixel-ratio: 3) {
+
+    html {
+        background: url("../images/Fridge_iPhoneX.png") no-repeat center center fixed;
+        /*background-size: cover;*/
+      }
+      img {
+        transform: scale(0.63);
+        height: auto;
+      }
+    
+      .hover:hover {
+        transform: scale(0.70);
+        filter: drop-shadow(16px 16px 16px #ffffff);
+    }
+      .fridge_container {
+        position: relative;
+        /*1st level: 85px
+          2nd level: 520px
+          3rd level: 1000px
+          4th level: 1415px*/
+      }
+      #camera {
+          position: absolute;
+          top: 28px;
+      }
+      #plus {
+          position: absolute;
+          top: 10px;
+          left: 125px;
+      }
+      #logout {
+          position: absolute;
+          top: -25px;
+          left: 250px;
+          transform: scale(0.8);
+      }
+      #toast {
+          position: absolute;
+          top: 155px;
+          left: 50px;
+      }
+      #steak {
+          position: absolute;
+          top: 375px;
+          left: -25px;
+      }
+      #milk {
+          position: absolute;
+          top: 375px;
+          left: 130px;
+      }
+      #banana {
+          position: absolute;
+          top: 580px;
+          left: -25px;
+      }
+      #cabbage {
+          position: absolute;
+          top: 580px;
+          left: 130px;
+      }
+      .modal-header-meats {
+          color:#fff;
+          padding:9px 15px;
+          border-bottom:1px dotted #eee;
+          background-color: #f79178;
+          -webkit-border-top-left-radius: 5px;
+          -webkit-border-top-right-radius: 5px;
+          -moz-border-radius-topleft: 5px;
+          -moz-border-radius-topright: 5px;
+           border-top-left-radius: 5px;
+           border-top-right-radius: 5px;
+      }
+      .modal-footer-meats {
+        color:#fff;
+        height: 35px;
+        background-color: #f79178;
+        -webkit-border-bottom-left-radius: 5px;
+        -webkit-border-bottom-right-radius: 5px;
+        -moz-border-radius-bottomleft: 5px;
+        -moz-border-radius-bottomright: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+       }
+      .modal-header-fruits {
+          color:#fff;
+        padding:9px 15px;
+        border-bottom:1px dotted #eee;
+        background-color: #f3f051;
+        -webkit-border-top-left-radius: 5px;
+        -webkit-border-top-right-radius: 5px;
+        -moz-border-radius-topleft: 5px;
+        -moz-border-radius-topright: 5px;
+         border-top-left-radius: 5px;
+         border-top-right-radius: 5px;
+      }
+      .modal-footer-fruits {
+        color:#fff;
+        height: 35px;
+        background-color: #f3f051;
+        -webkit-border-bottom-left-radius: 5px;
+        -webkit-border-bottom-right-radius: 5px;
+        -moz-border-radius-bottomleft: 5px;
+        -moz-border-radius-bottomright: 5px;
+         border-bottom-left-radius: 5px;
+         border-bottom-right-radius: 5px;
+      }
+      .modal-header-vegetables {
+          color:#fff;
+        padding:9px 15px;
+        border-bottom:1px dotted #eee;
+        background-color: #84f779;
+        -webkit-border-top-left-radius: 5px;
+        -webkit-border-top-right-radius: 5px;
+        -moz-border-radius-topleft: 5px;
+        -moz-border-radius-topright: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+      .modal-footer-vegetables {
+        color:#fff;
+        height: 35px;
+        background-color: #84f779;
+        -webkit-border-bottom-left-radius: 5px;
+        -webkit-border-bottom-right-radius: 5px;
+        -moz-border-radius-bottomleft: 5px;
+        -moz-border-radius-bottomright: 5px;
+         border-bottom-left-radius: 5px;
+         border-bottom-right-radius: 5px;
+      }
+      .modal-header-dairy {
+          color:rgb(7, 7, 7);
+          padding: 9px 15px;
+          border-bottom:1px dotted #eee;
+          background-color: #f0f8ff;
+          -webkit-border-top-left-radius: 5px;
+          -webkit-border-top-right-radius: 5px;
+          -moz-border-radius-topleft: 5px;
+          -moz-border-radius-topright: 5px;
+           border-top-left-radius: 5px;
+           border-top-right-radius: 5px;
+      }
+      .modal-footer-dairy {
+        color:rgb(7, 7, 7);
+        height: 35px;
+        background-color: #f0f8ff;
+        -webkit-border-bottom-left-radius: 5px;
+        -webkit-border-bottom-right-radius: 5px;
+        -moz-border-radius-bottomleft: 5px;
+        -moz-border-radius-bottomright: 5px;
+         border-bottom-left-radius: 5px;
+         border-bottom-right-radius: 5px;
+      }
+      .modal-header-grains {
+          color:rgb(0, 0, 0);
+          padding:9px 15px;
+          border-bottom:1px dotted #eee;
+          background-color: #e9b72d75;
+          -webkit-border-top-left-radius: 5px;
+          -webkit-border-top-right-radius: 5px;
+          -moz-border-radius-topleft: 5px;
+          -moz-border-radius-topright: 5px;
+           border-top-left-radius: 5px;
+           border-top-right-radius: 5px;
+      }
+      .modal-footer-grains {
+        color:#fff;
+        height: 35px;
+        background-color: #e9b72d75;
+        -webkit-border-bottom-left-radius: 5px;
+        -webkit-border-bottom-right-radius: 5px;
+        -moz-border-radius-bottomleft: 5px;
+        -moz-border-radius-bottomright: 5px;
+         border-bottom-left-radius: 5px;
+         border-bottom-right-radius: 5px;
+      }
+      .add {
+        position: absolute;
+        left: 255px;
+        top: 35px;
+        transform: scale(0.65);
+      }
+      .add:active {
+          transform: scale(0.85);
+          filter: brightness(1.2);
+          transition: all 0.20s;
+      }
+      #select-all-grains, #select-all-meats, #select-all-dairy, #select-all-fruits, #select-all-vegetables {
+        position: relative;
+        top: 35px;
+        left: 73%;
+        color: rgb(96, 96, 194);
+        font-size: 13pt;
+        line-height: 0;
+        display: block;
+        cursor: pointer;
+        user-select: none;
+        opacity: 0;
+    }
+    
+      .override-position {
+          position:absolute;
+          top: 156px;
+      }
+}
+/********************************************
+*                                           *
+*                  PIXEL 2                  *
+*                                           *
+********************************************/
+@media only screen
+    and (min-device-width: 411px)
+    and (max-device-height: 731px)
+    and (-webkit-device-pixel-ratio: 2) {
+
   html {
-    background: url("../images/emptyroom.jpg") no-repeat center center fixed;
-    background-size: cover;
+    background: url("../images/Fridge_Pixel2.png") no-repeat center center fixed;
   }
   img {
-    transform: scale(0.6);
+    transform: scale(0.55);
     height: auto;
   }
-  #logout:hover {
-    animation: swing ease-in-out 0.5s infinite alternate;
-    transform-origin: top -20px;
-    top: -25px;
-  }
+
   .hover:hover {
-    transform: scale(0.65);
+    transform: scale(0.6);
     filter: drop-shadow(16px 16px 16px #ffffff);
+}
+  .fridge_container {
+    position: relative;
+    /*1st level: 85px
+      2nd level: 520px
+      3rd level: 1000px
+      4th level: 1415px*/
   }
-  .fridge_container { 
-    background-image:url("../images/fridge_ipad.png");
-    position: absolute;
-    margin: 0 auto;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    padding: 0 0 0 0;
-    width: 600px;
-    height: 790px;
-    border: 5px solid rgb(190, 183, 183);
-   }
   #camera {
-    position: absolute;
-    top: 25px;
-   }
-#plus {
-    position: absolute;
-    top: 15px;
-    left: 200px;
-   }
+      position: absolute;
+      top: 18px;
+  }
+  #plus {
+      position: absolute;
+      top: 15px;
+      left: 125px;
+  }
   #logout {
       position: absolute;
-      top: -40px;
-      left: 460px;
+      top: -30px;
+      left: 290px;
+      transform: scale(0.75);
   }
   #toast {
       position: absolute;
-      top: 150px;
-      left: 160px;
+      top: 130px;
+      left: 70px;
   }
   #steak {
       position: absolute;
-      top: 360px;
-      left: 50px;
+      top: 335px;
+      left: -20px;
   }
   #milk {
       position: absolute;
-      top: 360px;
-      left: 270px;
+      top: 335px;
+      left: 150px;
   }
-  #apple {
+  #banana {
       position: absolute;
-      top: 560px;
-      left: 50px;
+      top: 510px;
+      left: -20px;
   }
   #cabbage {
       position: absolute;
-      top: 560px;
-      left: 270px;
+      top: 510px;
+      left: 150px;
   }
   .modal-header-meats {
+      color:#fff;
+      padding:9px 15px;
+      border-bottom:1px dotted #eee;
+      background-color: #f79178;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+       border-top-left-radius: 5px;
+       border-top-right-radius: 5px;
+  }
+  .modal-footer-meats {
     color:#fff;
+    height: 35px;
+    background-color: #f79178;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+   }
+  .modal-header-fruits {
+  	color:#fff;
     padding:9px 15px;
     border-bottom:1px dotted #eee;
-    background-color: #f79178;
+    background-color: #f3f051;
     -webkit-border-top-left-radius: 5px;
     -webkit-border-top-right-radius: 5px;
     -moz-border-radius-topleft: 5px;
@@ -481,53 +1144,30 @@ input[type=text], input[type=date] {
      border-top-left-radius: 5px;
      border-top-right-radius: 5px;
   }
-  .modal-footer-meats {
-    background-color: #f79178;
+  .modal-footer-fruits {
     color:#fff;
     height: 35px;
+    background-color: #f3f051;
     -webkit-border-bottom-left-radius: 5px;
     -webkit-border-bottom-right-radius: 5px;
     -moz-border-radius-bottomleft: 5px;
     -moz-border-radius-bottomright: 5px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+     border-bottom-left-radius: 5px;
+     border-bottom-right-radius: 5px;
   }
-.modal-header-fruits {
-    color:#fff;
+  .modal-header-vegetables {
+  	color:#fff;
     padding:9px 15px;
     border-bottom:1px dotted #eee;
-    background-color: #f3f051;
+    background-color: #84f779;
     -webkit-border-top-left-radius: 5px;
     -webkit-border-top-right-radius: 5px;
     -moz-border-radius-topleft: 5px;
     -moz-border-radius-topright: 5px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-}
-.modal-footer-fruits {
-    color:#fff;
-    height: 35px;
-    background-color: #f3f051;
-    -webkit-border-bottom-left-radius: 5px;
-    -webkit-border-bottom-right-radius: 5px;
-    -moz-border-radius-bottomleft: 5px;
-    -moz-border-radius-bottomright: 5px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
   }
-.modal-header-vegetables {
-    color:#fff;
-    padding:9px 15px;
-    border-bottom:1px dotted #eee;
-    background-color: #84f779;
-    -webkit-border-top-left-radius: 5px;
-    -webkit-border-top-right-radius: 5px;
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-topright: 5px;
-     border-top-left-radius: 5px;
-     border-top-right-radius: 5px;
-}
-.modal-footer-vegetables {
+  .modal-footer-vegetables {
     color:#fff;
     height: 35px;
     background-color: #84f779;
@@ -538,20 +1178,20 @@ input[type=text], input[type=date] {
      border-bottom-left-radius: 5px;
      border-bottom-right-radius: 5px;
   }
-.modal-header-dairy {
+  .modal-header-dairy {
+      color:rgb(7, 7, 7);
+      padding: 9px 15px;
+      border-bottom:1px dotted #eee;
+      background-color: #f0f8ff;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+       border-top-left-radius: 5px;
+       border-top-right-radius: 5px;
+  }
+  .modal-footer-dairy {
     color:rgb(7, 7, 7);
-    padding:9px 15px;
-    border-bottom:1px dotted #eee;
-    background-color: #f0f8ff;
-    -webkit-border-top-left-radius: 5px;
-    -webkit-border-top-right-radius: 5px;
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-topright: 5px;
-     border-top-left-radius: 5px;
-     border-top-right-radius: 5px;
-}
-.modal-footer-dairy {
-    color:#fff;
     height: 35px;
     background-color: #f0f8ff;
     -webkit-border-bottom-left-radius: 5px;
@@ -561,19 +1201,19 @@ input[type=text], input[type=date] {
      border-bottom-left-radius: 5px;
      border-bottom-right-radius: 5px;
   }
-.modal-header-grains {
-    color:rgb(0, 0, 0);
-    padding:9px 15px;
-    border-bottom:1px dotted #eee;
-    background-color: #e9b72d75;
-    -webkit-border-top-left-radius: 5px;
-    -webkit-border-top-right-radius: 5px;
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-topright: 5px;
-     border-top-left-radius: 5px;
-     border-top-right-radius: 5px;
-}
-.modal-footer-grains {
+  .modal-header-grains {
+  	color:rgb(0, 0, 0);
+      padding:9px 15px;
+      border-bottom:1px dotted #eee;
+      background-color: #e9b72d75;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+       border-top-left-radius: 5px;
+       border-top-right-radius: 5px;
+  }
+  .modal-footer-grains {
     color:#fff;
     height: 35px;
     background-color: #e9b72d75;
@@ -586,14 +1226,454 @@ input[type=text], input[type=date] {
   }
   .add {
     position: absolute;
-    left: 82%;
+    left: 295px;
     top: 35px;
+    transform: scale(0.65);
   }
-  .add:hover {
-    transform: scale(0.75);
-    filter: saturate(3);
-    filter: brightness(1.2);
-    transition: color 2s;
+  .add:active {
+      transform: scale(0.85);
+      filter: brightness(1.2);
+      transition: all 0.20s;
+  }
+  #select-all-grains, #select-all-meats, #select-all-dairy, #select-all-fruits, #select-all-vegetables {
+    position: relative;
+    top: 35px;
+    left: 75%;
+    color: rgb(96, 96, 194);
+    font-size: 13pt;
+    line-height: 0;
+    display: block;
+    cursor: pointer;
+    user-select: none;
+    opacity: 0;
+}
+
+  .override-position {
+      position:absolute;
+      top: 158px;
   }
 }
+/********************************************
+*                                           *
+*             IPHONE 6+ /7+ /8+             *
+*                                           *
+********************************************/
+@media only screen
+    and (min-device-width: 414px)
+    and (max-device-height: 736px)
+    and (-webkit-device-pixel-ratio: 3) {
+
+  html {
+    background: url("../images/Fridge_iPhone678Plus.png") no-repeat center center fixed;
+  }
+  img {
+    transform: scale(0.55);
+    height: auto;
+  }
+
+  .hover:hover {
+    transform: scale(0.6);
+    filter: drop-shadow(16px 16px 16px #ffffff);
+}
+  .fridge_container {
+    position: relative;
+    /*1st level: 85px
+      2nd level: 520px
+      3rd level: 1000px
+      4th level: 1415px*/
+  }
+  #camera {
+      position: absolute;
+      top: 18px;
+  }
+  #plus {
+      position: absolute;
+      top: 15px;
+      left: 125px;
+  }
+  #logout {
+      position: absolute;
+      top: -30px;
+      left: 290px;
+      transform: scale(0.75);
+  }
+  #toast {
+      position: absolute;
+      top: 130px;
+      left: 70px;
+  }
+  #steak {
+      position: absolute;
+      top: 335px;
+      left: -20px;
+  }
+  #milk {
+      position: absolute;
+      top: 335px;
+      left: 150px;
+  }
+  #banana {
+      position: absolute;
+      top: 510px;
+      left: -20px;
+  }
+  #cabbage {
+      position: absolute;
+      top: 510px;
+      left: 150px;
+  }
+  .modal-header-meats {
+      color:#fff;
+      padding:9px 15px;
+      border-bottom:1px dotted #eee;
+      background-color: #f79178;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+       border-top-left-radius: 5px;
+       border-top-right-radius: 5px;
+  }
+  .modal-footer-meats {
+    color:#fff;
+    height: 35px;
+    background-color: #f79178;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+   }
+  .modal-header-fruits {
+  	color:#fff;
+    padding:9px 15px;
+    border-bottom:1px dotted #eee;
+    background-color: #f3f051;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+  }
+  .modal-footer-fruits {
+    color:#fff;
+    height: 35px;
+    background-color: #f3f051;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+     border-bottom-left-radius: 5px;
+     border-bottom-right-radius: 5px;
+  }
+  .modal-header-vegetables {
+  	color:#fff;
+    padding:9px 15px;
+    border-bottom:1px dotted #eee;
+    background-color: #84f779;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  .modal-footer-vegetables {
+    color:#fff;
+    height: 35px;
+    background-color: #84f779;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+     border-bottom-left-radius: 5px;
+     border-bottom-right-radius: 5px;
+  }
+  .modal-header-dairy {
+      color:rgb(7, 7, 7);
+      padding: 9px 15px;
+      border-bottom:1px dotted #eee;
+      background-color: #f0f8ff;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+       border-top-left-radius: 5px;
+       border-top-right-radius: 5px;
+  }
+  .modal-footer-dairy {
+    color:rgb(7, 7, 7);
+    height: 35px;
+    background-color: #f0f8ff;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+     border-bottom-left-radius: 5px;
+     border-bottom-right-radius: 5px;
+  }
+  .modal-header-grains {
+  	color:rgb(0, 0, 0);
+      padding:9px 15px;
+      border-bottom:1px dotted #eee;
+      background-color: #e9b72d75;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+       border-top-left-radius: 5px;
+       border-top-right-radius: 5px;
+  }
+  .modal-footer-grains {
+    color:#fff;
+    height: 35px;
+    background-color: #e9b72d75;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+     border-bottom-left-radius: 5px;
+     border-bottom-right-radius: 5px;
+  }
+  .add {
+    position: absolute;
+    left: 295px;
+    top: 35px;
+    transform: scale(0.65);
+  }
+  .add:active {
+      transform: scale(0.85);
+      filter: brightness(1.2);
+      transition: all 0.20s;
+  }
+  #select-all-grains, #select-all-meats, #select-all-dairy, #select-all-fruits, #select-all-vegetables {
+    position: relative;
+    top: 35px;
+    left: 75%;
+    color: rgb(96, 96, 194);
+    font-size: 13pt;
+    line-height: 0;
+    display: block;
+    cursor: pointer;
+    user-select: none;
+    opacity: 0;
+}
+
+  .override-position {
+      position:absolute;
+      top: 158px;
+  }
+}
+/********************************************
+*                                           *
+*            MACBOOK AIR 14 INCH            *
+*                                           *
+********************************************/
+/* for 415px or more */
+@media screen and (min-width: 415px) {
+
+    html {
+      background: url("../images/emptyroom.jpg") no-repeat center center fixed;
+      background-size: cover;
+    }
+    img {
+      transform: scale(0.6);
+      height: auto;
+    }
+    #logout:hover {
+      animation: swing ease-in-out 0.5s infinite alternate;
+      transform-origin: top -20px;
+      top: -25px;
+    }
+    .hover:hover {
+      transform: scale(0.65);
+      filter: drop-shadow(16px 16px 16px #ffffff);
+    }
+    .fridge_container { 
+      background-image:url("../images/fridge_ipad.png");
+      position: absolute;
+      margin: 0 auto;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0 0 0 0;
+      width: 600px;
+      height: 790px;
+      border: 5px solid rgb(190, 183, 183);
+     }
+    #camera {
+      position: absolute;
+      top: 25px;
+     }
+  #plus {
+      position: absolute;
+      top: 15px;
+      left: 200px;
+     }
+    #logout {
+        position: absolute;
+        top: -40px;
+        left: 460px;
+    }
+    #toast {
+        position: absolute;
+        top: 150px;
+        left: 160px;
+    }
+    #steak {
+        position: absolute;
+        top: 360px;
+        left: 50px;
+    }
+    #milk {
+        position: absolute;
+        top: 360px;
+        left: 270px;
+    }
+    #banana {
+        position: absolute;
+        top: 560px;
+        left: 50px;
+    }
+    #cabbage {
+        position: absolute;
+        top: 560px;
+        left: 270px;
+    }
+    .modal-header-meats {
+      color:#fff;
+      padding:9px 15px;
+      border-bottom:1px dotted #eee;
+      background-color: #f79178;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+       border-top-left-radius: 5px;
+       border-top-right-radius: 5px;
+    }
+    .modal-footer-meats {
+      background-color: #f79178;
+      color:#fff;
+      height: 35px;
+      -webkit-border-bottom-left-radius: 5px;
+      -webkit-border-bottom-right-radius: 5px;
+      -moz-border-radius-bottomleft: 5px;
+      -moz-border-radius-bottomright: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  .modal-header-fruits {
+      color:#fff;
+      padding:9px 15px;
+      border-bottom:1px dotted #eee;
+      background-color: #f3f051;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+  }
+  .modal-footer-fruits {
+      color:#fff;
+      height: 35px;
+      background-color: #f3f051;
+      -webkit-border-bottom-left-radius: 5px;
+      -webkit-border-bottom-right-radius: 5px;
+      -moz-border-radius-bottomleft: 5px;
+      -moz-border-radius-bottomright: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  .modal-header-vegetables {
+      color:#fff;
+      padding:9px 15px;
+      border-bottom:1px dotted #eee;
+      background-color: #84f779;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+       border-top-left-radius: 5px;
+       border-top-right-radius: 5px;
+  }
+  .modal-footer-vegetables {
+      color:#fff;
+      height: 35px;
+      background-color: #84f779;
+      -webkit-border-bottom-left-radius: 5px;
+      -webkit-border-bottom-right-radius: 5px;
+      -moz-border-radius-bottomleft: 5px;
+      -moz-border-radius-bottomright: 5px;
+       border-bottom-left-radius: 5px;
+       border-bottom-right-radius: 5px;
+    }
+  .modal-header-dairy {
+      color:rgb(7, 7, 7);
+      padding:9px 15px;
+      border-bottom:1px dotted #eee;
+      background-color: #f0f8ff;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+       border-top-left-radius: 5px;
+       border-top-right-radius: 5px;
+  }
+  .modal-footer-dairy {
+      color:#fff;
+      height: 35px;
+      background-color: #f0f8ff;
+      -webkit-border-bottom-left-radius: 5px;
+      -webkit-border-bottom-right-radius: 5px;
+      -moz-border-radius-bottomleft: 5px;
+      -moz-border-radius-bottomright: 5px;
+       border-bottom-left-radius: 5px;
+       border-bottom-right-radius: 5px;
+    }
+  .modal-header-grains {
+      color:rgb(0, 0, 0);
+      padding:9px 15px;
+      border-bottom:1px dotted #eee;
+      background-color: #e9b72d75;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+       border-top-left-radius: 5px;
+       border-top-right-radius: 5px;
+  }
+  .modal-footer-grains {
+      color:#fff;
+      height: 35px;
+      background-color: #e9b72d75;
+      -webkit-border-bottom-left-radius: 5px;
+      -webkit-border-bottom-right-radius: 5px;
+      -moz-border-radius-bottomleft: 5px;
+      -moz-border-radius-bottomright: 5px;
+       border-bottom-left-radius: 5px;
+       border-bottom-right-radius: 5px;
+    }
+    .add {
+      position: absolute;
+      left: 82%;
+      top: 35px;
+    }
+    .add:hover {
+      transform: scale(0.75);
+      filter: saturate(3);
+      filter: brightness(1.2);
+      transition: color 2s;
+    }
+  
+    .override-position {
+        position:absolute;
+        top: 166px;
+    }
+  }
+
 
