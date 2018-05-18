@@ -26,6 +26,7 @@
     font-size: 13pt;
     margin: 0 0 0 0;
     user-select: none;
+    color: rgb(133, 130, 130);
 }
 .food-item-grains {
     background-color: #e9b72d75;
