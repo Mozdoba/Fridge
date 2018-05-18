@@ -15,16 +15,14 @@ db.settings(settings);
 var userID = 'nld2X0z7zedzQK4K1zUg';
 var userEmail = "sick@gmail.com";
 
-// firebase.auth().onAuthStateChanged(function(user) {
-//   if (user) {
-//     const userID = user.uid;
-//     const userEmail = user.email;
-//     console.log("TEST");
-//     console.log(userEmail);
-//   } else {
-//     // No user is signed in.
-//   }
-// });
+firebase.auth().onAuthStateChanged(async (user) => {
+    if (user) {
+      const userUID = user.uid;
+      const userEmail = user.email;
+      const userID = await getUserId(userEmail);
+      console.log(userID);
+      console.log("TEST");
+      console.log(userEmail);
 
 
 getSubCollection(userID, "grains");
@@ -510,12 +508,17 @@ function deleteCheckedBoxes(category) {
 function getUserId(userEmail) {
     console.log("Attempting to retreive Document ID");
     var query = db.collection("Users").where("email", "==", userEmail);
-    query.get().then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
+    return query.get().then(function(querySnapshot) {
+        console.log(querySnapshot);
+        let x;
+        querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
+            console.log(x);
             console.log(doc.id);
+            x = doc.id;
             return doc.id;
         });
+        return x;
     });
 }
 
@@ -695,9 +698,22 @@ function autocomplete(inp, arr) {
   });
   }
 
+
+
 autocomplete(document.getElementById("myGrainsInput"), grainsList);
 autocomplete(document.getElementById("myMeatsInput"), meatsList);
 autocomplete(document.getElementById("myDairyInput"), dairyList);
 autocomplete(document.getElementById("myFruitsInput"), fruitsList);
 autocomplete(document.getElementById("myVegetablesInput"), vegetablesList);
+
+} else {
+    console.log("ROAR SIGNED OUT");
+    // No user is signed in.
+  }
 });
+
+
+
+});
+
+
