@@ -2,7 +2,6 @@
     0% { transform: rotate(3deg); }
     100% { transform: rotate(-3deg); }
 }
-
 .hidden {
     display: none;
 }
@@ -176,10 +175,6 @@ input[type=text], input[type=date] {
   .autocomplete-active {
     background-color: DodgerBlue !important; 
     color: #ffffff; 
-  }
-  .override-position {
-      position:absolute;
-      top: 166px;
   }
   .food-suggestions {
       width: 90%;
@@ -391,6 +386,11 @@ input[type=text], input[type=date] {
     user-select: none;
     opacity: 0;
 }
+
+  .override-position {
+      position:absolute;
+      top: 158px;
+  }
 }
 
 /********************************************
@@ -594,6 +594,11 @@ input[type=text], input[type=date] {
     filter: saturate(3);
     filter: brightness(1.2);
     transition: color 2s;
+  }
+
+  .override-position {
+      position:absolute;
+      top: 166px;
   }
 }
 
