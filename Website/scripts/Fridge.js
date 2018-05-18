@@ -12,8 +12,8 @@ db.settings(settings);
 ********************************************/
 
 // Captures user email and password on login
-var userID = 'nld2X0z7zedzQK4K1zUg';
-var userEmail = "sick@gmail.com";
+var userID = '9xTgdOquM8R84BsANmc0oT4rOAR2';
+var userEmail = "error2@hotmail.com";
 
 firebase.auth().onAuthStateChanged(async (user) => {
     if (user) {
@@ -23,7 +23,11 @@ firebase.auth().onAuthStateChanged(async (user) => {
       console.log(userID);
       console.log("TEST");
       console.log(userEmail);
-
+    } else {
+        console.log("ROAR SIGNED OUT");
+        // No user is signed in.
+      }
+    });
 
 getSubCollection(userID, "grains");
 getSubCollection(userID, "meats");
@@ -105,13 +109,10 @@ function deleteDocument(userID, documentID) {
 }
 
 // Adds a new food item to 'Food Item' collection in the Users Database (Firebase)
-function addNewDocument(userID, foodItem, category, market, perishable, price, date) {
+function addNewDocument(userID, foodItem, category, date) {
     db.collection("Users").doc(userID).collection("Food Item").doc(foodItem).set({
         category: category,
-        market: market,
-        perishable: perishable,
-        price: price,
-        timestamp: date
+        date: date
     })
 }
 
@@ -141,11 +142,7 @@ function logOut(){
     });
 }
 
-} else {
-    console.log("ROAR SIGNED OUT");
-    // No user is signed in.
-  }
-});
+
 
 //var userID = getUserId(userEmail);
 //console.log(userID);
@@ -570,7 +567,7 @@ function deleteCheckedBoxes(category) {
     for(var i = 0; i < checkBoxes.length; i++) {
         let checkBox = checkBoxes[i];
         if (checkBox.checked) {
-            //deleteDocument(userID, checkBox.nextElementSibling.innerHTML.replace(/\&nbsp;/g, ''));
+            deleteDocument(userID, checkBox.nextElementSibling.innerHTML.replace(/\&nbsp;/g, ''));
             checkBox.parentNode.removeChild(checkBox.nextSibling);
             checkBox.parentNode.removeChild(checkBox);
         }
