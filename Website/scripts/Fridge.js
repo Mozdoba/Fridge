@@ -12,14 +12,15 @@ db.settings(settings);
 ********************************************/
 
 // Captures user email and password on login
-var userID = '9xTgdOquM8R84BsANmc0oT4rOAR2';
-var userEmail = "error2@hotmail.com";
+//var userID = '9xTgdOquM8R84BsANmc0oT4rOAR2';
+//var userEmail = "error2@hotmail.com";
 
 firebase.auth().onAuthStateChanged(async (user) => {
     if (user) {
       const userUID = user.uid;
       const userEmail = user.email;
-      const userID = await getUserId(userEmail);
+      var userID = userUID;
+      //const userID = await getUserId(userEmail);
       console.log(userID);
       console.log("TEST");
       console.log(userEmail);
@@ -132,11 +133,7 @@ function logOut(){
     });
 }
 
-} else {
-    console.log("ROAR SIGNED OUT");
-    // No user is signed in.
-  }
-});
+
 
 //var userID = getUserId(userEmail);
 //console.log(userID);
@@ -743,68 +740,80 @@ function renderFoodItemManually(foodDoc, category) {
 }
 
 $('#form-grains').submit(function(e) {
-    e.preventDefault();
     let grainItem = document.getElementById('myGrainsInput').value.toUpperCase();
     let dateAdded = document.getElementById('dateAddedGrains').value;
     if (dateAdded === "") {
         let todayDate = new Date();
         dateAdded = "" + todayDate.getFullYear() + "-" + todayDate.getMonth() + "-" + todayDate.getDate();
     }
+    e.preventDefault();
     addNewDocument(userID, 'grains', '' + grainItem + '', dateAdded);
     renderFoodItemManually(grainItem, 'grains');
     $(this).trigger("reset");
+    return false;
 });
 
 $('#form-meats').submit(function(e) {
-    e.preventDefault();
     let meatItem = document.getElementById('myMeatsInput').value.toUpperCase();
     let dateAdded = document.getElementById('dateAddedMeats').value;
     if (dateAdded === "") {
         let todayDate = new Date();
         dateAdded = "" + todayDate.getFullYear() + "-" + todayDate.getMonth() + "-" + todayDate.getDate();
     }
+    e.preventDefault();
     addNewDocument(userID, 'meats', '' + meatItem + '', dateAdded);
     renderFoodItemManually(meatItem, 'meats');
     $(this).trigger("reset");
+    return false;
 });
 
 $('#form-dairy').submit(function(e) {
-    e.preventDefault();
     let dairyItem = document.getElementById('myDairyInput').value.toUpperCase();
     let dateAdded = document.getElementById('dateAddedDairy').value;
     if (dateAdded === "") {
         let todayDate = new Date();
         dateAdded = "" + todayDate.getFullYear() + "-" + todayDate.getMonth() + "-" + todayDate.getDate();
     }
+    e.preventDefault();
     addNewDocument(userID, 'dairy', '' + dairyItem + '', dateAdded);
     renderFoodItemManually(dairyItem, 'dairy');
     $(this).trigger("reset");
+    return false;
 });
 
 $('#form-fruits').submit(function(e) {
-    e.preventDefault();
     let fruitItem = document.getElementById('myFruitsInput').value.toUpperCase();
     let dateAdded = document.getElementById('dateAddedFruits').value;
     if (dateAdded === "") {
         let todayDate = new Date();
         dateAdded = "" + todayDate.getFullYear() + "-" + todayDate.getMonth() + "-" + todayDate.getDate();
     }
+    e.preventDefault();
     addNewDocument(userID, 'fruits', '' + fruitItem + '', dateAdded);
     renderFoodItemManually(fruitItem, 'fruits');
     $(this).trigger("reset");
+    return false;
 });
 
 $('#form-vegetables').submit(function(e) {
-    e.preventDefault();
     let vegetableItem = document.getElementById('myVegetablesInput').value.toUpperCase();
     let dateAdded = document.getElementById('dateAddedVegetables').value;
+    $(this).trigger("reset");
     if (dateAdded === "") {
         let todayDate = new Date();
         dateAdded = "" + todayDate.getFullYear() + "-" + todayDate.getMonth() + "-" + todayDate.getDate();
     }
+    e.preventDefault();
     addNewDocument(userID, 'vegetables', '' + vegetableItem + '', dateAdded);
     renderFoodItemManually(vegetableItem, 'vegetables');
-    $(this).trigger("reset");
+    return false;
+});
+
+
+} else {
+    console.log("ROAR SIGNED OUT");
+    // No user is signed in.
+  }
 });
 
 });
