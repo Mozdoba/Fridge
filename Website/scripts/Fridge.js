@@ -31,6 +31,122 @@ getSubCollection(userID, "dairy");
 getSubCollection(userID, "fruits");
 getSubCollection(userID, "vegetables");
 
+// Integer to give each input a unique id. Eg. id="grains1"
+var num = 0;
+// Renders data on HTML pages
+function renderFoodItem(foodDoc, category) {
+    // @TO-DO: make a list and append it to ".modal-content"
+
+    renderedDoc = "<input id='" + category + num + "' type='checkbox' class='selectable selectable-" + category + "' disabled='disabled'/><label for='" + category + num++ + "' class='food-item food-item-" + category + "'>&nbsp&nbsp&nbsp&nbsp" + foodDoc.id + "</label>";
+    $(".modal-body-" + category).append(renderedDoc);
+    // Hide all checkboxes
+    $(".selectable").css("display", "none");
+
+    // addEventListeners to all the food-item inputs that were just rendered
+    let selectableCheckBox = document.querySelectorAll(".selectable-" + category);
+    selectableCheckBox.forEach((el) => {
+        el.addEventListener("click", function() {
+            activateOrInactivateDeleteButton(category);
+        });
+    });
+    return renderedDoc; //returns input
+}
+
+
+/********************************************
+*                                           *
+*       FIRESTORE DATABASE FUNCTIONS        *
+*                                           *
+********************************************/
+
+function getUserId(userEmail) {
+    console.log("Attempting to retreive Document ID");
+    var query = db.collection("Users").where("email", "==", userEmail);
+    return query.get().then(function(querySnapshot) {
+        console.log(querySnapshot);
+        let x;
+        querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(x);
+            console.log(doc.id);
+            x = doc.id;
+            return doc.id;
+        });
+        return x;
+    });
+}
+
+function getSubCollection(userID, category) {
+    console.log("Attempting to retreive 'category: " + category + "' documents from Food Item subcollection");
+    var query = db.collection("Users").doc(userID)
+    .collection("Food Item").where("category", "==", category);
+    query.get().then(function(querySnapshot) {
+        if (querySnapshot.size == 0) {
+            console.log("No documents in '" + category + "' query");
+        } else {
+            querySnapshot.forEach(function(doc) {
+                // doc.data() is never undefined for query doc snapshots
+                //console.log(doc.id, " => ", doc.data());
+                // generate content in modal
+                renderFoodItem(doc, category);
+            });
+            console.log("Returned document(s) in '" + category + "' query");
+        }
+    });
+}
+
+// Deletes specified document from Firebase
+function deleteDocument(userID, documentID) {
+    db.collection("Users").doc(userID).collection("Food Item").doc(documentID).delete().then(function() {
+        console.log("Document '" + documentID + "' successfully deleted!");
+    }).catch(function(error) {
+        console.error("Error removing '" + documentID + "' document: ", error);
+    });
+}
+
+// Adds a new food item to 'Food Item' collection in the Users Database (Firebase)
+function addNewDocument(userID, foodItem, category, market, perishable, price, date) {
+    db.collection("Users").doc(userID).collection("Food Item").doc(foodItem).set({
+        category: category,
+        market: market,
+        perishable: perishable,
+        price: price,
+        timestamp: date
+    })
+}
+
+// Returns mock data from firestore
+function retrieveData(userEmail) {
+    console.log("Attempting to retreive Document Data");
+    let docRef = db.collection("Users").doc(userID);
+    docRef.get().then(function(doc) {
+        if (doc.exists) {
+            console.log("Document data:", doc.data());
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+    }).catch(function(error) {
+        console.log("Error getting document:", error);
+    });
+}
+
+function logOut(){
+
+    firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+      window.location.href = "http://fridgedit.com/login.html";
+    }).catch(function(error) {
+      // An error happened.
+    });
+}
+
+} else {
+    console.log("ROAR SIGNED OUT");
+    // No user is signed in.
+  }
+});
+
 //var userID = getUserId(userEmail);
 //console.log(userID);
 /**
@@ -445,26 +561,7 @@ function toggleForm(category) {
         $('#add-slider-' + category).addClass("opened");
     }
 }
-// Integer to give each input a unique id. Eg. id="grains1"
-var num = 0;
-// Renders data on HTML pages
-function renderFoodItem(foodDoc, category) {
-    // @TO-DO: make a list and append it to ".modal-content"
 
-    renderedDoc = "<input id='" + category + num + "' type='checkbox' class='selectable selectable-" + category + "' disabled='disabled'/><label for='" + category + num++ + "' class='food-item food-item-" + category + "'>&nbsp&nbsp&nbsp&nbsp" + foodDoc.id + "</label>";
-    $(".modal-body-" + category).append(renderedDoc);
-    // Hide all checkboxes
-    $(".selectable").css("display", "none");
-
-    // addEventListeners to all the food-item inputs that were just rendered
-    let selectableCheckBox = document.querySelectorAll(".selectable-" + category);
-    selectableCheckBox.forEach((el) => {
-        el.addEventListener("click", function() {
-            activateOrInactivateDeleteButton(category);
-        });
-    });
-    return renderedDoc; //returns input
-}
 
 // Deletes Checked checkboxes and all children from DOM
 function deleteCheckedBoxes(category) {
@@ -499,93 +596,7 @@ function deleteCheckedBoxes(category) {
     }
 }
 
-/********************************************
-*                                           *
-*       FIRESTORE DATABASE FUNCTIONS        *
-*                                           *
-********************************************/
 
-function getUserId(userEmail) {
-    console.log("Attempting to retreive Document ID");
-    var query = db.collection("Users").where("email", "==", userEmail);
-    return query.get().then(function(querySnapshot) {
-        console.log(querySnapshot);
-        let x;
-        querySnapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
-            console.log(x);
-            console.log(doc.id);
-            x = doc.id;
-            return doc.id;
-        });
-        return x;
-    });
-}
-
-function getSubCollection(userID, category) {
-    console.log("Attempting to retreive 'category: " + category + "' documents from Food Item subcollection");
-    var query = db.collection("Users").doc(userID)
-    .collection("Food Item").where("category", "==", category);
-    query.get().then(function(querySnapshot) {
-        if (querySnapshot.size == 0) {
-            console.log("No documents in '" + category + "' query");
-        } else {
-            querySnapshot.forEach(function(doc) {
-                // doc.data() is never undefined for query doc snapshots
-                //console.log(doc.id, " => ", doc.data());
-                // generate content in modal
-                renderFoodItem(doc, category);
-            });
-            console.log("Returned document(s) in '" + category + "' query");
-        }
-    });
-}
-
-// Deletes specified document from Firebase
-function deleteDocument(userID, documentID) {
-    db.collection("Users").doc(userID).collection("Food Item").doc(documentID).delete().then(function() {
-        console.log("Document '" + documentID + "' successfully deleted!");
-    }).catch(function(error) {
-        console.error("Error removing '" + documentID + "' document: ", error);
-    });
-}
-
-// Adds a new food item to 'Food Item' collection in the Users Database (Firebase)
-function addNewDocument(userID, foodItem, category, market, perishable, price, date) {
-    db.collection("Users").doc(userID).collection("Food Item").doc(foodItem).set({
-        category: category,
-        market: market,
-        perishable: perishable,
-        price: price,
-        timestamp: date
-    })
-}
-
-// Returns mock data from firestore
-function retrieveData(userEmail) {
-    console.log("Attempting to retreive Document Data");
-    let docRef = db.collection("Users").doc(userID);
-    docRef.get().then(function(doc) {
-        if (doc.exists) {
-            console.log("Document data:", doc.data());
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-        }
-    }).catch(function(error) {
-        console.log("Error getting document:", error);
-    });
-}
-
-function logOut(){
-
-    firebase.auth().signOut().then(function() {
-      // Sign-out successful.
-      window.location.href = "http://fridgedit.com/login.html";
-    }).catch(function(error) {
-      // An error happened.
-    });
-}
 
 /********************************************
 *                                           *
@@ -696,22 +707,13 @@ function autocomplete(inp, arr) {
   document.addEventListener("click", function (e) {
       closeAllLists(e.target);
   });
-  }
-
-
+}
 
 autocomplete(document.getElementById("myGrainsInput"), grainsList);
 autocomplete(document.getElementById("myMeatsInput"), meatsList);
 autocomplete(document.getElementById("myDairyInput"), dairyList);
 autocomplete(document.getElementById("myFruitsInput"), fruitsList);
 autocomplete(document.getElementById("myVegetablesInput"), vegetablesList);
-
-} else {
-    console.log("ROAR SIGNED OUT");
-    // No user is signed in.
-  }
-});
-
 
 
 });
