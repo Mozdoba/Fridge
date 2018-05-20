@@ -607,7 +607,7 @@ function autocomplete(inp, arr) {
     var currentFocus;
     /*execute a function when someone writes in the text field:*/
     inp.addEventListener("input", function(e) {
-        var a, b, i, val = this.value;
+        var a, b, c, i, val = this.value;
         /*close any already open lists of autocompleted values*/
         closeAllLists();
         if (!val) { return false;}
@@ -625,6 +625,8 @@ function autocomplete(inp, arr) {
             /*create a DIV element for each matching element:*/
             b = document.createElement("DIV");
             b.setAttribute("class", "food-suggestions");
+            c = document.createElement("i");
+            c.setAttribute("class", "fa fa-chevron-right");
             /*make the matching letters bold:*/
             b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
             b.innerHTML += arr[i].substr(val.length);
@@ -639,6 +641,7 @@ function autocomplete(inp, arr) {
                 closeAllLists();
             });
             a.appendChild(b);
+            b.prepend(c);
           }
         }
     });
