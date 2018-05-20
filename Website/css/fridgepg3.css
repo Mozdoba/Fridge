@@ -20,9 +20,10 @@ body {
     overflow-y: scroll;
 }
 .selectable {
-    display: none;
+    opacity: 1;
     position: absolute;
-    left: 4px;
+    left: 2%;
+
 }
 .selectable:checked + label {
     background-color: rgb(255, 180, 180);
@@ -31,8 +32,9 @@ body {
 .food-item {
     display: block;
     width: 100%;
-    font-size: 13pt;
+    font-size: 10pt;
     margin: 0 0 0 0;
+    padding-left: 3%;
     user-select: none;
     color: rgb(133, 130, 130);
 }
