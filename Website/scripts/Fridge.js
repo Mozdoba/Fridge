@@ -40,7 +40,8 @@ function renderFoodItem(foodDoc, category) {
     let renderedDoc = "<input id='" + category + num + "' type='checkbox' class='selectable selectable-" + category + "' disabled='disabled'/><label for='" + category + num++ + "' class='food-item food-item-" + category + "'>&nbsp&nbsp&nbsp&nbsp" + foodDoc.id + "</label>";
     $(".modal-body-" + category).append(renderedDoc);
     // Hide all checkboxes
-    $(".selectable").css("display", "none");
+    /*$(".selectable").css("display", "none");*/
+    $(".selectable").css("opacity", "0");
 
     // addEventListeners to all the food-item inputs that were just rendered
     let selectableCheckBox = document.querySelectorAll(".selectable-" + category);
@@ -211,7 +212,7 @@ editButtonGrains.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
     disableEditEnableCancel(cancelButtonGrains, this);
     // Displays selectable checkboxes and makes them selectable
-    $(".selectable-grains").css("display", "inline-block");
+    $(".selectable-grains").animate({left: '+=10px', opacity: '1'}, 'fast');
     $('.selectable-grains').attr('disabled', false);
     // Slides delete-button out
     $('#delete-button-grains').animate({top: '+=-18px', opacity: '1'}, 'fast');
@@ -222,7 +223,7 @@ cancelButtonGrains.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
     disableCancelEnableEdit(editButtonGrains, this);
     // Hides selectable checkboxes and Changes 'Deselect All' text to 'Select All'
-    $(".selectable-grains").css("display", "none");
+    $(".selectable-grains").animate({left: '+=-10px', opacity: '0'}, 'fast');
     $('.selectable-grains').attr('disabled', true);
     $('.selectable-grains').prop('checked', false);
     $('#select-all-grains').html('Select All');
@@ -235,7 +236,7 @@ editButtonMeats.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
     disableEditEnableCancel(cancelButtonMeats, this);
     // Displays selectable checkboxes
-    $(".selectable-meats").css("display", "inline-block");
+    $(".selectable-meats").animate({left: '+=10px', opacity: '1'}, 'fast');
     $('.selectable-meats').attr('disabled', false);
     // Displays delete-slider
     $('#delete-button-meats').animate({top: '+=-18px', opacity: '1'}, 'fast');
@@ -246,7 +247,7 @@ cancelButtonMeats.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
     disableCancelEnableEdit(editButtonMeats, this);
     // Hides selectable checkboxes and Changes 'Deselect All' text to 'Select All'
-    $(".selectable-meats").css("display", "none");
+    $(".selectable-meats").animate({left: '+=-10px', opacity: '0'}, 'fast');
     $('.selectable-meats').attr('disabled', true);
     $('.selectable-meats').prop('checked', false);
     $('#select-all-meats').html('Select All');
@@ -259,7 +260,7 @@ editButtonDairy.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
     disableEditEnableCancel(cancelButtonDairy, this);
     // Displays selectable checkboxes
-    $(".selectable-dairy").css("display", "inline-block");
+    $(".selectable-dairy").animate({left: '+=10px', opacity: '1'}, 'fast');
     $('.selectable-dairy').attr('disabled', false);
     // Displays delete-slider
     $('#delete-button-dairy').animate({top: '+=-18px', opacity: '1'}, 'fast');
@@ -270,7 +271,7 @@ cancelButtonDairy.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
     disableCancelEnableEdit(editButtonDairy, this);
     // Hides selectable checkboxes and Changes 'Deselect All' text to 'Select All'
-    $(".selectable-dairy").css("display", "none");
+    $(".selectable-dairy").animate({left: '+=-10px', opacity: '0'}, 'fast');
     $('.selectable-dairy').attr('disabled', true);
     $('.selectable-dairy').prop('checked', false);
     $('#select-all-dairy').html('Select All');
@@ -283,7 +284,7 @@ editButtonFruits.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
     disableEditEnableCancel(cancelButtonFruits, this);
     // Displays selectable checkboxes
-    $(".selectable-fruits").css("display", "inline-block");
+    $(".selectable-fruits").animate({left: '+=10px', opacity: '1'}, 'fast');
     $('.selectable-fruits').attr('disabled', false);
     // Displays delete-slider
     $('#delete-button-fruits').animate({top: '+=-18px', opacity: '1'}, 'fast');
@@ -294,7 +295,7 @@ cancelButtonFruits.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
     disableCancelEnableEdit(editButtonFruits, this);
     // Hides selectable checkboxes and Changes 'Deselect All' text to 'Select All'
-    $(".selectable-fruits").css("display", "none");
+    $(".selectable-fruits").animate({left: '+=-10px', opacity: '0'}, 'fast');
     $('.selectable-fruits').attr('disabled', true);
     $('.selectable-fruits').prop('checked', false);
     $('#select-all-fruits').html('Select All');
@@ -307,7 +308,7 @@ editButtonVegetables.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
     disableEditEnableCancel(cancelButtonVegetables, this);
     // Displays selectable checkboxes
-    $(".selectable-vegetables").css("display", "inline-block");
+    $(".selectable-vegetables").animate({left: '+=10px', opacity: '1'}, 'fast');
     $('.selectable-vegetables').attr('disabled', false);
     // Displays delete-slider
     $('#delete-button-vegetables').animate({top: '+=-18px', opacity: '1'}, 'fast');
@@ -318,7 +319,7 @@ cancelButtonVegetables.addEventListener("click", function() {
     //Displays the cancel button and hides edit button
     disableCancelEnableEdit(editButtonVegetables, this);
     // Hides selectable checkboxes and Changes 'Deselect All' text to 'Select All'
-    $(".selectable-vegetables").css("display", "none");
+    $(".selectable-vegetables").animate({left: '+=-10px', opacity: '0'}, 'fast');
     $('.selectable-vegetables').attr('disabled', true);
     $('.selectable-vegetables').prop('checked', false);
     $('#select-all-vegetables').html('Select All');
