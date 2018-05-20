@@ -12,14 +12,14 @@ db.settings(settings);
 ********************************************/
 
 // Captures user email and password on login
-//var userID = '9xTgdOquM8R84BsANmc0oT4rOAR2';
-//var userEmail = "error2@hotmail.com";
+var userID = '9M4wH40g2fXgRPV3RbySaFfZyLYy1';
+var userEmail = "microsoft8@gmail.com";
 
 firebase.auth().onAuthStateChanged(async (user) => {
     if (user) {
       const userUID = user.uid;
       const userEmail = user.email;
-      var userID = userUID;
+      //var userID = userUID;
       //const userID = await getUserId(userEmail);
       console.log(userID);
       console.log("TEST");
@@ -51,8 +51,6 @@ function renderFoodItem(foodDoc, category) {
     });
     return renderedDoc; //returns input
 }
-
-
 
 /********************************************
 *                                           *
@@ -123,15 +121,15 @@ function retrieveData(userEmail) {
     });
 }
 
-function logOut(){
+// function logOut(){
 
-    firebase.auth().signOut().then(function() {
-      // Sign-out successful.
-      window.location.href = "http://fridgedit.com/login.html";
-    }).catch(function(error) {
-      // An error happened.
-    });
-}
+//     firebase.auth().signOut().then(function() {
+//       // Sign-out successful.
+//       window.location.href = "http://fridgedit.com/login.html";
+//     }).catch(function(error) {
+//       // An error happened.
+//     });
+// }
 
 
 
@@ -816,6 +814,16 @@ $('#form-vegetables').submit(function(e) {
   }
 });
 
+function logOut(){
+
+    firebase.auth().signOut().then(function() {
+        console.log("IN LOG OUT FUNCTION")
+      // Sign-out successful.
+      window.location.href = "http://fridgedit.com/login.html";
+    }).catch(function(error) {
+      // An error happened.
+    });
+}
 });
 
 
