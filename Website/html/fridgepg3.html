@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" media="screen and (min-device-width: 375px) and (max-device-width: 812px)" href="../css/fridgepg3.css" />
     <link rel="stylesheet" type="text/css" media="screen and (min-device-width: 411px) and (max-device-width: 731px)" href="../css/fridgepg3.css" />
     <link rel="stylesheet" type="text/css" media="screen and (min-device-width: 414px) and (max-device-width: 736px)" href="../css/fridgepg3.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
@@ -41,14 +42,15 @@
                         <div class="modal-body-meats">
                             <div id="add-slider-meats">
                                 <form id='form-meats' autocomplete='off'>
-                                    <div class='autocomplete' style='width:100%;'>
-                                        <input id='myMeatsInput' type="text" name="input-meats" placeholder="Enter a meat/legume" required='' oninvalid="this.setCustomValidity('Please Enter a Meat or Legume Product')" oninput="setCustomValidity('')">
+                                    <div class='autocomplete form-group'>
+                                        <label class='input-label' for='input-meats'>Enter a Meat / Poultry / Fish</label></br>
+                                        <i class='	fa fa-cart-plus input-icon'></i><input id='myMeatsInput' type="text" name="input-meats" placeholder="Meat / Poultry / Fish" required='' oninvalid="this.setCustomValidity('Please Enter a Meat or Legume Product')" oninput="setCustomValidity('')">
                                     </div>
-                                    </br>
-                                    <img class='input-icon'/>
-                                    <input type="date" id="dateAddedMeats" name='date-added-meats' placeholder="Enter the date you bought your meat/legume">
-                                    </br>
-                                    <input type="submit" value="Done">
+                                    <div class='form-group'>
+                                        <label class='input-label' for='date-added-meats'>Date</label></br>   
+                                        <i class='fa fa-calendar input-icon'></i><input type="date" id="dateAddedMeats" name='date-added-meats'>
+                                    </div></br>
+                                    <input type="submit" value="Add Item"></br></br>
                                 </form>
                             </div>
                         </div>
@@ -78,14 +80,14 @@
                         <div class="modal-body-grains">
                             <div id="add-slider-grains">
                                 <form id='form-grains' autocomplete='off'>
-                                    <div class='autocomplete' style='width:100%;'>
-                                        <input id='myGrainsInput' type="text" name="input-grains" placeholder="Enter a grain" required='' oninvalid="this.setCustomValidity('Please Enter a Rice or Grain Product')" oninput="setCustomValidity('')">
-                                    </div>
-                                    </br>
-                                    <img class='input-icon'/>
-                                    <input type="date" id="dateAddedGrains" name='date-added-grains' placeholder="Enter the date you bought your grain">
-                                    </br>
-                                    <input type="submit" value="Done">
+                                    <div class='autocomplete form-group'>
+                                        <label class='input-label' for='input-grains'>Please Enter a Grain</label></br>
+                                        <i class='	fa fa-cart-plus input-icon'></i><input id='myGrainsInput' type="text" name="input-grains" placeholder="Grain" required='' oninvalid="this.setCustomValidity('Please Enter a Meat or Legume Product')" oninput="setCustomValidity('')">                                        </div>
+                                    <div class='form-group'>
+                                        <label class='input-label' for='date-added-grains'>Date</label></br>   
+                                        <i class='fa fa-calendar input-icon'></i><input type="date" id="dateAddedGrains" name='date-added-grains'>
+                                    </div></br>
+                                    <input type="submit" value="Add Item"></br></br>
                                 </form>
                             </div>
                         </div>
@@ -113,14 +115,14 @@
                         <div class="modal-body-dairy">
                             <div id="add-slider-dairy" class="add-slider">
                                 <form id='form-dairy' autocomplete='off'>
-                                    <div class='autocomplete' style='width:100%;'>
-                                        <input id='myDairyInput' type="text" name="input-dairy" placeholder="Enter a dairy product" required='' oninvalid="this.setCustomValidity('Please Enter a Dairy Product')" oninput="setCustomValidity('')">
-                                    </div>
-                                    </br>
-                                    <img class='input-icon'/>
-                                    <input type="date" id="dateAddedDairy" name='date-added-dairy' placeholder="Enter the date you bought your dairy product">
-                                    </br>
-                                    <input type="submit" value="Done">
+                                    <div class='autocomplete form-group'>
+                                        <label class='input-label' for='input-dairy'>Please Enter a Dairy Product</label></br>
+                                        <i class='	fa fa-cart-plus input-icon'></i><input id='myDairyInput' type="text" name="input-dairy" placeholder="Dairy" required='' oninvalid="this.setCustomValidity('Please Enter a Meat or Legume Product')" oninput="setCustomValidity('')">                                        </div>
+                                    <div class='form-group'>
+                                        <label class='input-label' for='date-added-dairy'>Date</label></br>
+                                        <i class='fa fa-calendar input-icon'></i><input type="date" id="dateAddedDairy" name='date-added-dairy'>
+                                    </div></br>
+                                    <input type="submit" value="Add Item"></br></br>
                                 </form>
                             </div>
                         </div>
@@ -148,14 +150,15 @@
                         <div class="modal-body-fruits">
                             <div id="add-slider-fruits">
                                 <form id='form-fruits' autocomplete='off'>
-                                    <div class='autocomplete' style='width:100%;'>
-                                        <input id='myFruitsInput' type="text" name="input-fruits" placeholder="Enter a fruit" required='' oninvalid="this.setCustomValidity('Please Enter a Fruit Product')" oninput="setCustomValidity('')">
+                                    <div class='autocomplete form-group'>
+                                        <label class='input-label' for='input-fruits'>Please Enter a Fruit</label></br>
+                                        <i class='	fa fa-cart-plus input-icon'></i><input id='myFruitsInput' type="text" name="input-fruits" placeholder="Fruit" required='' oninvalid="this.setCustomValidity('Please Enter a Meat or Legume Product')" oninput="setCustomValidity('')">
                                     </div>
-                                    </br>
-                                    <img class='input-icon'/>
-                                    <input type="date" id="dateAddedFruits" name='date-added-fruits' placeholder="Enter the date you bought your fruit">
-                                    </br>
-                                    <input type="submit" value="Done">
+                                    <div class='form-group'>
+                                        <label class='input-label' for='date-added-fruits'>Date</label></br>
+                                        <i class='fa fa-calendar input-icon'></i><input type="date" id="dateAddedFruits" name='date-added-fruits'>
+                                     </div></br>
+                                    <input type="submit" value="Add Item"></br></br>
                                 </form>
                             </div>
                         </div>
@@ -183,14 +186,15 @@
                         <div class="modal-body-vegetables">
                             <div id="add-slider-vegetables">
                                 <form id='form-vegetables' autocomplete='off'>
-                                    <div class='autocomplete' style='width:100%;'>
-                                        <input id='myVegetablesInput' type="text" name="input-vegetables" placeholder="Enter a vegetable" required='' oninvalid="this.setCustomValidity('Please Enter a Vegetable Product')" oninput="setCustomValidity('')">
+                                    <div class='autocomplete form-group'>
+                                        <label class='input-label' for='input-vegetables'>Please Enter a Vegetable</label></br>
+                                        <i class='	fa fa-cart-plus input-icon'></i><input id='myVegetablesInput' type="text" name="input-vegetables" placeholder="Vegetable" required='' oninvalid="this.setCustomValidity('Please Enter a Meat or Legume Product')" oninput="setCustomValidity('')">
                                     </div>
-                                    </br>
-                                    <img class='input-icon'/>
-                                    <input type="date" id="dateAddedVegetables" name='date-added-vegetables' placeholder="Enter the date you bought your vegetable">
-                                    </br>
-                                    <input type="submit" value="Done">
+                                    <div class='form-group'>
+                                        <label class='input-label' for='date-added-vegetables'>Date</label></br>
+                                        <i class='fa fa-calendar input-icon'></i><input type="date" id="dateAddedVegetables" name='date-added-vegetables'>
+                                    </div></br>
+                                    <input type="submit" value="Add Item"></br></br>
                                 </form>
                              </div>
                         </div>
@@ -226,6 +230,14 @@
     firebase.initializeApp(config);
   </script>
 <script src="../scripts/Fridge.js"></script>
+<div id="google_translate_element"></div>
 
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
