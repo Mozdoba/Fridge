@@ -12,7 +12,7 @@ db.settings(settings);
 ********************************************/
 
 // Captures user email and password on login
-var userID = '9M4wH40g2fXgRPV3RbySaFfZyLYy1';
+var userID = 'M4wH40g2fXgRPV3RbySaFfZyLYy1';
 var userEmail = "microsoft8@gmail.com";
 
 firebase.auth().onAuthStateChanged(async (user) => {
@@ -38,6 +38,8 @@ function renderFoodItem(foodDoc, category) {
     // @TO-DO: make a list and append it to ".modal-content"
 
     let renderedDoc = "<input id='" + category + num + "' type='checkbox' class='selectable selectable-" + category + "' disabled='disabled'/><label for='" + category + num++ + "' class='food-item food-item-" + category + "'>&nbsp&nbsp&nbsp&nbsp" + foodDoc.id + "</label>";
+    let expiryBox = document.createElement("DIV");
+
     $(".modal-body-" + category).append(renderedDoc);
     // Hide all checkboxes
     /*$(".selectable").css("display", "none");*/
@@ -78,8 +80,7 @@ function getUserId(userEmail) {
 
 function getSubCollection(userID, category) {
     console.log("Attempting to retreive 'category: " + category + "' documents from Food Item subcollection");
-    var query = db.collection("Users").doc(userID)
-    .collection("Food Item").where("category", "==", category);
+    var query = db.collection("Users").doc(userID).collection("Food Item").where("category", "==", category);
     query.get().then(function(querySnapshot) {
         if (querySnapshot.size == 0) {
             console.log("No documents in '" + category + "' query");
@@ -92,6 +93,18 @@ function getSubCollection(userID, category) {
             });
             console.log("Returned document(s) in '" + category + "' query");
         }
+    });
+}
+
+function getExpiryDate(foodDocument) {
+    console.log("Attempting to retreive 'Expiry Date'");
+    let query = db.collection("Users").doc(userID).collection("Food Item").doc(foodDocument);
+    query.get().then(function(doc) {
+        // doc.data() is never undefined for query doc snapshots
+        console.log("Returned Expiry Date from " + foodDocument + " query");
+        return doc.data()['date'];
+    }).catch(function(error) {
+        console.log("Error getting documents: ", error);
     });
 }
 
@@ -139,16 +152,8 @@ function retrieveData(userEmail) {
 /**
  * @TO-DO:
  * style unordered list - alphabetically vs timestamp
- * window where user can choose to upload image or add manually or modify existing?
  * ADD Shopping List functionality?
- *
- * test function to add food item to DOM
- * create function to grab input fields
- * create function to use input fields to generate new document
- * create function to modify existing fields of a food item
- * design UI to add new food item manually (edit-btn activates?)
- * design UI to modify existing food item (edit-btn activates?)
- * design UI on Fridge page to link to upload receipt screen (edit-btn activates?)
+ * * design UI to modify existing food item (edit-btn activates?)
  * Empty Category message if no food items exist in category
  */
 
