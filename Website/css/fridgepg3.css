@@ -195,7 +195,8 @@ input[type=text]:focus {
     ::-webkit-datetime-edit-day-field { color: rgb(96, 96, 194); }
     ::-webkit-datetime-edit-year-field { color: rgb(96, 96, 194); }
     ::-webkit-inner-spin-button { display: none; }
-    ::-webkit-calendar-picker-indicator { background: #f1f1f1; }
+    ::-webkit-calendar-picker-indicator { background: #f1f1f1;}
+    ::-webkit-calendar-datepicker { width: 100%; }
 
     input[type=date] {
     width: 100%;
@@ -519,6 +520,7 @@ input[type=submit]:hover, input[type=submit]:active {
               position: absolute;
               top: 360px;
               left: -40px;
+              transform: rotate(-60deg) scale(0.45);
           }
           #cabbage {
               position: absolute;
@@ -732,6 +734,7 @@ input[type=submit]:hover, input[type=submit]:active {
       position: absolute;
       top: 510px;
       left: -20px;
+      transform: rotate(-60deg) scale(0.5);
   }
   #cabbage {
       position: absolute;
@@ -946,6 +949,7 @@ input[type=submit]:hover, input[type=submit]:active {
               position: absolute;
               top: 450px;
               left: -25px;
+              transform: rotate(-60deg) scale(0.5);
           }
           #cabbage {
               position: absolute;
@@ -1160,6 +1164,7 @@ input[type=submit]:hover, input[type=submit]:active {
           position: absolute;
           top: 580px;
           left: -25px;
+          transform: rotate(-60deg) scale(0.63);
       }
       #cabbage {
           position: absolute;
@@ -1371,6 +1376,7 @@ input[type=submit]:hover, input[type=submit]:active {
       position: absolute;
       top: 510px;
       left: -20px;
+      transform: rotate(-60deg) scale(0.6);
   }
   #cabbage {
       position: absolute;
@@ -1530,7 +1536,7 @@ input[type=submit]:hover, input[type=submit]:active {
 @media screen 
     and (min-width: 415px) {
   html {
-    background: url("../images/Fridge_Pixel2.png") no-repeat center center /*fixed*/;
+    /*background: url("../images/Fridge_Pixel2.png") no-repeat center center /*fixed;*/
   }
   img {
     transform: scale(0.55);
@@ -1578,6 +1584,7 @@ input[type=submit]:hover, input[type=submit]:active {
       position: absolute;
       top: 510px;
       left: -20px;
+      transform: rotate(-60deg) scale(0.55);
   }
   #cabbage {
       position: absolute;
@@ -1797,6 +1804,7 @@ input[type=submit]:hover, input[type=submit]:active {
         position: absolute;
         top: 560px;
         left: 50px;
+        transform: rotate(-60deg) scale(0.6);
     }
     #cabbage {
         position: absolute;

@@ -36,10 +36,17 @@ var num = 0;
 // Renders data on HTML pages
 function renderFoodItem(foodDoc, category) {
     // @TO-DO: make a list and append it to ".modal-content"
-
-    let renderedDoc = "<input id='" + category + num + "' type='checkbox' class='selectable selectable-" + category + "' disabled='disabled'/><label for='" + category + num++ + "' class='food-item food-item-" + category + "'>&nbsp&nbsp&nbsp&nbsp" + foodDoc.id + "</label>";
+    console.log(foodDoc.id);
+    let renderedDoc = "<div class='fridge-item'><input id='" + category + num + "' type='checkbox' class='selectable selectable-" + category + "' disabled='disabled'/><label for='" + category + num++ + "' class='food-item food-item-" + category + "'>&nbsp&nbsp&nbsp&nbsp" + foodDoc.id + "</label></div>";
+    /*let dataJSON = getDataJSON(foodDoc.id);
     let expiryBox = document.createElement("DIV");
-
+    let dayBox = document.createElement("span");
+    dayBox.innerHTML = dataJSON['date'].substring(8);
+    let monthAndYearBox = document.createElement("p");
+    monthAndYearBox.innerHTML = dataJSON['date'].substring(0, 7);
+    expiryBox.appendChild(dayBox);
+    expiryBox.appendChild(monthAndYearBox);
+    renderedDoc.appendChild(expiryBox);*/
     $(".modal-body-" + category).append(renderedDoc);
     // Hide all checkboxes
     /*$(".selectable").css("display", "none");*/
@@ -96,13 +103,14 @@ function getSubCollection(userID, category) {
     });
 }
 
-function getExpiryDate(foodDocument) {
+function getDataJSON(foodDocument) {
     console.log("Attempting to retreive 'Expiry Date'");
     let query = db.collection("Users").doc(userID).collection("Food Item").doc(foodDocument);
     query.get().then(function(doc) {
         // doc.data() is never undefined for query doc snapshots
+        console.log(doc.data());
         console.log("Returned Expiry Date from " + foodDocument + " query");
-        return doc.data()['date'];
+        return doc.data();
     }).catch(function(error) {
         console.log("Error getting documents: ", error);
     });
@@ -134,16 +142,6 @@ function retrieveData(userEmail) {
         console.log("Error getting document:", error);
     });
 }
-
-// function logOut(){
-
-//     firebase.auth().signOut().then(function() {
-//       // Sign-out successful.
-//       window.location.href = "http://fridgedit.com/login.html";
-//     }).catch(function(error) {
-//       // An error happened.
-//     });
-// }
 
 
 
@@ -731,10 +729,11 @@ function addNewDocument(userID, category, foodItem, date) {
 var numMan = 0;
 function renderFoodItemManually(foodDoc, category) {
 
-    let renderedDoc = "<input id='" + category + numMan + "' type='checkbox' class='selectable selectable-" + category + "' disabled='disabled'/><label for='" + category + numMan++ + "' class='food-item food-item-" + category + "'>&nbsp&nbsp&nbsp&nbsp" + foodDoc + "</label>";
+    let renderedDoc = "<div class='fridge-item'><input id='" + category + numMan + "' type='checkbox' class='selectable selectable-" + category + "' disabled='disabled'/><label for='" + category + numMan++ + "' class='food-item food-item-" + category + "'>&nbsp&nbsp&nbsp&nbsp" + foodDoc + "</label></div>";
     $(".modal-body-" + category).append(renderedDoc);
     // Hide all checkboxes
-    $(".selectable").css("display", "none");
+    /*$(".selectable").css("display", "none");*/
+    $(".selectable").css("opacity", "0");
 
     // addEventListeners to all the food-item inputs that were just rendered
     let selectableCheckBox = document.querySelectorAll(".selectable-" + category);
@@ -821,18 +820,10 @@ $('#form-vegetables').submit(function(e) {
     console.log("ROAR SIGNED OUT");
     // No user is signed in.
   }
+
 });
 
-function logOut(){
 
-    firebase.auth().signOut().then(function() {
-        console.log("IN LOG OUT FUNCTION")
-      // Sign-out successful.
-      window.location.href = "http://fridgedit.com/login.html";
-    }).catch(function(error) {
-      // An error happened.
-    });
-}
 });
 
 

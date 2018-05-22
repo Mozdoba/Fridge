@@ -21,7 +21,7 @@
   <body>
     
     <div class="fridge_container">
-        <a href="./login.html"><img id="logout" src="../images/exit_swing.png" alt="logout" onclick=logOut()></a>
+        <img id="logout" src="../images/exit_swing.png" alt="logout" onclick='logOut();'>
         <a href="fridge_scanner.php"><img id="camera" class="btn resize hover" data-toggle="modal" src="../images/photo-camera.png" alt="scan"/></a>
             <!-- Modal MEATS-->
             <img id="steak" class="btn btn-meats resize hover" href="#success" data-toggle="modal" src="../images/steak.png" alt="meat"/>
@@ -228,6 +228,18 @@
       messagingSenderId: "252806401867"
     };
     firebase.initializeApp(config);
+    
+    function logOut(){
+
+    firebase.auth().signOut().then(function() {
+        console.log("IN LOG OUT FUNCTION")
+      // Sign-out successful.
+      window.location.href = "http://fridgedit.com/login.html";
+    }).catch(function(error) {
+      // An error happened.
+    });
+    }
+
   </script>
 <script src="../scripts/Fridge.js"></script>
 <div id="google_translate_element"></div>
