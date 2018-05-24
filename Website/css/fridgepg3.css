@@ -2,12 +2,11 @@
     0% { transform: rotate(3deg); }
     100% { transform: rotate(-3deg); }
 }
-
 body {
     background-color: transparent !important;
 }
 #google_translate_element {
-    z-index: -1000;
+    z-index: 1;
     background: transparent;
 }
 .hidden {
@@ -189,22 +188,23 @@ input[type=text]:focus {
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
 }
-    ::-webkit-datetime-edit { padding-left: 57px; }
-    ::-webkit-datetime-edit-text { color: rgb(96, 96, 194); padding: 0 0.3em; }
-    ::-webkit-datetime-edit-month-field { color: rgb(96, 96, 194); }
-    ::-webkit-datetime-edit-day-field { color: rgb(96, 96, 194); }
-    ::-webkit-datetime-edit-year-field { color: rgb(96, 96, 194); }
-    ::-webkit-inner-spin-button { display: none; }
-    ::-webkit-calendar-picker-indicator { background: #f1f1f1;}
-    ::-webkit-calendar-datepicker { width: 100%; }
-
-    input[type=date] {
-    width: 100%;
+input[type=date] {
+    /*-webkit-min-logical-width: calc(100%-16px);*/
+    min-width: 100%;
     border: 1px solid #8181819f;
     padding: 0%;
     border-radius: 5px;
     color: rgb(52, 52, 143);
 }
+::-webkit-datetime-edit { padding-left: 57px !important; }
+::-webkit-datetime-edit-text { color: rgb(96, 96, 194); padding: 0 0.3em !important; }
+::-webkit-datetime-edit-month-field { color: rgb(96, 96, 194) !important; }
+::-webkit-datetime-edit-day-field { color: rgb(96, 96, 194) !important; }
+::-webkit-datetime-edit-year-field { color: rgb(96, 96, 194) !important; }
+::-webkit-inner-spin-button { display: none !important; }
+::-webkit-calendar-picker-indicator { background: #f1f1f1 !important;}
+::-webkit-calendar-datepicker { width: 100% !important; }
+
 input[type=submit] {
     margin: 0 5%;
     margin-top: 3%;
@@ -258,8 +258,7 @@ input[type=submit]:hover, input[type=submit]:active {
 ********************************************/
 @media only screen 
     and (min-width: 320px)
-    and (max-device-height: 480px)
-    and (-webkit-device-pixel-ratio : 2) {
+    and (min-height: 480px) {
         html {
             background: url("../images/Fridge_iPhone4.png") no-repeat center center /*fixed*/;
             /*background-size: cover;*/
@@ -467,29 +466,34 @@ input[type=submit]:hover, input[type=submit]:active {
 ********************************************/
 @media only screen 
     and (min-width: 320px)
-    and (max-device-height: 568px)
-    and (-webkit-device-pixel-ratio : 2) {
+    and (min-height: 488px) {
         html {
-            background: url("../images/Fridge_iPhone5SE.png") no-repeat center center /*fixed*/;
-            /*background-size: cover;*/
-          }
-          img {
-            transform: scale(0.45);
+            background: url("../images/Fridge_iPhone5SE_addressbar.png") no-repeat center center fixed;
+            background-size: cover;
+            height: 100%;
+            overflow: hidden;
+        }
+        body {
+            height: 100%;
+            overflow: scroll;
+        }
+        img {
+            transform: scale(0.42);
             height: auto;
-          }
+        }
         
-          .hover:active {
+        .hover:active {
             transform: scale(0.50);
             filter: drop-shadow(16px 16px 16px #ffffff);
         }
-          .fridge_container {
+        .fridge_container {
             position: relative;
-          }
-          #camera {
+        }
+        #camera {
               position: absolute;
-              top: -10px;
+              top: -25px;
               left: -15px;
-          }
+        }
           #plus {
               position: absolute;
               top: 10px;
@@ -503,28 +507,28 @@ input[type=submit]:hover, input[type=submit]:active {
           }
           #toast {
               position: absolute;
-              top: 65px;
+              top: 32px;
               left: 25px;
           }
           #steak {
               position: absolute;
-              top: 220px;
+              top: 160px;
               left: -40px;
           }
           #milk {
               position: absolute;
-              top: 220px;
+              top: 160px;
               left: 90px;
           }
           #banana {
               position: absolute;
-              top: 360px;
+              top: 284px;
               left: -40px;
-              transform: rotate(-60deg) scale(0.45);
+              transform: rotate(-95deg) scale(0.45);
           }
           #cabbage {
               position: absolute;
-              top: 360px;
+              top: 290px;
               left: 90px;
           }
           .modal-header-meats {
@@ -677,11 +681,11 @@ input[type=submit]:hover, input[type=submit]:active {
 *                                           *
 ********************************************/
 @media only screen
-    and (min-device-width: 360px)
-    /*and (max-device-height: 640px)*/
-    and (-webkit-device-pixel-ratio: 2) {
+    and (min-width: 359px)
+    and (min-height: 639px) {
   html {
-    background: url("../images/Fridge_Galaxy_S5.png") no-repeat center center /*fixed*/;
+    background: url("../images/Fridge_Galaxy_S5.png") center center fixed;
+    background-size: cover;
   }
   img {
     transform: scale(0.5);
@@ -695,14 +699,10 @@ input[type=submit]:hover, input[type=submit]:active {
     max-width: 360px;
     max-height: 640px;
     position: relative;
-    /*1st level: 85px
-      2nd level: 520px
-      3rd level: 1000px
-      4th level: 1415px*/
   }
   #camera {
       position: absolute;
-      top: 18px;
+      top: 0px;
   }
   #plus {
       position: absolute;
@@ -712,34 +712,34 @@ input[type=submit]:hover, input[type=submit]:active {
   #logout {
       position: absolute;
       top: -30px;
-      left: 290px;
+      left: 230px;
       transform: scale(0.75);
   }
   #toast {
       position: absolute;
-      top: 130px;
-      left: 70px;
+      top: 95px;
+      left: 45px;
   }
   #steak {
       position: absolute;
-      top: 335px;
+      top: 260px;
       left: -20px;
   }
   #milk {
       position: absolute;
-      top: 335px;
-      left: 150px;
+      top: 260px;
+      left: 120px;
   }
   #banana {
       position: absolute;
-      top: 510px;
+      top: 425px;
       left: -20px;
-      transform: rotate(-60deg) scale(0.5);
+      transform: rotate(-95deg) scale(0.5);
   }
   #cabbage {
       position: absolute;
-      top: 510px;
-      left: 150px;
+      top: 420px;
+      left: 120px;
   }
   .modal-header-meats {
       color:#fff;
@@ -858,7 +858,7 @@ input[type=submit]:hover, input[type=submit]:active {
   }
   .add {
     position: absolute;
-    left: 295px;
+    left: 240px;
     top: 35px;
     transform: scale(0.65);
   }
@@ -892,13 +892,18 @@ input[type=submit]:hover, input[type=submit]:active {
 ********************************************/
 
 @media only screen 
-    and (min-device-width: 375px)
-    /*and (max-device-height: 667px)*/
-    and (-webkit-device-pixel-ratio : 2) {
+    and (min-width: 374px)
+    and (min-height: 587px) {
         html {
-            background: url("../images/Fridge_iPhone678.png") no-repeat center center /*fixed*/;
-            /*background-size: cover;*/
-          }
+            background: url("../images/Fridge_iPhone678_addressbar.png") no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            overflow: hidden;
+        }
+        body {
+            height: 100vh;
+            overflow: scroll;
+        }
           img {
             transform: scale(0.5);
             height: auto;
@@ -917,7 +922,7 @@ input[type=submit]:hover, input[type=submit]:active {
           }
           #camera {
               position: absolute;
-              top: 7px;
+              top: -10px;
           }
           #plus {
               position: absolute;
@@ -932,28 +937,28 @@ input[type=submit]:hover, input[type=submit]:active {
           }
           #toast {
               position: absolute;
-              top: 105px;
+              top: 70px;
               left: 50px;
           }
           #steak {
               position: absolute;
-              top: 285px;
+              top: 225px;
               left: -25px;
           }
           #milk {
               position: absolute;
-              top: 285px;
+              top: 225px;
               left: 120px;
           }
           #banana {
               position: absolute;
-              top: 450px;
+              top: 375px;
               left: -25px;
-              transform: rotate(-60deg) scale(0.5);
+              transform: rotate(-95deg) scale(0.5);
           }
           #cabbage {
               position: absolute;
-              top: 450px;
+              top: 380px;
               left: 120px;
           }
           .modal-header-meats {
@@ -1107,20 +1112,24 @@ input[type=submit]:hover, input[type=submit]:active {
 ********************************************/
 @media only screen
     and (min-width: 375px)
-    /*and (max-device-height: 812px)*/
-    and (-webkit-device-pixel-ratio: 3) {
-
+    and (min-height: 812px) {
     html {
-        background: url("../images/Fridge_iPhoneX.png") no-repeat center center /*fixed*/;
-        /*background-size: cover;*/
-      }
+        background: url("../images/Fridge_iPhoneX_addressbar.png") no-repeat center center fixed;
+        background-size: cover;
+        height: 100%;
+        overflow: hidden;
+    }
+    body {
+        height: 100%;
+        overflow: scroll;
+    }
       img {
         transform: scale(0.63);
         height: auto;
       }
     
       .hover:hover {
-        transform: scale(0.70);
+        transform: scale(0.7);
         filter: drop-shadow(16px 16px 16px #ffffff);
     }
       .fridge_container {
@@ -1164,7 +1173,7 @@ input[type=submit]:hover, input[type=submit]:active {
           position: absolute;
           top: 580px;
           left: -25px;
-          transform: rotate(-60deg) scale(0.63);
+          transform: rotate(-95deg) scale(0.63);
       }
       #cabbage {
           position: absolute;
@@ -1324,12 +1333,18 @@ input[type=submit]:hover, input[type=submit]:active {
 
 @media only screen
     and (min-width: 414px)
-    /*and (max-device-height: 736px)*/
-    and (-webkit-device-pixel-ratio: 3) {
+    and (min-height: 736px) {
 
   html {
-    background: url("../images/Fridge_iPhone678Plus.png") no-repeat center center /*fixed*/;
-  }
+    background: url("../images/Fridge_iPhone678Plus_addressbar.png") no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+}
+body {
+    height: 100%;
+    overflow: scroll;
+}
   img {
     transform: scale(0.55);
     height: auto;
@@ -1376,7 +1391,7 @@ input[type=submit]:hover, input[type=submit]:active {
       position: absolute;
       top: 510px;
       left: -20px;
-      transform: rotate(-60deg) scale(0.6);
+      transform: rotate(-95deg) scale(0.6);
   }
   #cabbage {
       position: absolute;
@@ -1529,14 +1544,16 @@ input[type=submit]:hover, input[type=submit]:active {
 }
 /********************************************
 *                                           *
-*           ALL DEVICES OVER  415PX         *
+*                  Pixel2                   *
 *                                           *
 ********************************************/
 /* for 415px or more */
 @media screen 
-    and (min-width: 415px) {
+    and (min-width: 410px)
+    and (min-height: 731px) {
   html {
-    /*background: url("../images/Fridge_Pixel2.png") no-repeat center center /*fixed;*/
+    background: url("../images/Fridge_Pixel2.png") no-repeat center center fixed;
+    background-size: cover;
   }
   img {
     transform: scale(0.55);
@@ -1584,7 +1601,7 @@ input[type=submit]:hover, input[type=submit]:active {
       position: absolute;
       top: 510px;
       left: -20px;
-      transform: rotate(-60deg) scale(0.55);
+      transform: rotate(-95deg) scale(0.55);
   }
   #cabbage {
       position: absolute;
@@ -1735,6 +1752,222 @@ input[type=submit]:hover, input[type=submit]:active {
 }
 /********************************************
 *                                           *
+*                   Ipad                    *
+*                                           *
+********************************************/
+/* for 416px or more */
+@media only screen
+    and (min-width: 768px)
+    and (min-height: 1024) {
+    html {
+      background: url("../images/emptyroom.jpg") no-repeat center center fixed;
+      background-size: cover;
+      height: 100%;
+    }
+    body {
+        height: 100%;
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+    img {
+      transform: scale(0.6);
+      height: auto;
+    }
+    #logout:hover {
+      animation: swing ease-in-out 0.5s infinite alternate;
+      transform-origin: top -20px;
+      top: -25px;
+    }
+    .hover:hover {
+      transform: scale(0.65);
+      filter: drop-shadow(16px 16px 16px #ffffff);
+    }
+    .fridge_container { 
+      background-image:url("../images/fridge_ipad.png");
+      position: absolute;
+      margin: 0 auto;
+      left: 0;
+      top: 100px;
+      right: 0;
+      bottom: 0;
+      padding: 0 0 0 0;
+      min-width: 600px;
+      min-height: 790px;
+      border: 5px solid rgb(190, 183, 183);
+     }
+    #camera {
+      position: absolute;
+      top: 25px;
+     }
+  #plus {
+      position: absolute;
+      top: 15px;
+      left: 200px;
+     }
+    #logout {
+        position: absolute;
+        top: -40px;
+        left: 460px;
+    }
+    #toast {
+        position: relative;
+        top: 150px;
+        left: 160px;
+        
+    }
+    #steak {
+        position: absolute;
+        top: 360px;
+        left: 50px;
+    }
+    #milk {
+        position: absolute;
+        top: 360px;
+        left: 270px;
+    }
+    #banana {
+        position: absolute;
+        top: 560px;
+        left: 50px;
+        transform: rotate(-95deg) scale(0.6);
+    }
+    #cabbage {
+        position: absolute;
+        top: 560px;
+        left: 270px;
+    }
+    .modal-header-meats {
+      color:#fff;
+      padding:9px 15px;
+      border-bottom:1px dotted #eee;
+      background-color: #f79178;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+       border-top-left-radius: 5px;
+       border-top-right-radius: 5px;
+    }
+    .modal-footer-meats {
+      background-color: #f79178;
+      color:#fff;
+      height: 35px;
+      -webkit-border-bottom-left-radius: 5px;
+      -webkit-border-bottom-right-radius: 5px;
+      -moz-border-radius-bottomleft: 5px;
+      -moz-border-radius-bottomright: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  .modal-header-fruits {
+      color:#fff;
+      padding:9px 15px;
+      border-bottom:1px dotted #eee;
+      background-color: #f3f051;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+  }
+  .modal-footer-fruits {
+      color:#fff;
+      height: 35px;
+      background-color: #f3f051;
+      -webkit-border-bottom-left-radius: 5px;
+      -webkit-border-bottom-right-radius: 5px;
+      -moz-border-radius-bottomleft: 5px;
+      -moz-border-radius-bottomright: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  .modal-header-vegetables {
+      color:#fff;
+      padding:9px 15px;
+      border-bottom:1px dotted #eee;
+      background-color: #84f779;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+       border-top-left-radius: 5px;
+       border-top-right-radius: 5px;
+  }
+  .modal-footer-vegetables {
+      color:#fff;
+      height: 35px;
+      background-color: #84f779;
+      -webkit-border-bottom-left-radius: 5px;
+      -webkit-border-bottom-right-radius: 5px;
+      -moz-border-radius-bottomleft: 5px;
+      -moz-border-radius-bottomright: 5px;
+       border-bottom-left-radius: 5px;
+       border-bottom-right-radius: 5px;
+    }
+  .modal-header-dairy {
+      color:rgb(7, 7, 7);
+      padding:9px 15px;
+      border-bottom:1px dotted #eee;
+      background-color: #f0f8ff;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+       border-top-left-radius: 5px;
+       border-top-right-radius: 5px;
+  }
+  .modal-footer-dairy {
+      color:#fff;
+      height: 35px;
+      background-color: #f0f8ff;
+      -webkit-border-bottom-left-radius: 5px;
+      -webkit-border-bottom-right-radius: 5px;
+      -moz-border-radius-bottomleft: 5px;
+      -moz-border-radius-bottomright: 5px;
+       border-bottom-left-radius: 5px;
+       border-bottom-right-radius: 5px;
+    }
+  .modal-header-grains {
+      color:rgb(0, 0, 0);
+      padding:9px 15px;
+      border-bottom:1px dotted #eee;
+      background-color: #e9b72d75;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+       border-top-left-radius: 5px;
+       border-top-right-radius: 5px;
+  }
+  .modal-footer-grains {
+      color:#fff;
+      height: 35px;
+      background-color: #e9b72d75;
+      -webkit-border-bottom-left-radius: 5px;
+      -webkit-border-bottom-right-radius: 5px;
+      -moz-border-radius-bottomleft: 5px;
+      -moz-border-radius-bottomright: 5px;
+       border-bottom-left-radius: 5px;
+       border-bottom-right-radius: 5px;
+    }
+    .add {
+      position: absolute;
+      left: 82%;
+      top: 35px;
+    }
+    .add:hover {
+      transform: scale(0.75);
+      filter: saturate(3);
+      filter: brightness(1.2);
+      transition: color 2s;
+    }
+    .override-position {
+        top: 204px;
+    }
+}
+/********************************************
+*                                           *
 *            MACBOOK AIR 14 INCH            *
 *                                           *
 ********************************************/
@@ -1742,8 +1975,13 @@ input[type=submit]:hover, input[type=submit]:active {
 @media only screen
     and (min-width: 416px) {
     html {
-      background: url("../images/emptyroom.jpg") no-repeat center center /*fixed*/;
+      background: url("../images/emptyroom.jpg") no-repeat center center fixed;
       background-size: cover;
+      height: 100%;
+    }
+    body {
+        height: 100%;
+        overflow-y: hidden;
     }
     img {
       transform: scale(0.6);
@@ -1767,8 +2005,8 @@ input[type=submit]:hover, input[type=submit]:active {
       right: 0;
       bottom: 0;
       padding: 0 0 0 0;
-      width: 600px;
-      height: 790px;
+      min-width: 600px;
+      min-height: 790px;
       border: 5px solid rgb(190, 183, 183);
      }
     #camera {
@@ -1786,9 +2024,10 @@ input[type=submit]:hover, input[type=submit]:active {
         left: 460px;
     }
     #toast {
-        position: absolute;
+        position: relative;
         top: 150px;
         left: 160px;
+        
     }
     #steak {
         position: absolute;
@@ -1804,7 +2043,7 @@ input[type=submit]:hover, input[type=submit]:active {
         position: absolute;
         top: 560px;
         left: 50px;
-        transform: rotate(-60deg) scale(0.6);
+        transform: rotate(-95deg) scale(0.6);
     }
     #cabbage {
         position: absolute;
