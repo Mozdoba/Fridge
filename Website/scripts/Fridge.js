@@ -12,14 +12,14 @@ db.settings(settings);
 ********************************************/
 
 // Captures user email and password on login
-var userID = 'M4wH40g2fXgRPV3RbySaFfZyLYy1';
-var userEmail = "microsoft8@gmail.com";
+/*var userID = 'M4wH40g2fXgRPV3RbySaFfZyLYy1';
+var userEmail = "microsoft8@gmail.com";*/
 
 firebase.auth().onAuthStateChanged(async (user) => {
     if (user) {
       const userUID = user.uid;
       const userEmail = user.email;
-      //var userID = userUID;
+      var userID = userUID;
       //const userID = await getUserId(userEmail);
       console.log(userID);
       console.log("TEST");
@@ -33,12 +33,15 @@ getSubCollection(userID, "vegetables");
 
 // Integer to give each input a unique id. Eg. id="grains1"
 var num = 0;
+// dataJSON declaration because querySnapshot does not allow a return function, returns undefined
+var dataJSON;
 // Renders data on HTML pages
 function renderFoodItem(foodDoc, category) {
     // @TO-DO: make a list and append it to ".modal-content"
     console.log(foodDoc.id);
     let renderedDoc = "<div class='fridge-item'><input id='" + category + num + "' type='checkbox' class='selectable selectable-" + category + "' disabled='disabled'/><label for='" + category + num++ + "' class='food-item food-item-" + category + "'>&nbsp&nbsp&nbsp&nbsp" + foodDoc.id + "</label></div>";
-    /*let dataJSON = getDataJSON(foodDoc.id);
+    /*getDataJSON(foodDoc.id);
+    console.log(dataJSON);
     let expiryBox = document.createElement("DIV");
     let dayBox = document.createElement("span");
     dayBox.innerHTML = dataJSON['date'].substring(8);
@@ -108,9 +111,9 @@ function getDataJSON(foodDocument) {
     let query = db.collection("Users").doc(userID).collection("Food Item").doc(foodDocument);
     query.get().then(function(doc) {
         // doc.data() is never undefined for query doc snapshots
-        console.log(doc.data());
+        console.log(doc, doc.data());
         console.log("Returned Expiry Date from " + foodDocument + " query");
-        return doc.data();
+        dataJSON = doc.data();
     }).catch(function(error) {
         console.log("Error getting documents: ", error);
     });
@@ -728,7 +731,6 @@ function addNewDocument(userID, category, foodItem, date) {
 
 var numMan = 0;
 function renderFoodItemManually(foodDoc, category) {
-
     let renderedDoc = "<div class='fridge-item'><input id='" + category + numMan + "' type='checkbox' class='selectable selectable-" + category + "' disabled='disabled'/><label for='" + category + numMan++ + "' class='food-item food-item-" + category + "'>&nbsp&nbsp&nbsp&nbsp" + foodDoc + "</label></div>";
     $(".modal-body-" + category).append(renderedDoc);
     // Hide all checkboxes
